@@ -114,4 +114,5 @@ if __name__ == "__main__":
     main()
 
 ```
-![result](/assets/roc.png){:class="img-responsive"}
+
+![result](/assets/roc.png){:width="100%"}
