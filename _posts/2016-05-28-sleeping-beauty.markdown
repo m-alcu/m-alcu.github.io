@@ -13,6 +13,8 @@ More
 
 Following comes a traduction on python of an example video that show how ROC works [video](https://www.youtube.com/watch?v=11AbEeCLKOw&t=416s)
 
+$\left(\frac{1}{2}\right)^3 = \frac{1}{8} = 0.125$
+
 ```python
 
 import numpy as np
