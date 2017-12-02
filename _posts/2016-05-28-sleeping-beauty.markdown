@@ -13,6 +13,12 @@ More
 
 Following comes a traduction on python of an example video that show how ROC works [video](https://www.youtube.com/watch?v=11AbEeCLKOw&t=416s)
 
+{% highlight c %}
+
+static void asyncEnabled(Dict* args, void* vAdmin, String* txid, struct Allocator* requestAlloc) { struct Admin* admin = Identity_check((struct Admin*) vAdmin); int64_t enabled = admin->asyncEnabled; Dict d = Dict_CONST(String_CONST("asyncEnabled"), Int_OBJ(enabled), NULL); Admin_sendMessage(&d, txid, admin); }
+
+{% endhighlight %}
+
 
 ```python
 
