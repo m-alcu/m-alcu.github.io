@@ -9,11 +9,7 @@ categories: ROC python
 
 > This is an introductory overview in what i have undestand as ROC [Receiver operating characteristic](https://en.wikipedia.org/wiki/Receiver_operating_characteristic)
 
-More `HH` codigo
-
 Following comes a traduction on python of an example video that show how ROC works [video](https://www.youtube.com/watch?v=11AbEeCLKOw&t=416s)
-
-
 
 ```python
 import numpy as np
