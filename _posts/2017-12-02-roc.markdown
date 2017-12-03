@@ -11,6 +11,22 @@ categories: ROC python
 
 Following comes a traduction on python of an example video that show how ROC works [video](https://www.youtube.com/watch?v=11AbEeCLKOw&t=416s)
 
+Let's assume there are 10 patients with an ANC (Absolut neutrophil count) as follows and the result of severe infection:
+
+| ANC  | SIN   |
+|:----:|:-----:|
+| 12   | 1     |
+| 8    | 0     |
+| 15   | 1     |
+| 9    | 1     |
+| 12   | 1     |
+| 8    | 0     |
+| 9    | 0     |
+| 3    | 0     |
+| 10   | 1     |
+| 3    | 0     |
+
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt 
