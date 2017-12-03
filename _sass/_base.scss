@@ -135,6 +135,13 @@ blockquote {
   }
 }
 
+.center img {        
+  display:block;
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+}
+
 .big-ornament {
   > svg {
     width: 14em;

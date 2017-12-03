@@ -110,4 +110,4 @@ if __name__ == "__main__":
 
 ```
 
-![result](/assets/roc.png){:width="80%"}
+![result](/assets/roc.png){:class="center"}
