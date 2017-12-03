@@ -60,6 +60,11 @@ article pre {
   border-radius: 5px; }
 article code {
   font-family: "Source Code Pro", Menlo, Monaco, Inconsolata; }
+article img {
+  display: block;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto; }
 
 blockquote {
   margin-top: 1em;
@@ -93,12 +98,6 @@ blockquote {
     fill: #ad1f1f;
     fill-rule: evenodd;
     shape-rendering: geometricPrecision; }
-
-article img {
-  display: block;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto; }
 
 .big-ornament > svg {
   width: 14em;
