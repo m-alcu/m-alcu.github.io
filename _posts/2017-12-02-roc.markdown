@@ -11,20 +11,35 @@ categories: ROC python
 
 Following comes a traduction on python of an example video that show how ROC works [video](https://www.youtube.com/watch?v=11AbEeCLKOw&t=416s)
 
-Let's assume there are 10 patients with an ANC (Absolut neutrophil count) as follows and the result of severe infection:
+Let's assume there are 10 patients with an ABT (Absolut neutrophil count) as follows and the result of severe infection (IBG).
 
-| ANC  | INF   |    | ANC(1)  |   | ANC(0)   |
-|:----:|:-----:|    |:-------:|   |:--------:|
-| 12   | 1     |    |  12     |   |   8      |
-| 8    | 0     |    |  15     |   |   8      |
-| 15   | 1     |    |  9      |   |   9      |
-| 9    | 1     |    |  12     |   |   3      |
-| 12   | 1     |    |  10     |   |   3      |
+Next to this table is the list of ABT values with positive ABT(1) and with negatie ABT(0)
+
+| ABT  | IBG   |    | values ANC(1)  |   | values ANC(0)   |
+|:----:|:-----:|    |:--------------:|   |:---------------:|
+| 12   | 1     |    |  12            |   |   8             |
+| 8    | 0     |    |  15            |   |   8             |
+| 15   | 1     |    |  9             |   |   9             |
+| 9    | 1     |    |  12            |   |   3             |
+| 12   | 1     |    |  10            |   |   3             |
 | 8    | 0     |
 | 9    | 0     |
 | 3    | 0     |
 | 10   | 1     |
 | 3    | 0     |
+
+We list all the different values, and count in the right the number of cases >= this value in both positive and negative. Last table is the normalized result (0..1)
+
+| ABT(1,0) |    | ABT(1)    | ABT(0)    |    | ABT(1)    | ABT(0)    |
+|:--------:|    |:---------:|:---------:|    |:---------:|:---------:|
+|   3      |    |   5       |     5     |    |   1       |     1     |
+|   8      |    |   5       |     3     |    |   1       |     0.6   |
+|   9      |    |   5       |     1     |    |   1       |     0.2   |
+|   10     |    |   4       |     0     |    |   0.8     |     0     |
+|   12     |    |   3       |     0     |    |   0.6     |     0     |
+|   15     |    |   1       |     0     |    |   0.2     |     0     |
+                |   1       |     0     |    |   0       |     0     |
+
 
 
 ```python

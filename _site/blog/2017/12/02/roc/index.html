@@ -90,17 +90,19 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 
 <p>Following comes a traduction on python of an example video that show how ROC works <a href="https://www.youtube.com/watch?v=11AbEeCLKOw&amp;t=416s">video</a></p>
 
-<p>Let’s assume there are 10 patients with an ANC (Absolut neutrophil count) as follows and the result of severe infection:</p>
+<p>Let’s assume there are 10 patients with an ABT (Absolut neutrophil count) as follows and the result of severe infection (IBG).</p>
+
+<p>Next to this table is the list of ABT values with positive ABT(1) and with negatie ABT(0)</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">ANC</th>
-      <th style="text-align: center">INF</th>
+      <th style="text-align: center">ABT</th>
+      <th style="text-align: center">IBG</th>
       <th style="text-align: center"> </th>
-      <th style="text-align: center">ANC(1)</th>
+      <th style="text-align: center">values ANC(1)</th>
       <th> </th>
-      <th>ANC(0)</th>
+      <th>values ANC(0)</th>
     </tr>
   </thead>
   <tbody>
@@ -181,6 +183,87 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
       <td style="text-align: center">0</td>
       <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We list all the different values, and count in the right the number of cases &gt;= this value in both positive and negative. Last table is the normalized result (0..1)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">ABT(1,0)</th>
+      <th style="text-align: center"> </th>
+      <th style="text-align: center">ABT(1)</th>
+      <th style="text-align: center">ABT(0)</th>
+      <th style="text-align: center"> </th>
+      <th>ABT(1)</th>
+      <th>ABT(0)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center"> </td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center"> </td>
+      <td>1</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">9</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center"> </td>
+      <td>1</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center"> </td>
+      <td>0.8</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">12</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center"> </td>
+      <td>0.6</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">15</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center"> </td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">0</td>
       <td> </td>
       <td> </td>
     </tr>
