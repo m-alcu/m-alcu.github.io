@@ -44,11 +44,26 @@ Note: Last row of result (0, 0) has been added if there is no case that none of 
 
 I have plotted the result manually by doing the same procedure with python code and comparing results with the roc_curve library that does the same. Both results can be shown after the code.
 
-{% jupyter_notebook ejemplo.ipynb %}
+```{.python .input  n=1}
+a = 1
+```
 
-{::nomarkdown}
-{% jupyter_notebook ejemplo.ipynb %}
-{:/nomarkdown}
+```{.python .input  n=2}
+a
+```
+
+```{.json .output n=2}
+[
+ {
+  "data": {
+   "text/plain": "1"
+  },
+  "execution_count": 2,
+  "metadata": {},
+  "output_type": "execute_result"
+ }
+]
+```
 
 
 ```python
