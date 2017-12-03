@@ -272,101 +272,124 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 
 <p>Note: Last row of result (0, 0) has been added if there is no case that none of both positive and negative is 0.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span> 
+<p>I have plotted the result manually by doing the same procedure with python code and comparing results with the roc_curve library that does the same. Both results can be shown after the code.</p>
 
-<span class="c"># View images</span>
+<p>```{.python .input  n=1}
+a = 1</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+```{.python .input  n=2}
+a
+</code></pre></div></div>
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>    
+<p>```{.json .output n=2}
+[
+ {
+  “data”: {
+   “text/plain”: “1”
+  },
+  “execution_count”: 2,
+  “metadata”: {},
+  “output_type”: “execute_result”
+ }
+]</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 
-  <span class="c">#ABT, IBG</span>
-  <span class="c">#ABT: Recuento de abastonados</span>
-  <span class="c">#IBG: Infeccion Bacteriana grave</span>
+```python
+import numpy as np
+import matplotlib.pyplot as plt 
 
-  <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">15</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+# View images
 
-  <span class="n">abt_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
-  <span class="n">abt_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
-  <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-      <span class="n">abt_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">abt_1</span><span class="p">,</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="k">if</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-      <span class="n">abt_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">abt_0</span><span class="p">,</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+def main():    
 
-  <span class="k">print</span><span class="p">(</span><span class="s">"abt_0 - recuento de abastonados de sujetos que no tienen infeccion: {}"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">abt_0</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">(</span><span class="s">"abt_1 - recuento de abastonados de sujetos que si tienen infeccion: {}"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">abt_1</span><span class="p">)</span>
+  #ABT, IBG
+  #ABT: Recuento de abastonados
+  #IBG: Infeccion Bacteriana grave
 
-  <span class="n">abt_0_y_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">abt_0</span><span class="p">,</span> <span class="n">abt_1</span><span class="p">)</span>
-  <span class="n">abt_0_y_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">abt_0_y_1</span><span class="p">)</span>
-  <span class="n">abt_0_y_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">abt_0_y_1</span><span class="p">)</span>
+  data = np.array([[12, 1], [8,0],[15,1], [9,1], [12,1], [8,0], [9,0], [3,0], [10,1], [3,0]])
 
-  <span class="n">abt_0_sup</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
-  <span class="n">abt_1_sup</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
-  <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">abt_0_y_1</span><span class="p">:</span>
-    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">abt_1</span><span class="p">:</span>
-      <span class="k">if</span> <span class="n">f</span> <span class="o">&gt;=</span> <span class="n">e</span><span class="p">:</span>
-        <span class="n">count</span><span class="o">+=</span><span class="mi">1</span>
-    <span class="n">abt_1_sup</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">abt_1_sup</span><span class="p">,</span><span class="n">count</span><span class="p">)</span>
-    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">abt_0</span><span class="p">:</span>
-      <span class="k">if</span> <span class="n">f</span> <span class="o">&gt;=</span> <span class="n">e</span><span class="p">:</span>
-        <span class="n">count</span><span class="o">+=</span><span class="mi">1</span>
-    <span class="n">abt_0_sup</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">abt_0_sup</span><span class="p">,</span><span class="n">count</span><span class="p">)</span>  
+  abt_1 = np.array([])
+  abt_0 = np.array([])
+  for e in data:
+    if e[1] == 1:
+      abt_1 = np.append(abt_1,e[0])
+    if e[1] == 0:
+      abt_0 = np.append(abt_0,e[0])
 
-  <span class="k">if</span> <span class="n">abt_0_sup</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">abt_1_sup</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="n">abt_0_sup</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">abt_0_sup</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">abt_1_sup</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">abt_1_sup</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+  print("abt_0 - recuento de abastonados de sujetos que no tienen infeccion: {}").format(abt_0)
+  print("abt_1 - recuento de abastonados de sujetos que si tienen infeccion: {}").format(abt_1)
 
-  <span class="n">abt_0_sup</span> <span class="o">=</span> <span class="n">abt_0_sup</span> <span class="o">/</span> <span class="n">abt_0_sup</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span>
-  <span class="n">abt_1_sup</span> <span class="o">=</span> <span class="n">abt_1_sup</span> <span class="o">/</span> <span class="n">abt_1_sup</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span>
+  abt_0_y_1 = np.append(abt_0, abt_1)
+  abt_0_y_1 = np.unique(abt_0_y_1)
+  abt_0_y_1 = np.sort(abt_0_y_1)
 
-  <span class="k">print</span><span class="p">(</span><span class="s">"todos: {}"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">abt_0_y_1</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">(</span><span class="s">"numero de casos encima umbral de apt_1: {}"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">abt_1_sup</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">(</span><span class="s">"numero de casos encima umbral de apt_0: {}"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">abt_0_sup</span><span class="p">)</span>
+  abt_0_sup = np.array([])
+  abt_1_sup = np.array([])
+  for e in abt_0_y_1:
+    count = 0
+    for f in abt_1:
+      if f &gt;= e:
+        count+=1
+    abt_1_sup = np.append(abt_1_sup,count)
+    count = 0
+    for f in abt_0:
+      if f &gt;= e:
+        count+=1
+    abt_0_sup = np.append(abt_0_sup,count)  
 
-  <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-  <span class="n">plt1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">311</span><span class="p">)</span>
-  <span class="n">plt1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">abt_0_sup</span><span class="p">,</span> <span class="n">abt_1_sup</span><span class="p">,</span> <span class="s">'ro'</span><span class="p">)</span>
-  <span class="n">plt1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">abt_0_sup</span><span class="p">,</span> <span class="n">abt_1_sup</span><span class="p">)</span>
-  <span class="n">plt1</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span><span class="s">'r--'</span><span class="p">)</span>
-  <span class="n">plt1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
-  <span class="n">plt1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
-  <span class="n">plt1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'False Positive Rate'</span><span class="p">)</span>
-  <span class="n">plt1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'True Positive Rate'</span><span class="p">)</span>
-  <span class="n">plt1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'Receiver operating characteristic (manual)'</span><span class="p">)</span>
+  if abt_0_sup[-1] != 0 or abt_1_sup[-1] != 0:
+    abt_0_sup = np.append(abt_0_sup,0)
+    abt_1_sup = np.append(abt_1_sup,0)
 
-  <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
-  <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
-  <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-  <span class="n">X</span> <span class="o">=</span> <span class="n">X</span> <span class="o">/</span> <span class="n">X</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span>
+  abt_0_sup = abt_0_sup / abt_0_sup.max()
+  abt_1_sup = abt_1_sup / abt_1_sup.max()
 
-  <span class="k">print</span><span class="p">(</span><span class="s">"True binary labels y: {}"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">(</span><span class="s">"Target scores X: {}"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+  print("todos: {}").format(abt_0_y_1)
+  print("numero de casos encima umbral de apt_1: {}").format(abt_1_sup)
+  print("numero de casos encima umbral de apt_0: {}").format(abt_0_sup)
 
-  <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_curve</span>
-  <span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+  fig = plt.figure()
+  plt1 = fig.add_subplot(311)
+  plt1.plot(abt_0_sup, abt_1_sup, 'ro')
+  plt1.plot(abt_0_sup, abt_1_sup)
+  plt1.plot([0, 1], [0, 1],'r--')
+  plt1.set_xlim([0.0, 1.0])
+  plt1.set_ylim([0.0, 1.0])
+  plt1.set_xlabel('False Positive Rate')
+  plt1.set_ylabel('True Positive Rate')
+  plt1.set_title('Receiver operating characteristic (manual)')
 
-  <span class="k">print</span><span class="p">(</span><span class="s">"numero de casos encima umbral de apt_1: {}"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tpr</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">(</span><span class="s">"numero de casos encima umbral de apt_0: {}"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fpr</span><span class="p">)</span>
+  y = np.array([])
+  X = np.array([])
+  for e in data:
+    y = np.append(y,e[1])
+    X = np.append(X,e[0])
+  X = X / X.max()
 
-  <span class="n">plt2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">313</span><span class="p">)</span>
-  <span class="n">plt2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="s">'ro'</span><span class="p">)</span>
-  <span class="n">plt2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">)</span>
-  <span class="n">plt2</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span><span class="s">'r--'</span><span class="p">)</span>
-  <span class="n">plt2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
-  <span class="n">plt2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
-  <span class="n">plt2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'False Positive Rate'</span><span class="p">)</span>
-  <span class="n">plt2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'True Positive Rate'</span><span class="p">)</span>
-  <span class="n">plt2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'Receiver operating characteristic (roc_curve)'</span><span class="p">)</span>
+  print("True binary labels y: {}").format(y)
+  print("Target scores X: {}").format(X)
 
-  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+  from sklearn.metrics import roc_curve
+  fpr, tpr, thresholds = roc_curve(y, X)
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">sys</span>
-    <span class="n">main</span><span class="p">()</span>
+  print("numero de casos encima umbral de apt_1: {}").format(tpr)
+  print("numero de casos encima umbral de apt_0: {}").format(fpr)
+
+  plt2 = fig.add_subplot(313)
+  plt2.plot(fpr, tpr, 'ro')
+  plt2.plot(fpr, tpr)
+  plt2.plot([0, 1], [0, 1],'r--')
+  plt2.set_xlim([0.0, 1.0])
+  plt2.set_ylim([0.0, 1.0])
+  plt2.set_xlabel('False Positive Rate')
+  plt2.set_ylabel('True Positive Rate')
+  plt2.set_title('Receiver operating characteristic (roc_curve)')
+
+  plt.show()
+
+if __name__ == "__main__":
+    import sys
+    main()
 
 </code></pre></div></div>
 
