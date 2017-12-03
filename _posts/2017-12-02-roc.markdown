@@ -7,7 +7,7 @@ external-url:
 categories: ROC python
 ---
 
-> This is an introductory overview in what i have undestand as ROC [Receiver operating characteristic](https://en.wikipedia.org/wiki/Receiver_operating_characteristic)
+> This is an introductory overview in what i have undestand as ROC [Receiver operating characteristic](https://en.wikipedia.org/wiki/Receiver_operating_characteristic). Its origin comes from the americans in 1941 after Harbour attack in their identification of the japanese airplanes through his radar signal.
 
 Following comes a traduction on python of an example video that show how ROC works [video](https://www.youtube.com/watch?v=11AbEeCLKOw&t=416s)
 
@@ -38,9 +38,9 @@ We list all the different values, and count in the right the number of cases >= 
 |   10     |    |   4       |     0     |    |   0.8     |     0     |
 |   12     |    |   3       |     0     |    |   0.6     |     0     |
 |   15     |    |   1       |     0     |    |   0.2     |     0     |
-                |   1       |     0     |    |   0       |     0     |
+|          |    |   0       |     0     |    |   0       |     0     |
 
-
+Note: Last row of result (0, 0) has been added if there is no case that none of both positive and negative is 0.
 
 ```python
 import numpy as np

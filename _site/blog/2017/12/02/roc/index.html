@@ -85,7 +85,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
         <article lang="en">
           
           <blockquote>
-  <p>This is an introductory overview in what i have undestand as ROC <a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic">Receiver operating characteristic</a></p>
+  <p>This is an introductory overview in what i have undestand as ROC <a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic">Receiver operating characteristic</a>. Its origin comes from the americans in 1941 after Harbour attack in their identification of the japanese airplanes through his radar signal.</p>
 </blockquote>
 
 <p>Following comes a traduction on python of an example video that show how ROC works <a href="https://www.youtube.com/watch?v=11AbEeCLKOw&amp;t=416s">video</a></p>
@@ -259,16 +259,18 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
       <td>0</td>
     </tr>
     <tr>
-      <td style="text-align: center">1</td>
-      <td style="text-align: center">0</td>
+      <td style="text-align: center"> </td>
       <td style="text-align: center"> </td>
       <td style="text-align: center">0</td>
       <td style="text-align: center">0</td>
-      <td> </td>
-      <td> </td>
+      <td style="text-align: center"> </td>
+      <td>0</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
+
+<p>Note: Last row of result (0, 0) has been added if there is no case that none of both positive and negative is 0.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span> 
