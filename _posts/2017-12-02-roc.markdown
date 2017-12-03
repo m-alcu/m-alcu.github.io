@@ -13,13 +13,13 @@ Following comes a traduction on python of an example video that show how ROC wor
 
 Let's assume there are 10 patients with an ANC (Absolut neutrophil count) as follows and the result of severe infection:
 
-| ANC  | SIN   |
-|:----:|:-----:|
-| 12   | 1     |
-| 8    | 0     |
-| 15   | 1     |
-| 9    | 1     |
-| 12   | 1     |
+| ANC  | INF   |    | ANC(1)  |   | ANC(0)   |
+|:----:|:-----:|    |:-------:|   |:--------:|
+| 12   | 1     |    |  12     |   |   8      |
+| 8    | 0     |    |  15     |   |   8      |
+| 15   | 1     |    |  9      |   |   9      |
+| 9    | 1     |    |  12     |   |   3      |
+| 12   | 1     |    |  10     |   |   3      |
 | 8    | 0     |
 | 9    | 0     |
 | 3    | 0     |
