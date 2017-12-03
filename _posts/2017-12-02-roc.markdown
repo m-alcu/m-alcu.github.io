@@ -42,7 +42,7 @@ We list all the different values, and count in the right the number of cases >= 
 
 Note: Last row of result (0, 0) has been added if there is no case that none of both positive and negative is 0.
 
-I have plotted the result manually by doing the same procedure with python code and comparing results with the roc_curve library that does the same. Both results can be shown after the code.
+I have plotted the result manually by doing the same procedure with python code and comparing results with the `roc_curve` library that does the same. Both results can be shown after the code.
 
 
 ```python
