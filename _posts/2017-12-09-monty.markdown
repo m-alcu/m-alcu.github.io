@@ -13,10 +13,10 @@ categories: bayes math
 
 This could be one of the intuitive ways to determinte every case and compute the sum of each result:
 
-*door* : initial door picked  
-*car* : door where the car is hiden  
-*switch* : action to switch 0=Stick 1=Change  
-*result* : result of the game 0=goat 1=car  
+**door** : initial door picked  
+**car** : door where the car is hiden  
+**switch** : action to switch 0=Stick 1=Change  
+**result** : result of the game 0=goat 1=car  
 
 | door     | car | switch | result |
 |:--------:|:---:|:------:|:------:|
@@ -45,3 +45,23 @@ This could be one of the intuitive ways to determinte every case and compute the
  $$ \text{total cases that change with car result}  = {6}.$$  
  $$ \text{car probability that stick}  = {3 \over 9}.$$  
  $$ \text{car probability that change}  = {6 \over 9}.$$  
+
+ There is a formal view to calculate the result with bayes theorem:
+
+$$P(A|B)  = {P(B|A)*P(A) \over P(B)}.$$
+
+There is a more accurate form if you consider that the sum:
+
+$$\sum_{i=1}^N{P(A_i)}=1$$
+
+$$P(A_k|B)  = {P(B|A_k)*P(A_k) \over \sum_{i=1}^N{P(B|A_i)*P(A_i)}}.$$
+
+In our case let's assume we choose door #1 
+**C** = where the car really is hidden
+
+$$P(C=1) = P(C=2) = P(C=3) = {1 \over 3}$$
+
+
+
+
+

@@ -93,10 +93,10 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 
 <p>This could be one of the intuitive ways to determinte every case and compute the sum of each result:</p>
 
-<p><em>door</em> : initial door picked<br />
-<em>car</em> : door where the car is hiden<br />
-<em>switch</em> : action to switch 0=Stick 1=Change<br />
-<em>result</em> : result of the game 0=goat 1=car</p>
+<p><strong>door</strong> : initial door picked<br />
+<strong>car</strong> : door where the car is hiden<br />
+<strong>switch</strong> : action to switch 0=Stick 1=Change<br />
+<strong>result</strong> : result of the game 0=goat 1=car</p>
 
 <table>
   <thead>
@@ -225,6 +225,22 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
  <script type="math/tex">\text{total cases that change with car result}  = {6}.</script><br />
  <script type="math/tex">\text{car probability that stick}  = {3 \over 9}.</script><br />
  <script type="math/tex">\text{car probability that change}  = {6 \over 9}.</script></p>
+
+<p>There is a formal view to calculate the result with bayes theorem:</p>
+
+<script type="math/tex; mode=display">P(A|B)  = {P(B|A)*P(A) \over P(B)}.</script>
+
+<p>There is a more accurate form if you consider that the sum:</p>
+
+<script type="math/tex; mode=display">\sum_{i=1}^N{P(A_i)}=1</script>
+
+<script type="math/tex; mode=display">P(A_k|B)  = {P(B|A_k)*P(A_k) \over \sum_{i=1}^N{P(B|A_i)*P(A_i)}}.</script>
+
+<p>In our case let’s assume we choose door #1 
+<strong>C</strong> = where the car really is hidden</p>
+
+<script type="math/tex; mode=display">P(C=1) = P(C=2) = P(C=3) = {1 \over 3}</script>
+
 
         </article>
 	     </div>
