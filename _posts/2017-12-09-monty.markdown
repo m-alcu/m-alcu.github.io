@@ -64,16 +64,21 @@ $$P(C=1) = P(C=2) = P(C=3) = {1 \over 3}$$
 **H** = door that Monty Hall opens  
 Assume he opens door #2 without loss of generality, problem is symmetric
 
-First case Monty has half probability to choose door 2 or 3, both have a goat behind:
+First case Monty has half probability to choose door 2 or 3, both have a goat behind:  
+
 $$P(H=2|C=1)= {1 \over 2}$$
 
-Second case Monty has to choose the door #3, becasuse door #2 has de car
+Second case Monty has to choose the door #3, because door #2 has de car:  
+
 $$P(H=2|C=2)= 0$$
 
-Third case Monty has to choose the door #2, because door #3 has the car
+Third case Monty has to choose the door #2, because door #3 has the car:  
+
 $$P(H=2|C=3)= 1$$
 
+Now we want to know whether to stick with door #1 or switch to door #3 (Monty has opened door #2)
 
+$$\text{Probability if stick in #1 door}=P(C=1|H=2)={P(H=2|C=1)*P(C=1) \over{P(H=2|C=1)*P(C=1)+P(H=2|C=2)*P(C=2)+P(H=2|C=3)*P(C=3)}}.$$
 
 
 
