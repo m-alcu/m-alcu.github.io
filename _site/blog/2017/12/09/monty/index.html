@@ -236,10 +236,22 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 
 <script type="math/tex; mode=display">P(A_k|B)  = {P(B|A_k)*P(A_k) \over \sum_{i=1}^N{P(B|A_i)*P(A_i)}}.</script>
 
-<p>In our case let’s assume we choose door #1 
+<p>In our case let’s assume we choose door #1<br />
 <strong>C</strong> = where the car really is hidden</p>
 
 <script type="math/tex; mode=display">P(C=1) = P(C=2) = P(C=3) = {1 \over 3}</script>
+
+<p><strong>H</strong> = door that Monty Hall opens<br />
+Assume he opens door #2 without loss of generality, problem is symmetric</p>
+
+<p>First case Monty has half probability to choose door 2 or 3, both have a goat behind:
+<script type="math/tex">P(H=2|C=1)= {1 \over 2}</script></p>
+
+<p>Second case Monty has to choose the door #3, becasuse door #2 has de car
+<script type="math/tex">P(H=2|C=2)= 0</script></p>
+
+<p>Third case Monty has to choose the door #2, because door #3 has the car
+<script type="math/tex">P(H=2|C=3)= 1</script></p>
 
 
         </article>

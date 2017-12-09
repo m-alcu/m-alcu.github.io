@@ -56,10 +56,24 @@ $$\sum_{i=1}^N{P(A_i)}=1$$
 
 $$P(A_k|B)  = {P(B|A_k)*P(A_k) \over \sum_{i=1}^N{P(B|A_i)*P(A_i)}}.$$
 
-In our case let's assume we choose door #1 
+In our case let's assume we choose door #1  
 **C** = where the car really is hidden
 
 $$P(C=1) = P(C=2) = P(C=3) = {1 \over 3}$$
+
+**H** = door that Monty Hall opens  
+Assume he opens door #2 without loss of generality, problem is symmetric
+
+First case Monty has half probability to choose door 2 or 3, both have a goat behind:
+$$P(H=2|C=1)= {1 \over 2}$$
+
+Second case Monty has to choose the door #3, becasuse door #2 has de car
+$$P(H=2|C=2)= 0$$
+
+Third case Monty has to choose the door #2, because door #3 has the car
+$$P(H=2|C=3)= 1$$
+
+
 
 
 
