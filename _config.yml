@@ -5,6 +5,7 @@ description: "This is a blog about software, some mathematics."
 keywords: "Software Engineering, Mathematics, Programming, Machine-Learning, Artificial Intelligence, Statistics, Probability, Puzzles"
 biography: "I m"
 colophon: "2017 by Martín Alcubierre Arenillas.<br>Content available under <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons (BY-NC-SA)</a> unless otherwise noted.<br>This site is hosted at <a href='https://pages.github.com/'>Github Pages</a> and created with <a href='http://jekyllrb.com/'>Jekyll</a>."
+disqus_shortname: https-m-alcu-github-io
 
 baseurl: ""
 url: "https://m-alcu.github.io/"

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Bayes theorem (Monty Hall problem)
+title: Bayes theorem (solving Monty Hall problem)
 date: 2017-12-09 13:32
 comments: true
 external-url:
@@ -58,6 +58,8 @@ $$P(A_k|B)  = {P(B|A_k)*P(A_k) \over \sum_{i=1}^N{P(B|A_i)*P(A_i)}}.$$
 
 In our case let's assume we choose door #1  
 **C** = where the car really is hidden
+
+A priori probabilities:
 
 $$P(C=1) = P(C=2) = P(C=3) = {1 \over 3}$$
 
