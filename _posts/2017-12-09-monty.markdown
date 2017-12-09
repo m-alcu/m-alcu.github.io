@@ -13,13 +13,13 @@ categories: bayes math
 
 This could be one of the intuitive ways to determinte every case and compute the sum of each result:
 
-**door**: initial door picked  
-**car**: door where the car is hiden  
-**switch**: action to switch 0=Stick 1=Change  
-**result**: result of the game 0=goat 1=car  
+*door* : initial door picked  
+*car* : door where the car is hiden  
+*switch* : action to switch 0=Stick 1=Change  
+*result* : result of the game 0=goat 1=car  
 
 | door     | car | switch | result |
-|:--------:|:---:|-------:|--------|
+|:--------:|:---:|:------:|:------:|
 | 1        | 1   | 0      | 1      |
 | 1        | 1   | 1      | 0      |
 | 1        | 2   | 0      | 0      |
