@@ -13,13 +13,10 @@ categories: bayes math
 
 This could be one of the intuitive ways to determinte every case and compute the sum of each result:
 
-door: initial door picked
-
-car: door where the car is hiden
-
-switch: action to switch 0=Stick 1=Change
-
-result: result of the game 0=goat 1=car
+**door**: initial door picked  
+**car**: door where the car is hiden  
+**switch**: action to switch 0=Stick 1=Change  
+**result**: result of the game 0=goat 1=car  
 
 | door     | car | switch | result |
 |:--------:|:---:|-------:|--------|
@@ -42,14 +39,9 @@ result: result of the game 0=goat 1=car
 | 3        | 2   | 0      | 0      |
 | 3        | 2   | 1      | 1      |
 
- $$ \text{total cases}  = {18}.$$
-
- $$ \text{total cases with car result}  = {9}.$$
-
- $$ \text{total cases that stick with car result}  = {3}.$$
-
- $$ \text{total cases that change with car result}  = {6}.$$
-
- $$ \text{car probability that stick}  = {3 \over 9}.$$
- 
- $$ \text{car probability that change}  = {6 \over 9}.$$
+ $$ \text{total cases}  = {18}.$$  
+ $$ \text{total cases with car result}  = {9}.$$  
+ $$ \text{total cases that stick with car result}  = {3}.$$  
+ $$ \text{total cases that change with car result}  = {6}.$$  
+ $$ \text{car probability that stick}  = {3 \over 9}.$$  
+ $$ \text{car probability that change}  = {6 \over 9}.$$  
