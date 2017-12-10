@@ -19,10 +19,12 @@ Note: Before there is some sort of cleaning of some categories that could be agg
 
 Each category column is transformed to as many columns as categories so all are now numerical vectors.
 
-| marital |   | marital_married | marital_single |
-|:-------:|---|:---------------:|:--------------:|
-| married |   | 1               | 0              |
-| single  |   | 0               | 1              |
+| marital |   | marital_married | marital_single | marital_divorced | marital_single |
+|:-------:|---|:---------------:|:--------------:|:----------------:|:--------------:|
+| married |   | 1               | 0              | 0                | 0              |
+| single  |   | 0               | 1              | 0                | 0              |
+| divorced|   | 0               | 0              | 1                | 0              |
+| unknown |   | 0               | 0              | 0                | 1              |
 
 input data can be retrieved from [here](https://raw.githubusercontent.com/madmashup/targeted-marketing-predictive-engine/master/banking.csv)
 
@@ -34,7 +36,7 @@ columns of data initial:
 columns of data final:  
 ['age' 'duration' 'campaign' 'pdays' 'previous' 'emp_var_rate'  
  'cons_price_idx' 'cons_conf_idx' 'euribor3m' 'nr_employed' 'y'  
-   
+
  'job_admin.'  
  'job_blue-collar'  
  'job_entrepreneur'  
