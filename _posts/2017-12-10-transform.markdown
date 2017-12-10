@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Transform enumerated data
+title: Transform category columns to boolean
 date: 2017-12-10 11:35
 comments: true
 external-url:
