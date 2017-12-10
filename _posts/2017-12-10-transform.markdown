@@ -4,7 +4,7 @@ title: Transform enumerated data
 date: 2017-12-10 11:35
 comments: true
 external-url:
-categories: pandas get_dummies
+categories: python pandas get_dummies
 ---
 
 > Input values in Logit regression should be numerical vectors as:
@@ -17,18 +17,12 @@ Categories values should be expanded to boolean data. Pandas library has an func
 
 Note: Before there is some sort of cleaning of some categories that could be aggregated because are too similar.
 
-| day_of_ week |   | day_of_week_mon | day_of_week_tue | day_of_week_wed | day_of_week_thu | day_of_week_fri | day_of_week_sat | day_of_week_sun |
-|:------------:|---|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|
-| thu          |   | 0               | 0               | 0               | 1               | 0               | 0               | 0               |
-| fri          |   | 0               | 0               | 0               | 0               | 1               | 0               | 0               |
-| thu          |   | 0               | 0               | 0               | 1               | 0               | 0               | 0               |
-| fri          |   | 0               | 0               | 0               | 0               | 1               | 0               | 0               |
-| fri          |   | 0               | 0               | 0               | 0               | 1               | 0               | 0               |
-| mon          |   | 1               | 0               | 0               | 0               | 0               | 0               | 0               |
-| tue          |   | 0               | 1               | 0               | 0               | 0               | 0               | 0               |
-| wed          |   | 0               | 0               | 1               | 0               | 0               | 0               | 0               |
-| sat          |   | 0               | 0               | 0               | 0               | 0               | 1               | 0               |
-| sun          |   | 0               | 0               | 0               | 0               | 0               | 0               | 1               |
+Each category column is transformed to as many columns as categories so all are now numerical vectors.
+
+| marital |   | marital_married | marital_single |
+|:-------:|---|:---------------:|:--------------:|
+| married |   | 1               | 0              |
+| single  |   | 0               | 1              |
 
 
 ```python
