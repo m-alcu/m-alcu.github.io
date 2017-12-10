@@ -13,7 +13,7 @@ categories: python pandas get_dummies
 * Real - for example millis from session user
 * Boolean - Married or not married
 
-Categories values should be expanded to boolean data. Pandas library has an function to do this easyly. Next example is retrieved from this source [source](https://datascienceplus.com/building-a-logistic-regression-in-python-step-by-step/).
+Categories values should be expanded to boolean data. Pandas library has an function to do this easyly. Next example is retrieved from this [source](https://datascienceplus.com/building-a-logistic-regression-in-python-step-by-step/).
 
 Note: Before there is some sort of cleaning of some categories that could be aggregated because are too similar.
 
@@ -24,6 +24,7 @@ Each category column is transformed to as many columns as categories so all are 
 | married |   | 1               | 0              |
 | single  |   | 0               | 1              |
 
+input data can be retrieved from [here](https://raw.githubusercontent.com/madmashup/targeted-marketing-predictive-engine/master/banking.csv)
 
 ```python
 import numpy as np
