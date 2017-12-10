@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Select feature values in Logistic Regression
+title: Recursive Feature Elimination (RFE)
 date: 2017-12-10 18:30
 comments: true
 external-url:
