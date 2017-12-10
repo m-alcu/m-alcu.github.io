@@ -9,11 +9,11 @@ categories: python pandas get_dummies
 
 > Input values in Logit regression should be numerical vectors as:
 
-* Integer - for example number of sales products...
-* Real - for example millis from session user
-* Boolean - Married or not married
+* *Integer* - for example number of sales products...
+* *Real* - for example millis from session user
+* *Boolean* - Married or not married
 
-Categories values should be expanded to boolean data. Pandas library has an function to do this easyly. Next example is retrieved from this [source](https://datascienceplus.com/building-a-logistic-regression-in-python-step-by-step/).
+Categories values are not numerical vectors, you cannot measure a value for example between married and single. This is not useful as an input for logistic regression. This type of columns should be expanded to boolean data. Pandas library has an function to do this easyly. Next example is retrieved from this [source](https://datascienceplus.com/building-a-logistic-regression-in-python-step-by-step/).
 
 Note: Before there is some sort of cleaning of some categories that could be aggregated because are too similar.
 
