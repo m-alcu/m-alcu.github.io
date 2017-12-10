@@ -19,7 +19,7 @@ Note: Before there is some sort of cleaning of some categories that could be agg
 
 Each category column is transformed to as many columns as categories so all are now numerical vectors.
 
-| marital |   | marital_married | marital_single | marital_divorced | marital_single |
+| marital |   | marital_married | marital_single | marital_divorced | marital_unknown|
 |:-------:|---|:---------------:|:--------------:|:----------------:|:--------------:|
 | married |   | 1               | 0              | 0                | 0              |
 | single  |   | 0               | 1              | 0                | 0              |
