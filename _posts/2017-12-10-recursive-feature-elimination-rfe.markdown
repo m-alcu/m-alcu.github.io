@@ -13,10 +13,14 @@ The process needs
 
 input data can be retrieved from [here](https://raw.githubusercontent.com/madmashup/targeted-marketing-predictive-engine/master/banking.csv)
 
+![output](/assets/rec.png)
 
 ```python
 import numpy as np
 import pandas as pd
+from sklearn import datasets
+from sklearn.feature_selection import RFE
+from sklearn.linear_model import LogisticRegression
 
 def main(): 
 
