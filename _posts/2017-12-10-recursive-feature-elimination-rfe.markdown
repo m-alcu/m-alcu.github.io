@@ -13,7 +13,7 @@ The process needs only the data to test (X,y) and the number of desired features
 
 input data can be retrieved from [here](https://raw.githubusercontent.com/madmashup/targeted-marketing-predictive-engine/master/banking.csv)
 
-![output](/assets/rec.png)
+![output](/assets/rfe.png)
 
 ```python
 import numpy as np
