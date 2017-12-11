@@ -9,7 +9,7 @@ categories: python sklearn feature_selection
 
 > In case there are to many features it is reasonable, for optimization reasons, to select the best performance features. [Recursive Feature Elimination (RFE)](http://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.RFE.html) does the job to get recursively smaller groups of features giving a `_coef` on each feature to reach to desired number of features.
 
-The process needs 
+The process needs only the data to test (X,y) and the number of desired features
 
 input data can be retrieved from [here](https://raw.githubusercontent.com/madmashup/targeted-marketing-predictive-engine/master/banking.csv)
 
