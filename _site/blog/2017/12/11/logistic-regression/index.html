@@ -90,17 +90,17 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
   <p>Binomial Logistic Regression is aplied to classification problems, in which there are a list of numerical (Real, integers) features that are related to the classification of one boolean output <code class="highlighter-rouge">Y[0,1]</code></p>
 </blockquote>
 
-<p>Logit function is an useful function that maps a input to a binary value Y. The logit function is the natural log of the <em>odds</em> that Y equals to 0 or 1. This useful function also called sigmoid maps the $[-\infty,\infty]$ variance of $\beta+\beta_1x_1+\beta_2x_2+…+\beta_kx_k$ to a $[0,1] field that is the probability P that output value to be 0.1. There is a better explanation <a href="https://codesachin.wordpress.com/2015/08/16/logistic-regression-for-dummies/">here</a></p>
+<p>Logit function is an useful function that maps an unlimited input to a binary value Y. The logit function is the natural log of the <em>odds</em> that Y equals to 0 or 1. This useful function (called sigmoid) maps the $[-\infty,\infty]$ variance of $\beta+\beta_1x_1+\beta_2x_2+…+\beta_kx_k$ to a $[0,1]$ field that is the probability P that output value equals to 1. There is a much better explanation <a href="https://codesachin.wordpress.com/2015/08/16/logistic-regression-for-dummies/">here</a>.</p>
 
 <script type="math/tex; mode=display">\text{logit}(P) = ln\left({P \over 1-P}\right)=\beta+\beta_1x_1+\beta_2x_2+...+\beta_kx_k</script>
 
-<p>General formula of Logit:</p>
+<p>Clearing P variable show the sigmoid formula:</p>
 
 <script type="math/tex; mode=display">P = {1 \over 1+ e^{-(\beta+\beta_1x_1+\beta_2x_2+...+\beta_kx_k)}}</script>
 
-<p>This function is called sigmoid.</p>
-
 <p><img src="/assets/sigmoid.png" alt="sigmoid" /></p>
+
+<p>In this article I’m interested in the result from the hand made regression with the above formula versus the common python libraries.</p>
 
 <p>Performance: Correlated features should be removed for best performance. Number of features increase also the prediction fit results but above a certain limit overfitting occurs and performance is degradated.</p>
 
