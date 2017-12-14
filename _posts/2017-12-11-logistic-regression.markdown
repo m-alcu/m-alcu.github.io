@@ -108,9 +108,11 @@ x_axis = np.linspace(-6, 6, 100)
 y_axis = -(w[0] + x_axis*w[1]) / w[2]
 plt.plot(x_axis, y_axis)
 plt.show()
-```
+``
 
 Note: [source](https://github.com/lazyprogrammer/machine_learning_examples)
+
+![results example](/assets/logit.png)
 
 Performance: Correlated features should be removed for best performance. Number of features increase also the prediction fit results but above a certain limit overfitting occurs and performance is degradated.
 
