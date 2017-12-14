@@ -96,8 +96,20 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
         <article lang="en">
           
           <blockquote>
-  <p>Binomial Logistic Regression is aplied to classification problems, in which there are a list of numerical (Real, integers) features that are related to the classification of one boolean output <code class="highlighter-rouge">Y[0,1]</code></p>
+  <p>Binomial Logistic Regression is aplied to classification problems, in which there are a list of numerical (Real, integers) features that are related to the classification of one boolean output <code class="highlighter-rouge">Y[0,1]</code>.</p>
 </blockquote>
+
+<p>Logistic regresion is fine for linealy separable problems, since is a linear clasifier:</p>
+<ul>
+  <li>2D: bounday is a line (as the example in this post)</li>
+  <li>3D: bounday is a plane</li>
+  <li>
+    <blockquote>
+      <p>3D: bounday is a hyperplane<br />
+all of them are linear, not curved.</p>
+    </blockquote>
+  </li>
+</ul>
 
 <p>Logit function is an useful function that maps an unlimited input to a binary value Y. The logit function is the natural log of the <em>odds</em> that Y equals to 0 or 1. This useful function (called sigmoid) maps the $[-\infty,\infty]$ variance of $\beta+\beta_1x_1+\beta_2x_2+…+\beta_kx_k$ to a $[0,1]$ field that is the probability P that output value equals to 1. There is a much better explanation <a href="https://codesachin.wordpress.com/2015/08/16/logistic-regression-for-dummies/">here</a>.</p>
 
