@@ -21,12 +21,6 @@ $$P = {1 \over 1+ e^{-(\beta+\beta_1x_1+\beta_2x_2+...+\beta_kx_k)}}$$
 
 In this article I'm interested in the result from the hand made regression with the above formula versus the common python libraries. 
 
-# demonstrates how to do gradient descent with numpy matrices.
-#
-# the notes for this class can be found at: 
-# https://deeplearningcourses.com/c/data-science-logistic-regression-in-python
-# https://www.udemy.com/data-science-logistic-regression-in-python
-
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
