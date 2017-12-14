@@ -21,6 +21,100 @@ $$P = {1 \over 1+ e^{-(\beta+\beta_1x_1+\beta_2x_2+...+\beta_kx_k)}}$$
 
 In this article I'm interested in the result from the hand made regression with the above formula versus the common python libraries. 
 
+# demonstrates how to do gradient descent with numpy matrices.
+#
+# the notes for this class can be found at: 
+# https://deeplearningcourses.com/c/data-science-logistic-regression-in-python
+# https://www.udemy.com/data-science-logistic-regression-in-python
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+import statsmodels.api as sm
+from scipy import stats
+stats.chisqprob = lambda chisq, df: stats.chi2.sf(chisq, df)
+
+
+def sigmoid(z):
+    return 1/(1 + np.exp(-z))
+
+# View images
+
+# calculate the cross-entropy error
+def cross_entropy(T, Y):
+    E = 0
+    for i in xrange(len(T)):
+        if T[i] == 1:
+            E -= np.log(Y[i])
+        else:
+            E -= np.log(1 - Y[i])
+    return E
+
+N = 100
+D = 2
+
+X = np.random.randn(N,D)*2
+
+# center the first 50 points at (-2,-2)
+X[:50,:] = X[:50,:] - 2*np.ones((50,D))
+
+# center the last 50 points at (2, 2)
+X[50:,:] = X[50:,:] + 2*np.ones((50,D))
+
+# labels: first 50 are 0, last 50 are 1
+T = np.array([0]*50 + [1]*50)
+
+# add a column of ones
+# ones = np.array([[1]*N]).T # old
+ones = np.ones((N, 1))
+Xb = np.concatenate((ones, X), axis=1)
+
+# randomly initialize the weights
+w = np.random.randn(D + 1)
+
+# calculate the model output
+z = Xb.dot(w)
+
+
+Y = sigmoid(z)
+# let's do gradient descent 100 times
+learning_rate = 0.1
+for i in xrange(100):
+    if i % 10 == 0:
+        print cross_entropy(T, Y)
+
+    # gradient descent weight udpate
+    # w += learning_rate * np.dot((T - Y).T, Xb) # old
+    w += learning_rate * Xb.T.dot(T - Y)
+
+    # recalculate Y
+    Y = sigmoid(Xb.dot(w))
+
+y2 = pd.Series(T.tolist())
+X2 = pd.concat([pd.Series(Xb[:,1].tolist()), pd.Series(Xb[:,2].tolist())], axis=1)
+
+X2 = sm.add_constant(X2)
+logit_model=sm.Logit(y2,X2)
+result=logit_model.fit()
+print(result.summary())
+
+print "Final w:", w
+
+# plot the data and separating line
+plt.scatter(X[:,0], X[:,1], c=T, s=100, alpha=0.5)
+x_axis = np.linspace(-6, 6, 100)
+y_axis = -(w[0] + x_axis*w[1]) / w[2]
+plt.plot(x_axis, y_axis)
+plt.show()
+```
+
+Note: [source](https://github.com/lazyprogrammer/machine_learning_examples)
 
 Performance: Correlated features should be removed for best performance. Number of features increase also the prediction fit results but above a certain limit overfitting occurs and performance is degradated.
+
+Glosary  
+* *MLE*: Maximum Likelihood Estimation  
+* *sigmoid*: function to map $[-\infty,\infty]$ to $[0,1]$  
 
