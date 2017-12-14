@@ -102,7 +102,8 @@ x_axis = np.linspace(-6, 6, 100)
 y_axis = -(w[0] + x_axis*w[1]) / w[2]
 plt.plot(x_axis, y_axis)
 plt.show()
-``
+```
+
 
 Note: [source](https://github.com/lazyprogrammer/machine_learning_examples)
 

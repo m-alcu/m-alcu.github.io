@@ -102,87 +102,87 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 
 <p>In this article I’m interested in the result from the hand made regression with the above formula versus the common python libraries.</p>
 
-<p>```python
-import numpy as np
-import matplotlib.pyplot as plt
-import pandas as pd</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
 
-<p>import statsmodels.api as sm
-from scipy import stats
-stats.chisqprob = lambda chisq, df: stats.chi2.sf(chisq, df)</p>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="n">sm</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">chisqprob</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">chisq</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">chisq</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
 
-<p>def sigmoid(z):
-    return 1/(1 + np.exp(-z))</p>
 
-<h1 id="view-images">View images</h1>
+<span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span>
 
-<h1 id="calculate-the-cross-entropy-error">calculate the cross-entropy error</h1>
-<p>def cross_entropy(T, Y):
-    E = 0
-    for i in xrange(len(T)):
-        if T[i] == 1:
-            E -= np.log(Y[i])
-        else:
-            E -= np.log(1 - Y[i])
-    return E</p>
+<span class="c"># View images</span>
 
-<p>N = 100
-D = 2</p>
+<span class="c"># calculate the cross-entropy error</span>
+<span class="k">def</span> <span class="nf">cross_entropy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">T</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">E</span> <span class="o">-=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">E</span> <span class="o">-=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">E</span>
 
-<p>X = np.random.randn(N,D)*2</p>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">D</span> <span class="o">=</span> <span class="mi">2</span>
 
-<h1 id="center-the-first-50-points-at--2-2">center the first 50 points at (-2,-2)</h1>
-<p>X[:50,:] = X[:50,:] - 2*np.ones((50,D))</p>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">D</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span>
 
-<h1 id="center-the-last-50-points-at-2-2">center the last 50 points at (2, 2)</h1>
-<p>X[50:,:] = X[50:,:] + 2*np.ones((50,D))</p>
+<span class="c"># center the first 50 points at (-2,-2)</span>
+<span class="n">X</span><span class="p">[:</span><span class="mi">50</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:</span><span class="mi">50</span><span class="p">,:]</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span><span class="n">D</span><span class="p">))</span>
 
-<h1 id="labels-first-50-are-0-last-50-are-1">labels: first 50 are 0, last 50 are 1</h1>
-<p>T = np.array([0]<em>50 + [1]</em>50)</p>
+<span class="c"># center the last 50 points at (2, 2)</span>
+<span class="n">X</span><span class="p">[</span><span class="mi">50</span><span class="p">:,:]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">50</span><span class="p">:,:]</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span><span class="n">D</span><span class="p">))</span>
 
-<h1 id="add-a-column-of-ones">add a column of ones</h1>
-<h1 id="ones--nparray1nt--old">ones = np.array([[1]*N]).T # old</h1>
-<p>ones = np.ones((N, 1))
-Xb = np.concatenate((ones, X), axis=1)</p>
+<span class="c"># labels: first 50 are 0, last 50 are 1</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">50</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
 
-<h1 id="randomly-initialize-the-weights">randomly initialize the weights</h1>
-<p>w = np.random.randn(D + 1)</p>
+<span class="c"># add a column of ones</span>
+<span class="c"># ones = np.array([[1]*N]).T # old</span>
+<span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">Xb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">ones</span><span class="p">,</span> <span class="n">X</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<h1 id="calculate-the-model-output">calculate the model output</h1>
-<p>z = Xb.dot(w)</p>
+<span class="c"># randomly initialize the weights</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">D</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
-<p>Y = sigmoid(z)</p>
-<h1 id="lets-do-gradient-descent-100-times">let’s do gradient descent 100 times</h1>
-<p>learning_rate = 0.1
-for i in xrange(100):
-    if i % 10 == 0:
-        print cross_entropy(T, Y)</p>
+<span class="c"># calculate the model output</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">Xb</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># gradient descent weight udpate
-# w += learning_rate * np.dot((T - Y).T, Xb) # old
-w += learning_rate * Xb.T.dot(T - Y)
 
-# recalculate Y
-Y = sigmoid(Xb.dot(w))
+<span class="n">Y</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="c"># let's do gradient descent 100 times</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">cross_entropy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+
+    <span class="c"># gradient descent weight udpate</span>
+    <span class="c"># w += learning_rate * np.dot((T - Y).T, Xb) # old</span>
+    <span class="n">w</span> <span class="o">+=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">Xb</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">Y</span><span class="p">)</span>
+
+    <span class="c"># recalculate Y</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">Xb</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+
+<span class="n">y2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="n">X2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">Xb</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">Xb</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">X2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span>
+<span class="n">logit_model</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">y2</span><span class="p">,</span><span class="n">X2</span><span class="p">)</span>
+<span class="n">result</span><span class="o">=</span><span class="n">logit_model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+
+<span class="k">print</span> <span class="s">"Final w:"</span><span class="p">,</span> <span class="n">w</span>
+
+<span class="c"># plot the data and separating line</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">x_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y_axis</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x_axis</span><span class="o">*</span><span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">w</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">y_axis</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
-
-<p>y2 = pd.Series(T.tolist())
-X2 = pd.concat([pd.Series(Xb[:,1].tolist()), pd.Series(Xb[:,2].tolist())], axis=1)</p>
-
-<p>X2 = sm.add_constant(X2)
-logit_model=sm.Logit(y2,X2)
-result=logit_model.fit()
-print(result.summary())</p>
-
-<p>print “Final w:”, w</p>
-
-<h1 id="plot-the-data-and-separating-line">plot the data and separating line</h1>
-<p>plt.scatter(X[:,0], X[:,1], c=T, s=100, alpha=0.5)
-x_axis = np.linspace(-6, 6, 100)
-y_axis = -(w[0] + x_axis*w[1]) / w[2]
-plt.plot(x_axis, y_axis)
-plt.show()
-``</p>
 
 <p>Note: <a href="https://github.com/lazyprogrammer/machine_learning_examples">source</a></p>
 
