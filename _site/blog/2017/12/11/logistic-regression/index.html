@@ -160,11 +160,12 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
         <span class="k">print</span> <span class="n">cross_entropy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
 
     <span class="c"># gradient descent weight udpate</span>
-    <span class="c"># w += learning_rate * np.dot((T - Y).T, Xb) # old</span>
     <span class="n">w</span> <span class="o">+=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">Xb</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">Y</span><span class="p">)</span>
 
     <span class="c"># recalculate Y</span>
     <span class="n">Y</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">Xb</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+
+<span class="k">print</span> <span class="s">"Final w-hand-made:"</span><span class="p">,</span> <span class="n">w</span>
 
 <span class="n">y2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
 <span class="n">X2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">Xb</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">Xb</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -174,19 +175,27 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 <span class="n">result</span><span class="o">=</span><span class="n">logit_model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 
-<span class="k">print</span> <span class="s">"Final w:"</span><span class="p">,</span> <span class="n">w</span>
+<span class="n">w2</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">values</span>
 
+<span class="k">print</span> <span class="s">"Final w-statsmodels:"</span><span class="p">,</span> <span class="n">w2</span>
 <span class="c"># plot the data and separating line</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">x_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">y_axis</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x_axis</span><span class="o">*</span><span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">w</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">y_axis</span><span class="p">)</span>
+<span class="n">line_up</span><span class="p">,</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">y_axis</span><span class="p">,</span><span class="s">'r--'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'hand made'</span><span class="p">)</span>
+<span class="n">y_axis</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">w2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x_axis</span><span class="o">*</span><span class="n">w2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">w2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">line_down</span><span class="p">,</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">y_axis</span><span class="p">,</span><span class="s">'g--'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'statsmodels'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">line_up</span><span class="p">,</span> <span class="n">line_down</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'X(1)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'X(2)'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>
 
 <p>Note: <a href="https://github.com/lazyprogrammer/machine_learning_examples">source</a></p>
 
-<p><img src="/assets/logit.png" alt="results example" /></p>
+<p><img src="/assets/logit-graphic.png" alt="results graphic" /></p>
+
+<p><img src="/assets/logit.png" alt="results summary" /></p>
 
 <p>Performance: Correlated features should be removed for best performance. Number of features increase also the prediction fit results but above a certain limit overfitting occurs and performance is degradated.</p>
 

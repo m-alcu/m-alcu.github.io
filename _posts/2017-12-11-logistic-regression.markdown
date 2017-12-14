@@ -80,11 +80,12 @@ for i in xrange(100):
         print cross_entropy(T, Y)
 
     # gradient descent weight udpate
-    # w += learning_rate * np.dot((T - Y).T, Xb) # old
     w += learning_rate * Xb.T.dot(T - Y)
 
     # recalculate Y
     Y = sigmoid(Xb.dot(w))
+
+print "Final w-hand-made:", w
 
 y2 = pd.Series(T.tolist())
 X2 = pd.concat([pd.Series(Xb[:,1].tolist()), pd.Series(Xb[:,2].tolist())], axis=1)
@@ -94,20 +95,28 @@ logit_model=sm.Logit(y2,X2)
 result=logit_model.fit()
 print(result.summary())
 
-print "Final w:", w
+w2 = result.params.values
 
+print "Final w-statsmodels:", w2
 # plot the data and separating line
 plt.scatter(X[:,0], X[:,1], c=T, s=100, alpha=0.5)
 x_axis = np.linspace(-6, 6, 100)
 y_axis = -(w[0] + x_axis*w[1]) / w[2]
-plt.plot(x_axis, y_axis)
+line_up, = plt.plot(x_axis, y_axis,'r--', label='hand made')
+y_axis = -(w2[0] + x_axis*w2[1]) / w2[2]
+line_down, = plt.plot(x_axis, y_axis,'g--', label='statsmodels')
+plt.legend(handles=[line_up, line_down])
+plt.xlabel('X(1)')
+plt.ylabel('X(2)')
 plt.show()
 ```
 
 
 Note: [source](https://github.com/lazyprogrammer/machine_learning_examples)
 
-![results example](/assets/logit.png)
+![results graphic](/assets/logit-graphic.png)
+
+![results summary](/assets/logit.png)
 
 Performance: Correlated features should be removed for best performance. Number of features increase also the prediction fit results but above a certain limit overfitting occurs and performance is degradated.
 
