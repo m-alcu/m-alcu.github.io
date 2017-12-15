@@ -1,0 +1,31 @@
+---
+layout: post
+title: SoftMax (Neural network)
+date: 2017-12-15 06:15
+comments: true
+external-url:
+categories: softmax
+---
+
+Softmax extends binary classification to 'n' levels useful for:  
+* Faces  
+* Car  
+* MNIST Digits 0-9  
+
+Softmax is a generalization of Logistic function. Compress a K-dimension z Real values to a K-dimension $\sigma (z)$
+
+Softmax for K=2 is the same as a sigmoid where $w = w_1 - w_0$ 
+
+Softmax is a generalization of sigmoid for K>2.
+
+Softmax for K Classes:  
+
+$$a_1=w_1^\intercal x \text{   } a_2=w_2^\intercal x \text{   } ...\text{   } a_n=w_n^\intercal x$$
+
+$$P(Y=k|X) = {exp(a_k) \over Z}$$
+
+$$Z = exp(a_1)+exp(a_2)+...+exp(a_K)$$
+
+$$W = [ w_1 w_2...w_K] \text{ (a D x K matrix)}$$
+
+$$A_{N\times K} = X_{N\times D}W_{D\times K}\rightarrow Y_{N\times K}=softmax(A_{N\times K})$$
