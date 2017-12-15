@@ -7,7 +7,7 @@ external-url:
 categories: python tensorflow
 ---
 
-> One good place to understand the concept of neura network in 2D classification problems that tan be visualized and understand while playing.  
+One good place to understand the concept of neural network in 2D classification problems that tan be visualized and understand while playing.  
 
 There are shown four 2D classification problems and yo can choose any architecture of neurons changing number of layers and size of each one.  
 
