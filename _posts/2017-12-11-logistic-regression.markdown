@@ -12,7 +12,7 @@ categories: python sklearn LogisticRegression
 Logistic regresion is fine for linealy separable problems, since is a linear clasifier:
 * 2D: bounday is a line (as the example in this post)  
 * 3D: bounday is a plane  
-* >3D: bounday is a hyperplane  
+* 4D-nD: bounday is a hyperplane  
 all of them are linear, not curved.  
 
 Another way to see a logistic regression is the neuron (sigmoid), with $X_n+1$ inputs and a unique binary output.
