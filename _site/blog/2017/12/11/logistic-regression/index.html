@@ -220,8 +220,8 @@ all of them are linear, not curved.</li>
 
 <p>Cost funcion is the error on every iteration (cross entropy error)</p>
 
-<p>$t_n$ is the training input (always 0 or 1)<br />
-$y_n$ is the current preduction (between 0 to 1)</p>
+<p>$t$ is the training input (always 0 or 1)<br />
+$y$ is the current preduction (between 0 to 1)</p>
 
 <script type="math/tex; mode=display">% <![CDATA[
 \begin{align*} & y = sigmoid(Xw)={1 \over 1-e^{-Xw}}\newline & J(w) = \frac{1}{m} \cdot \left(-t^{T}\log(y)-(1-t)^{T}\log(1-y)\right) \end{align*} %]]></script>
@@ -231,9 +231,9 @@ $y_n$ is the current preduction (between 0 to 1)</p>
 <script type="math/tex; mode=display">% <![CDATA[
 \begin{align*}& Repeat \; \lbrace \newline & \; w_j := w_j - \alpha \dfrac{\partial}{\partial w_j}J(w) \newline & \rbrace\end{align*} %]]></script>
 
-<script type="math/tex; mode=display">w := w - \frac{\alpha}{m} X^{T} (y_n - t_n)</script>
+<script type="math/tex; mode=display">w := w - \frac{\alpha}{m} X^{T} (y - t)</script>
 
-<script type="math/tex; mode=display">w := w + \gamma X^{T} (t_n - y_n)</script>
+<script type="math/tex; mode=display">w := w + \gamma X^{T} (t - y)</script>
 
 <p>Glosary</p>
 <ul>
