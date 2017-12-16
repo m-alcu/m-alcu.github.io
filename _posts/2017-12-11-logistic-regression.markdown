@@ -128,6 +128,23 @@ Note: [source](https://github.com/lazyprogrammer/machine_learning_examples)
 
 Performance: Correlated features should be removed for best performance. Number of features increase also the prediction fit results but above a certain limit overfitting occurs and performance is degradated.
 
+Cost funcion is the error on every iteration (cross entropy error)
+
+
+
+$$\begin{align*} & h = sigmoid(Xw)={1 \over 1-e^{-Xw}}\newline & J(w) = \frac{1}{m} \cdot \left(-y^{T}\log(h)-(1-y)^{T}\log(1-h)\right) \end{align*}$$
+
+$$\begin{align*}& Repeat \; \lbrace \newline & \; w_j := w_j - \alpha \dfrac{\partial}{\partial w_j}J(w) \newline & \rbrace\end{align*}$$
+
+$t_n$ is the training input (always 0 or 1)
+$y_n$ is the current preduction (between 0 to 1) 
+
+$$Cost = J =-\sum_{n}\Bigl( t_n log(y_n)+(1-t_n)log(1-y_n)\Bigl)$$
+
+$$w := w - \frac{\alpha}{m} X^{T} (y_n - t_n)$$
+
+$$w := w + \gamma X^{T} (t_n - y_n)$$
+
 Glosary  
 * *MLE*: Maximum Likelihood Estimation  
 * *sigmoid*: function to map $[-\infty,\infty]$ to $[0,1]$  

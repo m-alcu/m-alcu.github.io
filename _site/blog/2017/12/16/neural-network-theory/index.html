@@ -106,12 +106,12 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 <script type="math/tex">D\text {: Size of last but one hidden layer}</script><br />
 <script type="math/tex">M\text {: Size of last hidden layer}</script><br />
 <script type="math/tex">W\text {: weights of last hidden layer}</script><br />
-<script type="math/tex">Bm\text {: bias of last hidden layer}</script></p>
+<script type="math/tex">bm\text {: bias of last hidden layer}</script></p>
 
-<p><script type="math/tex">o_1 = tanh(W_{D\times M}^\intercal x_1+Bm_{M\times 1})</script><br />
-<script type="math/tex">o_2 = tanh(W_{D\times M}^\intercal x_2+Bm_{M\times 1})</script><br />
+<p><script type="math/tex">o_1 = tanh(W_{D\times M}^\intercal x_1+bm_{M\times 1})</script><br />
+<script type="math/tex">o_2 = tanh(W_{D\times M}^\intercal x_2+bm_{M\times 1})</script><br />
 <script type="math/tex">...</script><br />
-<script type="math/tex">o_n = tanh(W_{D\times M}^\intercal x_n+Bm_{M\times 1})</script></p>
+<script type="math/tex">o_n = tanh(W_{D\times M}^\intercal x_n+bm_{M\times 1})</script></p>
 
 <script type="math/tex; mode=display">\begin{pmatrix}
  o_1  \\
@@ -128,28 +128,28 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 <script type="math/tex">D\text {: Size of last but one hidden layer}</script><br />
 <script type="math/tex">M\text {: Size of last hidden layer}</script><br />
 <script type="math/tex">W\text {: weights of last hidden layer}</script><br />
-<script type="math/tex">Bm\text {: bias of last hidden layer}</script><br />
-<script type="math/tex">V\text {: weights of output neuron}</script>
+<script type="math/tex">bm\text {: bias of last hidden layer}</script><br />
+<script type="math/tex">V\text {: weights of output neuron}</script><br />
 <script type="math/tex">c\text {: bias for output neuron}</script></p>
 
-<p><script type="math/tex">y_1 = \sigma(V^\intercal tanh(W_{D\times M}^\intercal x_1+Bm_{M\times 1})+c)</script><br />
-<script type="math/tex">y_2 = \sigma(V^\intercal tanh(W_{D\times M}^\intercal x_2+Bm_{M\times 1})+c)</script><br />
+<p><script type="math/tex">y_1 = \sigma(V^\intercal tanh(W_{D\times M}^\intercal x_1+bm_{M\times 1})+c)</script><br />
+<script type="math/tex">y_2 = \sigma(V^\intercal tanh(W_{D\times M}^\intercal x_2+bm_{M\times 1})+c)</script><br />
 <script type="math/tex">...</script><br />
-<script type="math/tex">y_n = \sigma(V^\intercal tanh(W_{D\times M}^\intercal x_n+Bm_{M\times 1})+c)</script></p>
+<script type="math/tex">y_n = \sigma(V^\intercal tanh(W_{D\times M}^\intercal x_n+bm_{M\times 1})+c)</script></p>
 
 <script type="math/tex; mode=display">\begin{pmatrix}
  y_1  \\
  y_2 \\
  \vdots  \\
  y_n \\   
- \end{pmatrix} = \sigma(tanh(X_{N\times D}W_{D\times M}+Bm_{M\times 1})V+c)</script>
+ \end{pmatrix} = \sigma(tanh(X_{N\times D}W_{D\times M}+bm_{M\times 1})V+c)</script>
 
 <script type="math/tex; mode=display">% <![CDATA[
-X_{N\times D}W_{D\times M}+Bm_{M\times 1} = X_{N\times D}W_{D\times M} +\begin{pmatrix}
- - & Bm^\intercal & - \\
- - & Bm^\intercal & - \\
+X_{N\times D}W_{D\times M}+bm_{M\times 1} = X_{N\times D}W_{D\times M} +\begin{pmatrix}
+ - & bm^\intercal & - \\
+ - & bm^\intercal & - \\
 - &  \vdots  & - \\
- - & Bm^\intercal & - \\   
+ - & bm^\intercal & - \\   
  \end{pmatrix}_{N\times M} %]]></script>
 
 <ul>
@@ -161,7 +161,7 @@ X_{N\times D}W_{D\times M}+Bm_{M\times 1} = X_{N\times D}W_{D\times M} +\begin{p
  y_2 \\
  \vdots  \\
  y_n \\   
- \end{pmatrix} = softmax(tanh(X_{N\times D}W_{D\times M}+Bm_{M\times 1})V+c)</script>
+ \end{pmatrix} = softmax(tanh(X_{N\times D}W_{D\times M}+bm_{M\times 1})V+c)</script>
 
 
         </article>
