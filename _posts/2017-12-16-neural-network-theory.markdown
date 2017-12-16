@@ -54,6 +54,13 @@ $$\begin{pmatrix}
  y_n \\   
  \end{pmatrix} = \sigma(tanh(X_{N\times D}W_{D\times M}+Bm_{M\times 1})V+c)$$
 
+ $$XW_{N\times M} +b = XW_{N\times M} +\begin{pmatrix}
+ - & b^\intercal & - \\
+ - & b^\intercal & - \\
+- &  \vdots  & - \\
+ - & b^\intercal & - \\   
+ \end{pmatrix}_{N\times M}$$
+
 * From the last but one hidden to the output K>2 (softmax):
 
 $$\begin{pmatrix}
