@@ -4,7 +4,7 @@ title: Bayes theorem (solving Monty Hall problem)
 date: 2017-12-09 13:32
 comments: true
 external-url:
-categories: bayes math
+categories: bayes
 ---
 
 > Monty Hall problem is a famous probability puzzle: You are in a game show, and in front of you are three doors: Behind one of them there is a car and behind the others goats. You pick a door (1 or 2 or 3) and the hosts, who knows what's behind doors, opens another door, that has a goat behind. Then asks you: "Do you keep to choose the same door?", it is your advantage to switch your door?

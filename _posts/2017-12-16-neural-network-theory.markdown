@@ -7,7 +7,7 @@ external-url:
 categories: neural_networks
 ---
 
-Binary neural network:
+Neural network formulas:
 
 * From one layer to the next layer
 
@@ -18,10 +18,10 @@ $$W\text {: weights of last hidden layer}$$
 $$Bm\text {: bias of last hidden layer}$$  
 
 
-$$o_1 = tanh(W_{D\times M}^\intercal x_1+Bm)$$
-$$o_2 = tanh(W_{D\times M}^\intercal x_2+Bm)$$
-$$...$$
-$$o_n = tanh(W_{D\times M}^\intercal x_n+Bm)$$
+$$o_1 = tanh(W_{D\times M}^\intercal x_1+Bm)$$  
+$$o_2 = tanh(W_{D\times M}^\intercal x_2+Bm)$$  
+$$...$$  
+$$o_n = tanh(W_{D\times M}^\intercal x_n+Bm)$$  
 
 
 $$\begin{pmatrix}
@@ -42,11 +42,10 @@ $$Bm\text {: bias of last hidden layer}$$
 $$V\text {: weights of output neuron}$$
 $$c\text {: bias for output neuron}$$  
 
-$$y_1 = \sigma(V^\intercal tanh(W_{D\times M}^\intercal x_1+Bm_{1\times M})+c)$$
-$$y_2 = \sigma(V^\intercal tanh(W_{D\times M}^\intercal x_2+Bm_{1\times M})+c)$$
-$$...$$
-$$y_n = \sigma(V^\intercal tanh(W_{D\times M}^\intercal x_n+Bm_{1\times M})+c)$$
-
+$$y_1 = \sigma(V^\intercal tanh(W_{D\times M}^\intercal x_1+Bm_{1\times M})+c)$$  
+$$y_2 = \sigma(V^\intercal tanh(W_{D\times M}^\intercal x_2+Bm_{1\times M})+c)$$  
+$$...$$  
+$$y_n = \sigma(V^\intercal tanh(W_{D\times M}^\intercal x_n+Bm_{1\times M})+c)$$  
 
 $$\begin{pmatrix}
  y_1  \\
