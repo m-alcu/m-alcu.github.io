@@ -130,20 +130,19 @@ Performance: Correlated features should be removed for best performance. Number 
 
 Cost funcion is the error on every iteration (cross entropy error)
 
-
-
-$$\begin{align*} & h = sigmoid(Xw)={1 \over 1-e^{-Xw}}\newline & J(w) = \frac{1}{m} \cdot \left(-y^{T}\log(h)-(1-y)^{T}\log(1-h)\right) \end{align*}$$
-
-$$\begin{align*}& Repeat \; \lbrace \newline & \; w_j := w_j - \alpha \dfrac{\partial}{\partial w_j}J(w) \newline & \rbrace\end{align*}$$
-
-$t_n$ is the training input (always 0 or 1)
+$t_n$ is the training input (always 0 or 1)  
 $y_n$ is the current preduction (between 0 to 1) 
 
-$$Cost = J =-\sum_{n}\Bigl( t_n log(y_n)+(1-t_n)log(1-y_n)\Bigl)$$
+$$\begin{align*} & y = sigmoid(Xw)={1 \over 1-e^{-Xw}}\newline & J(w) = \frac{1}{m} \cdot \left(-t^{T}\log(h)-(1-t)^{T}\log(1-h)\right) \end{align*}$$  
 
-$$w := w - \frac{\alpha}{m} X^{T} (y_n - t_n)$$
+$$\begin{align*}& Repeat \; \lbrace \newline & \; w_j := w_j - \alpha \dfrac{\partial}{\partial w_j}J(w) \newline & \rbrace\end{align*}$$  
 
-$$w := w + \gamma X^{T} (t_n - y_n)$$
+$$J =-\sum_{n}\Bigl( t_n log(y_n)+(1-t_n)log(1-y_n)\Bigl)$$  
+
+$$w := w - \frac{\alpha}{m} X^{T} (y_n - t_n)$$  
+
+$$w := w + \gamma X^{T} (t_n - y_n)$$  
+
 
 Glosary  
 * *MLE*: Maximum Likelihood Estimation  
