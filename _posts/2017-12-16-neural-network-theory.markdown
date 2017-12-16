@@ -32,7 +32,7 @@ $$\begin{pmatrix}
  \end{pmatrix} = tanh(X_{N\times D}W_{D\times M}+Bm_{1\times M})$$
 
 
-* From the last hiden to the output (sigmoid):
+* From the last but one hidden to the output (sigmoid):
 
 $$N\text {: samples}$$  
 $$D\text {: Size of last but one hidden layer}$$  
@@ -54,7 +54,7 @@ $$\begin{pmatrix}
  y_n \\   
  \end{pmatrix} = \sigma(tanh(X_{N\times D}W_{D\times M}+Bm_{1\times M})V+c)$$
 
-* From the last hiden to the output K>2 (softmax):
+* From the last but one hidden to the output K>2 (softmax):
 
 $$\begin{pmatrix}
  y_1  \\

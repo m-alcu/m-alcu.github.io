@@ -121,7 +121,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
  \end{pmatrix} = tanh(X_{N\times D}W_{D\times M}+Bm_{1\times M})</script>
 
 <ul>
-  <li>From the last hiden to the output (sigmoid):</li>
+  <li>From the last but one hidden to the output (sigmoid):</li>
 </ul>
 
 <p><script type="math/tex">N\text {: samples}</script><br />
@@ -145,7 +145,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
  \end{pmatrix} = \sigma(tanh(X_{N\times D}W_{D\times M}+Bm_{1\times M})V+c)</script>
 
 <ul>
-  <li>From the last hiden to the output K&gt;2 (softmax):</li>
+  <li>From the last but one hidden to the output K&gt;2 (softmax):</li>
 </ul>
 
 <script type="math/tex; mode=display">\begin{pmatrix}
