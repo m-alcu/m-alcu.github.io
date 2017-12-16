@@ -136,3 +136,24 @@ if __name__ == "__main__":
     main()
 
 ```
+
+Other two ways to to the same without pandas, last column (D) is a 4 value cateory
+
+
+```python
+    # create a new matrix X2 with the correct number of columns
+    N, D = X.shape
+    X2 = np.zeros((N, D+3))
+    X2[:,0:(D-1)] = X[:,0:(D-1)] # non-categorical
+
+    # one-hot
+    for n in range(N):
+        t = int(X[n,D-1])
+        X2[n,t+D-1] = 1
+
+    # method 2
+    # Z = np.zeros((N, 4))
+    # Z[np.arange(N), X[:,D-1].astype(np.int32)] = 1
+    # # assign: X2[:,-4:] = Z
+    # assert(np.abs(X2[:,-4:] - Z).sum() < 1e-10)
+```
