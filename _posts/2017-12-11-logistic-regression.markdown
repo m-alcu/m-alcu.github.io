@@ -135,9 +135,9 @@ $y_n$ is the current preduction (between 0 to 1)
 
 $$\begin{align*} & y = sigmoid(Xw)={1 \over 1-e^{-Xw}}\newline & J(w) = \frac{1}{m} \cdot \left(-t^{T}\log(h)-(1-t)^{T}\log(1-h)\right) \end{align*}$$  
 
-$$\begin{align*}& Repeat \; \lbrace \newline & \; w_j := w_j - \alpha \dfrac{\partial}{\partial w_j}J(w) \newline & \rbrace\end{align*}$$  
-
 $$J =-\sum_{n}\Bigl( t_n log(y_n)+(1-t_n)log(1-y_n)\Bigl)$$  
+
+$$\begin{align*}& Repeat \; \lbrace \newline & \; w_j := w_j - \alpha \dfrac{\partial}{\partial w_j}J(w) \newline & \rbrace\end{align*}$$  
 
 $$w := w - \frac{\alpha}{m} X^{T} (y_n - t_n)$$  
 
