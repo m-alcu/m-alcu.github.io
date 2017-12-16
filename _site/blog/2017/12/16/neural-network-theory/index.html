@@ -145,11 +145,11 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
  \end{pmatrix} = \sigma(tanh(X_{N\times D}W_{D\times M}+Bm_{M\times 1})V+c)</script>
 
 <script type="math/tex; mode=display">% <![CDATA[
-XW_{N\times M} +b = XW_{N\times M} +\begin{pmatrix}
- - & b^\intercal & - \\
- - & b^\intercal & - \\
+X_{N\times D}W_{D\times M}+Bm_{M\times 1} = X_{N\times D}W_{D\times M} +\begin{pmatrix}
+ - & Bm^\intercal & - \\
+ - & Bm^\intercal & - \\
 - &  \vdots  & - \\
- - & b^\intercal & - \\   
+ - & Bm^\intercal & - \\   
  \end{pmatrix}_{N\times M} %]]></script>
 
 <ul>
