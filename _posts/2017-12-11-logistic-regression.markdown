@@ -128,7 +128,7 @@ Note: [source](https://github.com/lazyprogrammer/machine_learning_examples)
 
 Performance: Correlated features should be removed for best performance. Number of features increase also the prediction fit results but above a certain limit overfitting occurs and performance is degradated.
 
-Cost funcion is the error on every iteration (cross entropy error)
+Cost funcion is the error on every iteration (cross entropy error).
 
 $t$ is the training input (always 0 or 1)  
 $y$ is the current preduction (between 0 to 1) 
@@ -136,6 +136,8 @@ $y$ is the current preduction (between 0 to 1)
 $$\begin{align*} & y = sigmoid(Xw)={1 \over 1-e^{-Xw}}\newline & J(w) = \frac{1}{m} \cdot \left(-t^{T}\log(y)-(1-t)^{T}\log(1-y)\right) \end{align*}$$  
 
 $$J =-\sum_{n}\Bigl( t_n log(y_n)+(1-t_n)log(1-y_n)\Bigl)$$  
+
+There is a global minimum thar can be achieved using gradient descent.
 
 $$\begin{align*}& Repeat \; \lbrace \newline & \; w_j := w_j - \alpha \dfrac{\partial}{\partial w_j}J(w) \newline & \rbrace\end{align*}$$  
 

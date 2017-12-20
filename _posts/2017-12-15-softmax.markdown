@@ -29,3 +29,7 @@ $$Z = exp(a_1)+exp(a_2)+...+exp(a_K)$$
 $$W = [ w_1 w_2...w_K] \text{ (a D x K matrix)}$$
 
 $$A_{N\times K} = X_{N\times D}W_{D\times K}\rightarrow Y_{N\times K}=softmax(A_{N\times K})$$
+
+SoftMax derivative:
+
+$$D_jS_i = \dfrac{\partial S_i}{\partial a_j}= \dfrac{\partial {e^{a_i} \over \sum_{k=1}^N e^{a_k}}}{\partial a_j}$$
