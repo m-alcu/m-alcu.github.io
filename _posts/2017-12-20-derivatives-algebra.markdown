@@ -11,9 +11,9 @@ Reason for remind the algebra of derivatives is that they are important in order
 
 $$f(x)=g(x)+h(x)\Rightarrow f'(x) = g'(x)+h'(x)$$
 
-$$f(x)=g(x) \cdot h(x)\Rightarrow f'(x) = g'(x) \cdot h(x) + g(x) \cdot h'(x)$$
+$$f(x)=g(x) \cdot h(x)\Rightarrow f'(x) = g'(x) \cdot h(x) + g(x) \cdot h'(x) \text{ "product rule"}$$
 
-$$f(x) = {g(x) \over h(x)} \Rightarrow f'(x) = {g'(x)h(x) +g(x)h'(x) \over h(x)^2}, \text {if }h(x) \neq 0$$
+$$f(x) = {g(x) \over h(x)} \Rightarrow f'(x) = {g'(x)h(x) +g(x)h'(x) \over h(x)^2}, \text {if }h(x) \neq 0 \text{ "quotient rule"}$$
 
 $$f(x) = g(h(x)) \Rightarrow f'(x) = g'(h(x)) \cdot h'(x) \text{ "chain rule"}$$
 

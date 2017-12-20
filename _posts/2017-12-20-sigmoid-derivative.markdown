@@ -13,7 +13,7 @@ $$sigmoid(x) = s(x) =  {1 \over 1-e^{-x}}$$
 
 $$\frac d{dx}s(x) = \frac {d }{dx}\bigl({1 \over 1-e^{-x}}\bigl)$$
 
-$$ = \bigl( {1 \over 1+e^{-x}} \bigl)^2 (\frac {d }{dx}\bigl({1 -e^{-x}}\bigl)$$
+$$ = \bigl( {1 \over 1+e^{-x}} \bigl)^2 \frac {d }{dx}\bigl({1 -e^{-x}}\bigl) \text{quotient rule}$$
 
 $$ = \bigl( {1 \over 1+e^{-x}} \bigl)^2 e^{-x} (-1)$$
 
