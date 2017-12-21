@@ -112,10 +112,10 @@ S_N
 
 <script type="math/tex; mode=display">S_j = {e^{a_i} \over \sum_{k=1}^N e^{a_k}} \forall j \in 1..N</script>
 
-<p>There is not exactly a derivative as in sigmoid or tanh… you has to specify:</p>
+<p>There is not exactly a derivative as in sigmoid or tanh… you have to specify:</p>
 <ul>
   <li>Which output component $S_i$ are you seeking to find the derivative of.</li>
-  <li>What is the input from you are asking to derivate</li>
+  <li>Which is the input $a_i$ you are asking to derivate from.</li>
 </ul>
 
 <p>The derivative is in fact a Jacobian matrix of $N \times N$:</p>
@@ -132,7 +132,7 @@ S_N
 
 <p>Using cuotient rule for derivatives</p>
 
-<p>$$f(x) = {g(x) \over h(x)} \Rightarrow f’(x) = {g’(x)h(x) +g(x)h’(x) \over h(x)^2}</p>
+<script type="math/tex; mode=display">f(x) = {g(x) \over h(x)} \Rightarrow f'(x) = {g'(x)h(x) +g(x)h'(x) \over h(x)^2}</script>
 
 <p>where $g_i = e^{a_i}$ and $h_i = \sum_{k=1}^N e^{a_k}$</p>
 

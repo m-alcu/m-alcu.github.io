@@ -23,9 +23,9 @@ S_N
 
 $$S_j = {e^{a_i} \over \sum_{k=1}^N e^{a_k}} \forall j \in 1..N$$
 
-There is not exactly a derivative as in sigmoid or tanh... you has to specify:
+There is not exactly a derivative as in sigmoid or tanh... you have to specify:
 * Which output component $S_i$ are you seeking to find the derivative of.
-* What is the input from you are asking to derivate
+* Which is the input $a_i$ you are asking to derivate from.
 
 
 The derivative is in fact a Jacobian matrix of $N \times N$:
@@ -41,7 +41,7 @@ $$\dfrac{\partial S_i}{\partial a_j}= \dfrac{\partial {e^{a_i} \over \sum_{k=1}^
 
 Using cuotient rule for derivatives
 
-$$f(x) = {g(x) \over h(x)} \Rightarrow f'(x) = {g'(x)h(x) +g(x)h'(x) \over h(x)^2}
+$$f(x) = {g(x) \over h(x)} \Rightarrow f'(x) = {g'(x)h(x) +g(x)h'(x) \over h(x)^2}$$
 
 where $g_i = e^{a_i}$ and $h_i = \sum_{k=1}^N e^{a_k}$
 
