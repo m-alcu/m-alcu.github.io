@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Derivative of Tanh
+title: Derivative of $Tanh(x)$
 date: 2017-12-20 20:49
 comments: true
 external-url:
