@@ -46,5 +46,16 @@ S_2\\
 S_N
 \end{pmatrix}}$$
 
-$$S_j = {e^{a_i} \over \sum_{k=1}^N e^{a_k}}$$
+$$S_j = {e^{a_i} \over \sum_{k=1}^N e^{a_k}} \forall j \in 1..N$$
+
+$$\dfrac{\partial S_i}{\partial a_j}= \dfrac{\partial {e^{a_i} \over \sum_{k=1}^N e^{a_k}}}{\partial a_j} = D_jS_i $$
+
+\begin{pmatrix}
+ D_1S_1 & D_2S_1 & D_3S_1 & \cdots & D_NS_1 \\
+ D_1S_2 & D_2S_2 & D_3S_2 & \cdots & D_NS_2 \\
+ \vdots  & \vdots& \vdots & \ddots & \vdots \\
+ D_1S_N & D_2S_N & D_3S_N & \cdots & D_NS_N    
+ \end{pmatrix}
+
+ 
 
