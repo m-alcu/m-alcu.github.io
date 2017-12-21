@@ -69,14 +69,20 @@ D_jS_i & = \dfrac{\partial {e^{a_i} \over \sum_{k=1}^N e^{a_k}}}{\partial a_j} \
 
 And calculate $D_jS_i$ when $i \neq j$:
 
+$$\begin{align}
+D_jS_i & = \dfrac{\partial {e^{a_i} \over \sum_{k=1}^N e^{a_k}}}{\partial a_j} \\
+& = \dfrac {0-e^{a_j}e^{a_i}}{(\sum_{k=1}^N e^{a_k})^2} \\
+& = -\dfrac {e^{a_j}}{\sum_{k=1}^N e^{a_k}}{\dfrac {e^{a_i}} {\sum_{k=1}^N e^{a_k}}} \\ 
+& = -S_jS_i \\
+\end{align}$$
 
+To summarize:
 
-
-
-
-
-
-
+$$  D_jS_i = \dfrac{\partial S_i}{\partial a_j} =
+\begin{cases}
+S_i(1-S_j)  & \text{if $i = j$,} \\
+-S_jS_i & \text{if $i \neq j.$}
+\end{cases}$$
 
 
 Softmax extends binary classification to 'n' levels useful for:  
