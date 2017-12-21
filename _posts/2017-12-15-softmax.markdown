@@ -28,8 +28,6 @@ There is not exactly a derivative as in sigmoid or tanh... you has to specify:
 * What is the input from you are asking to derivate
 
 
-$$\dfrac{\partial S_i}{\partial a_j}= \dfrac{\partial {e^{a_i} \over \sum_{k=1}^N e^{a_k}}}{\partial a_j} = D_jS_i $$
-
 The derivative is in fact a Jacobian matrix of $N \times N$:
 
 $$\begin{pmatrix}
@@ -38,6 +36,47 @@ $$\begin{pmatrix}
  \vdots  & \vdots& \vdots & \ddots & \vdots \\
  D_1S_N & D_2S_N & D_3S_N & \cdots & D_NS_N    
  \end{pmatrix}$$
+
+$$\dfrac{\partial S_i}{\partial a_j}= \dfrac{\partial {e^{a_i} \over \sum_{k=1}^N e^{a_k}}}{\partial a_j} = D_jS_i $$
+
+Using cuotient rule for derivatives
+
+$$f(x) = {g(x) \over h(x)} \Rightarrow f'(x) = {g'(x)h(x) +g(x)h'(x) \over h(x)^2}
+
+where $g_i = e^{a_i}$ and $h_i = \sum_{k=1}^N e^{a_k}$
+
+No matter which $a_j$ derivative of $h_i$ is always e^{a_j}:
+
+$$\dfrac{\partial h_i}{\partial a_j}= e^{a_j}$$
+
+Derivative of $g_i$:
+
+$$  \dfrac{\partial g_i}{\partial a_j} =
+\begin{cases}
+e^{a_j}  & \text{if $i = j$,} \\
+0 & \text{if $i \neq j.$}
+\end{cases}$$
+
+Lets calculate $D_jS_i$ when $i=j$:
+
+$$\begin{align}
+D_jS_i & = \dfrac{\partial {e^{a_i} \over \sum_{k=1}^N e^{a_k}}}{\partial a_j} \\
+& = \dfrac {e^{a_i }\sum_{k=1}^N e^{a_k}-e^{a_j}e^{a_i}}{(\sum_{k=1}^N e^{a_k})^2} \\
+& = \dfrac {e^{a_i}}{\sum_{k=1}^N e^{a_k}}{\dfrac {\dfrac {e^{a_i}}{\sum_{k=1}^N e^{a_k}}-e^{a_i}} {\sum_{k=1}^N e^{a_k}}} \\
+& = {\sum_{k=1}^N e^{a_k}} \\ 
+& = S_i(1-S_j) \\
+\end{align}$$
+
+And calculate $D_jS_i$ when $i \neq j$:
+
+
+
+
+
+
+
+
+
 
 
 Softmax extends binary classification to 'n' levels useful for:  
