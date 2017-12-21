@@ -63,7 +63,6 @@ $$\begin{align}
 D_jS_i & = \dfrac{\partial {e^{a_i} \over \sum_{k=1}^N e^{a_k}}}{\partial a_j} \\
 & = \dfrac {e^{a_i }\sum_{k=1}^N e^{a_k}-e^{a_j}e^{a_i}}{(\sum_{k=1}^N e^{a_k})^2} \\
 & = \dfrac {e^{a_i}}{\sum_{k=1}^N e^{a_k}}{\dfrac {\dfrac {e^{a_i}}{\sum_{k=1}^N e^{a_k}}-e^{a_i}} {\sum_{k=1}^N e^{a_k}}} \\
-& = {\sum_{k=1}^N e^{a_k}} \\ 
 & = S_i(1-S_j) \\
 \end{align}$$
 
