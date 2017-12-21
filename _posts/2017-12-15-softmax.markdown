@@ -1,11 +1,44 @@
 ---
 layout: post
-title: Derivative of $softMax(x)$
+title: Derivative of softmax
 date: 2017-12-15 06:15
 comments: true
 external-url:
 categories: softmax algebra
 ---
+
+Softmax is a vector function. It takes a vector a and produces a vector as output. $S(a): \mathbb{R}^N \rightarrow \mathbb{R}^N$
+
+$$S(a) = {\begin{pmatrix}
+a_1 \\
+a_2\\
+\vdots\\
+a_N
+\end{pmatrix}} \rightarrow {\begin{pmatrix}
+S_1 \\
+S_2\\
+\vdots\\
+S_N
+\end{pmatrix}}$$
+
+$$S_j = {e^{a_i} \over \sum_{k=1}^N e^{a_k}} \forall j \in 1..N$$
+
+There is not exactly a derivative as in sigmoid or tanh... you has to specify:
+* Which output component $S_i$ are you seeking to find the derivative of.
+* What is the input from you are asking to derivate
+
+
+$$\dfrac{\partial S_i}{\partial a_j}= \dfrac{\partial {e^{a_i} \over \sum_{k=1}^N e^{a_k}}}{\partial a_j} = D_jS_i $$
+
+The derivative is in fact a Jacobian matrix of $N \times N$:
+
+$$\begin{pmatrix}
+ D_1S_1 & D_2S_1 & D_3S_1 & \cdots & D_NS_1 \\
+ D_1S_2 & D_2S_2 & D_3S_2 & \cdots & D_NS_2 \\
+ \vdots  & \vdots& \vdots & \ddots & \vdots \\
+ D_1S_N & D_2S_N & D_3S_N & \cdots & D_NS_N    
+ \end{pmatrix}$$
+
 
 Softmax extends binary classification to 'n' levels useful for:  
 * Faces  
@@ -30,32 +63,6 @@ $$W = [ w_1 w_2...w_K] \text{ (a D x K matrix)}$$
 
 $$A_{N\times K} = X_{N\times D}W_{D\times K}\rightarrow Y_{N\times K}=softmax(A_{N\times K})$$
 
-SoftMax derivative:
-
-Softmax is calculated not from an scalar, but a vector x. $S(a): \mathbb{R}^N \rightarrow \mathbb{R}^N$
-
-$$S(a) = {\begin{pmatrix}
-a_1 \\
-a_2\\
-\vdots\\
-a_N
-\end{pmatrix}} \rightarrow {\begin{pmatrix}
-S_1 \\
-S_2\\
-\vdots\\
-S_N
-\end{pmatrix}}$$
-
-$$S_j = {e^{a_i} \over \sum_{k=1}^N e^{a_k}} \forall j \in 1..N$$
-
-$$\dfrac{\partial S_i}{\partial a_j}= \dfrac{\partial {e^{a_i} \over \sum_{k=1}^N e^{a_k}}}{\partial a_j} = D_jS_i $$
-
-$$\begin{pmatrix}
- D_1S_1 & D_2S_1 & D_3S_1 & \cdots & D_NS_1 \\
- D_1S_2 & D_2S_2 & D_3S_2 & \cdots & D_NS_2 \\
- \vdots  & \vdots& \vdots & \ddots & \vdots \\
- D_1S_N & D_2S_N & D_3S_N & \cdots & D_NS_N    
- \end{pmatrix}$$
 
 
 
