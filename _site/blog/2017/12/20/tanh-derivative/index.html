@@ -96,9 +96,39 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
       <div class="col-md-8 offset-md-1">
         <article lang="en">
           
-          <p>Derivative of tanh . It is used to gradient decent minimal of cost function.</p>
+          <p>Derivative of $tanh(x)$. It is used to gradient decent minimal of cost function.</p>
 
 <script type="math/tex; mode=display">tanh(x) =  {sinh(x) \over cosh(x)}</script>
+
+<p>Previous: Derivative of $sinh(x)$</p>
+
+<script type="math/tex; mode=display">sinh(x) = {e^x-e^{-x} \over 2}</script>
+
+<script type="math/tex; mode=display">\frac d{dx}sinh(x) = \frac d{dx}\bigl({e^x-e^{-x} \over 2}\bigl)</script>
+
+<script type="math/tex; mode=display">= \frac 1 2 \frac d{dx}\bigl(e^x\bigl)-\frac 1 2\frac d{dx}\bigl(e^{-x}\bigl)</script>
+
+<script type="math/tex; mode=display">= \frac 1 2 e^x + \frac 1 2 e^{-x}</script>
+
+<script type="math/tex; mode=display">= {e^x+e^{-x} \over 2}</script>
+
+<script type="math/tex; mode=display">= cosh(x)</script>
+
+<p>Previous: Derivative of $cosh(x)$</p>
+
+<script type="math/tex; mode=display">cosh(x) = {e^x+e^{-x} \over 2}</script>
+
+<script type="math/tex; mode=display">\frac d{dx}cosh(x) = \frac d{dx}\bigl({e^x+e^{-x} \over 2}\bigl)</script>
+
+<script type="math/tex; mode=display">= \frac 1 2 \frac d{dx}\bigl(e^x\bigl)+\frac 1 2\frac d{dx}\bigl(e^{-x}\bigl)</script>
+
+<script type="math/tex; mode=display">= \frac 1 2 e^x - \frac 1 2 e^{-x}</script>
+
+<script type="math/tex; mode=display">= {e^x-e^{-x} \over 2}</script>
+
+<script type="math/tex; mode=display">= sinh(x)</script>
+
+<p>Now we can derive $tanh(x)$…</p>
 
 <script type="math/tex; mode=display">\frac d{dx}tanh(x) = \frac d{dx}\bigl({sinh(x) \over cosh(x)}\bigl)</script>
 
