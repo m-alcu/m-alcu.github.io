@@ -1,10 +1,10 @@
 ---
 layout: post
-title: SoftMax (Neural network)
+title: Derivative of $softMax(x)$
 date: 2017-12-15 06:15
 comments: true
 external-url:
-categories: softmax
+categories: softmax algebra
 ---
 
 Softmax extends binary classification to 'n' levels useful for:  
@@ -22,9 +22,9 @@ Softmax for K Classes:
 
 $$a_1=w_1^\intercal x \text{   } a_2=w_2^\intercal x \text{   } ...\text{   } a_n=w_n^\intercal x$$
 
-$$P(Y=k|X) = {exp(a_k) \over Z}$$
+$$P(Y=k|X) = {e^{a_k} \over Z}$$
 
-$$Z = exp(a_1)+exp(a_2)+...+exp(a_K)$$
+$$Z = e^{a_1}+e^{a_2}+...+e^{a_K}$$
 
 $$W = [ w_1 w_2...w_K] \text{ (a D x K matrix)}$$
 
@@ -32,4 +32,19 @@ $$A_{N\times K} = X_{N\times D}W_{D\times K}\rightarrow Y_{N\times K}=softmax(A_
 
 SoftMax derivative:
 
-$$D_jS_i = \dfrac{\partial S_i}{\partial a_j}= \dfrac{\partial {e^{a_i} \over \sum_{k=1}^N e^{a_k}}}{\partial a_j}$$
+Softmax is calculated not from an scalar, but a vector x. $S(a): \mathbb{R}^N \rightarrow \mathbb{R}^N$
+
+$$S(a) = {\begin{pmatrix}
+a_1 \\
+a_2\\
+\vdots\\
+a_N
+\end{pmatrix}} \rightarrow {\begin{pmatrix}
+S_1 \\
+S_2\\
+\vdots\\
+S_N
+\end{pmatrix}}$$
+
+$$S_j = {e^{a_i} \over \sum_{k=1}^N e^{a_k}}$$
+
