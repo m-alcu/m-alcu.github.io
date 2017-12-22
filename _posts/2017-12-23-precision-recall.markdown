@@ -24,6 +24,7 @@ $$
 $$
 
 Of all patients where we predicted $y = 1$, what fraction actually has cancer?  
+
 $$
 \mathbf{Precision}= \frac{\color{blue}{True+}}{\text{# predicted positive}}=\frac{\color{blue}{True+}}{\color{blue}{True+}+\color{red}{False+}}=\frac{0}{0+0}= NaN
 $$
