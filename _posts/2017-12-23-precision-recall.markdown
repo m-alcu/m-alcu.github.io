@@ -37,3 +37,7 @@ $$
 
 Higher precision $\rightarrow$ lowe recall    
 Higher recall, $\rightarrow$ lower precision  
+
+Average score is called $F_1 \text{Score}$:  
+
+$$F_1 \text{Score}=2 \frac{Precision \cdot Recall}{Precision+Recall}$$
