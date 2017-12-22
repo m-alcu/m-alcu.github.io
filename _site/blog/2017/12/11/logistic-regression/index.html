@@ -218,13 +218,15 @@ all of them are linear, not curved.</li>
 
 <p>Performance: Correlated features should be removed for best performance. Number of features increase also the prediction fit results but above a certain limit overfitting occurs and performance is degradated.</p>
 
-<p>Cost funcion is the error on every iteration (cross entropy error).</p>
+<p><em>Demonstration of gradient descend formulas</em></p>
 
-<p><script type="math/tex">y \text{ is the training input (always 0 or 1) }</script>
-<script type="math/tex">m \text{ is the size of de dataset input x}</script>
-<script type="math/tex">w \text{ are the parameters of logistic regression}</script></p>
+<p>$y$ is the training input (always 0 or 1)<br />
+$m$ is the size of de dataset input x<br />
+$w$ are the parameters of logistic regression</p>
 
 <script type="math/tex; mode=display">h_w(x_i) = sigmoid(x_i^\intercal w)={1 \over 1-e^{-x_i^\intercal w}} \text{ }\text{ }\text{ }\forall i \in 1..m</script>
+
+<p>Cost funcion is the error on every iteration (cross entropy error).</p>
 
 <script type="math/tex; mode=display">J_i(w) = \mathrm{Cost}(h_w(x_i),y_i) \text{ }\text{ }\text{ }\forall i \in 1..m</script>
 

@@ -128,13 +128,15 @@ Note: [source](https://github.com/lazyprogrammer/machine_learning_examples)
 
 Performance: Correlated features should be removed for best performance. Number of features increase also the prediction fit results but above a certain limit overfitting occurs and performance is degradated.
 
-Cost funcion is the error on every iteration (cross entropy error).
+*Demonstration of gradient descend formulas*
 
-$$y \text{ is the training input (always 0 or 1) }$$
-$$m \text{ is the size of de dataset input x}$$
-$$w \text{ are the parameters of logistic regression}$$
+$y$ is the training input (always 0 or 1)  
+$m$ is the size of de dataset input x  
+$w$ are the parameters of logistic regression  
 
 $$h_w(x_i) = sigmoid(x_i^\intercal w)={1 \over 1-e^{-x_i^\intercal w}} \text{ }\text{ }\text{ }\forall i \in 1..m$$ 
+
+Cost funcion is the error on every iteration (cross entropy error).
 
 $$J_i(w) = \mathrm{Cost}(h_w(x_i),y_i) \text{ }\text{ }\text{ }\forall i \in 1..m$$
 
