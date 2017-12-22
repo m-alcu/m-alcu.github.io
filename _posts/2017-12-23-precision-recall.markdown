@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Precision Recall
+title: Precision and Recall
 date: 2017-12-21 9:01
 comments: true
 external-url:
@@ -34,3 +34,6 @@ Of all patients that actually have cancer, what fraction did we correcty detect 
 $$
 \mathbf{Recall}= \frac{\color{blue}{True+}}{\text{# actual positive}}=\frac{\color{blue}{True+}}{\color{blue}{True+}+\color{purple}{False-}}=\frac{0}{0+0.5}= 0
 $$
+
+Higher precision $\rightarrow$ lowe recall    
+Higher recall, $\rightarrow$ lower precision  
