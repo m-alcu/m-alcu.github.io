@@ -36,7 +36,7 @@ $$
 $$
 
 Higher precision $\rightarrow$ lowe recall    
-Higher recall, $\rightarrow$ lower precision  
+Higher recall $\rightarrow$ lower precision  
 
 Average score is called $F_1 \text{Score}$:  
 
