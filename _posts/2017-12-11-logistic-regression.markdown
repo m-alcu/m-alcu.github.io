@@ -148,6 +148,8 @@ $$\mathrm{Cost}(h_w(x),y) =
 
 $$\bbox[5px,border:2px solid black] {\begin{align*}& \mathrm{Cost}(h_w(x),y) = 0 \text{ if } h_w(x) = y \newline & \mathrm{Cost}(h_w(x),y) \rightarrow \infty \text{ if } y = 0 \; \mathrm{and} \; h_w(x) \rightarrow 1 \newline & \mathrm{Cost}(h_w(x),y) \rightarrow \infty \text{ if } y = 1 \; \mathrm{and} \; h_w(x) \rightarrow 0 \newline \end{align*}}$$
 
+![gaphic of cost](/assets/cost-logit.png)
+
 $$J(w) =-\frac{1}{m} \cdot \sum_{i=1}^m\Bigl( y_i log(h_i)+(1-y_i)log(1-h_i)\Bigl)$$  
 
 $$J(w) = \frac{1}{m} \cdot \left(-y_{M\times 1}^\intercal \log(h_w(x)_{M\times 1})-(1-y_{M\times 1})^\intercal \log(1-h_w(x)_{M\times 1})\right)$$  
