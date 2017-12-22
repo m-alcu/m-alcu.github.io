@@ -146,9 +146,9 @@ $$\mathrm{Cost}(h_w(x),y) =
 -\log(1-h_w(x)) & \text{if $y = 0.$}
 \end{cases}$$
 
-$$\bbox[5px,border:2px solid black] {\begin{align*}& \mathrm{Cost}(h_w(x),y) = 0 \text{ if } h_w(x) = y \newline & \mathrm{Cost}(h_w(x),y) \rightarrow \infty \text{ if } y = 0 \; \mathrm{and} \; h_w(x) \rightarrow 1 \newline & \mathrm{Cost}(h_w(x),y) \rightarrow \infty \text{ if } y = 1 \; \mathrm{and} \; h_w(x) \rightarrow 0 \newline \end{align*}}$$
+![graphic of cost](/assets/cost-logit.png)
 
-![gaphic of cost](/assets/cost-logit.png)
+$$\bbox[5px,border:2px solid black] {\begin{align*}& \mathrm{Cost}(h_w(x),y) = 0 \text{ if } h_w(x) = y \newline & \mathrm{Cost}(h_w(x),y) \rightarrow \infty \text{ if } y = 0 \; \mathrm{and} \; h_w(x) \rightarrow 1 \newline & \mathrm{Cost}(h_w(x),y) \rightarrow \infty \text{ if } y = 1 \; \mathrm{and} \; h_w(x) \rightarrow 0 \newline \end{align*}}$$  
 
 $$J(w) =-\frac{1}{m} \cdot \sum_{i=1}^m\Bigl( y_i log(h_i)+(1-y_i)log(1-h_i)\Bigl)$$  
 
