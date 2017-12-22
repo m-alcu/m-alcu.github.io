@@ -4,7 +4,7 @@ title: Derivative of softmax
 date: 2017-12-15 06:15
 comments: true
 external-url:
-categories: softmax algebra
+categories: softmax algebra derivatives
 ---
 
 Softmax is a vector function. It takes a vector a and produces a vector as output. $S(a): \mathbb{R}^N \rightarrow \mathbb{R}^N$
