@@ -193,6 +193,7 @@ all of them are linear, not curved.</li>
 <span class="n">logit_model</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">y2</span><span class="p">,</span><span class="n">X2</span><span class="p">)</span>
 <span class="n">result</span><span class="o">=</span><span class="n">logit_model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">conf_int</span><span class="p">())</span>
 
 <span class="n">w2</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">values</span>
 
@@ -257,13 +258,13 @@ $w$ are the parameters of logistic regression</p>
 
 <script type="math/tex; mode=display">\dfrac{\partial}{\partial w_j}J(w) =\dfrac{\partial}{\partial w_j} \Biggl(\dfrac{-1}{m} \sum_{i=1}^m \mathrm{Cost}(h_w(x_i),y_i)\Biggl)</script>
 
-<script type="math/tex; mode=display">=\dfrac{-log_ae}{m}\sum_{i=1}^m {y_i \dfrac{1}{\require{cancel}\cancel {h_w(x_i)}}\cancel {h_w(x_i)}(1-h_w(x_i))x_i+ (1-y_i) \dfrac{1}{1-h_w(x_i)}h_w(x_i)(h_w(x_i)-1)x_i}</script>
+<script type="math/tex; mode=display">=\dfrac{-log_ae}{m}\sum_{i=1}^m {y_i \dfrac{1}{\require{cancel}\cancel {h_w(x_i)}}\cancel {h_w(x_i)}(1-h_w(x_i))x_j+ (1-y_i) \dfrac{1}{1-h_w(x_i)}h_w(x_i)(h_w(x_i)-1)x_j}</script>
 
-<script type="math/tex; mode=display">=\dfrac{-log_ae}{m}\sum_{i=1}^m {y_i(1-h_w(x_i))x_i- (1-y_i) \dfrac{1}{\cancel{1-h_w(x_i)}}h_w(x_i)(\cancel{1-h_w(x_i)})x_i}</script>
+<script type="math/tex; mode=display">=\dfrac{-log_ae}{m}\sum_{i=1}^m {y_i(1-h_w(x_i))x_j- (1-y_i) \dfrac{1}{\cancel{1-h_w(x_i)}}h_w(x_i)(\cancel{1-h_w(x_i)})x_j}</script>
 
-<script type="math/tex; mode=display">=\dfrac{-log_ae}{m}\sum_{i=1}^m {y_i(1-h_w(x_i))x_i- (1-y_i)h_w(x_i)x_i}</script>
+<script type="math/tex; mode=display">=\dfrac{-log_ae}{m}\sum_{i=1}^m {y_i(1-h_w(x_i))x_j- (1-y_i)h_w(x_i)x_j}</script>
 
-<script type="math/tex; mode=display">=\dfrac{log_ae}{m}\sum_{i=1}^m {(h_w(x_i)-y_i)x_i}</script>
+<script type="math/tex; mode=display">=\dfrac{log_ae}{m}\sum_{i=1}^m {(h_w(x_i)-y_i)x_j}</script>
 
 <script type="math/tex; mode=display">% <![CDATA[
 \begin{align*} & Repeat \; \lbrace \newline & \; w_j := w_j - \frac{\alpha}{m} \sum_{i=1}^m (h_w(x^{(i)}) - y^{(i)}) x_j^{(i)} \newline & \rbrace \end{align*} %]]></script>

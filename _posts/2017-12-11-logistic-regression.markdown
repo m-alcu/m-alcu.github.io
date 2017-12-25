@@ -102,6 +102,7 @@ X2 = sm.add_constant(X2)
 logit_model=sm.Logit(y2,X2)
 result=logit_model.fit()
 print(result.summary())
+print(result.conf_int())
 
 w2 = result.params.values
 
@@ -164,13 +165,13 @@ $$f(x) = log_a(g(x)) \rightarrow f'(x) = \dfrac {g'(x)}{g(x)}log_ae$$
 
 $$\dfrac{\partial}{\partial w_j}J(w) =\dfrac{\partial}{\partial w_j} \Biggl(\dfrac{-1}{m} \sum_{i=1}^m \mathrm{Cost}(h_w(x_i),y_i)\Biggl)$$
 
-$$=\dfrac{-log_ae}{m}\sum_{i=1}^m {y_i \dfrac{1}{\require{cancel}\cancel {h_w(x_i)}}\cancel {h_w(x_i)}(1-h_w(x_i))x_i+ (1-y_i) \dfrac{1}{1-h_w(x_i)}h_w(x_i)(h_w(x_i)-1)x_i} $$
+$$=\dfrac{-log_ae}{m}\sum_{i=1}^m {y_i \dfrac{1}{\require{cancel}\cancel {h_w(x_i)}}\cancel {h_w(x_i)}(1-h_w(x_i))x_j+ (1-y_i) \dfrac{1}{1-h_w(x_i)}h_w(x_i)(h_w(x_i)-1)x_j} $$
 
-$$=\dfrac{-log_ae}{m}\sum_{i=1}^m {y_i(1-h_w(x_i))x_i- (1-y_i) \dfrac{1}{\cancel{1-h_w(x_i)}}h_w(x_i)(\cancel{1-h_w(x_i)})x_i} $$
+$$=\dfrac{-log_ae}{m}\sum_{i=1}^m {y_i(1-h_w(x_i))x_j- (1-y_i) \dfrac{1}{\cancel{1-h_w(x_i)}}h_w(x_i)(\cancel{1-h_w(x_i)})x_j} $$
 
-$$=\dfrac{-log_ae}{m}\sum_{i=1}^m {y_i(1-h_w(x_i))x_i- (1-y_i)h_w(x_i)x_i} $$
+$$=\dfrac{-log_ae}{m}\sum_{i=1}^m {y_i(1-h_w(x_i))x_j- (1-y_i)h_w(x_i)x_j} $$
 
-$$=\dfrac{log_ae}{m}\sum_{i=1}^m {(h_w(x_i)-y_i)x_i} $$
+$$=\dfrac{log_ae}{m}\sum_{i=1}^m {(h_w(x_i)-y_i)x_j} $$
 
 $$\begin{align*} & Repeat \; \lbrace \newline & \; w_j := w_j - \frac{\alpha}{m} \sum_{i=1}^m (h_w(x^{(i)}) - y^{(i)}) x_j^{(i)} \newline & \rbrace \end{align*}$$
 
