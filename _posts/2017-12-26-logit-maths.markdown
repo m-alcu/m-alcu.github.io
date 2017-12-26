@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Logit maths behind
+title: Gradiend descent
 date: 2017-12-26 22:30
 comments: true
 external-url:
-categories: logit demo
+categories: sgd gradient
 ---
 
 > Demonstration of gradient descend formulas
@@ -13,9 +13,11 @@ $y$ is the training input (always 0 or 1)
 $m$ is the size of de dataset input x  
 $w$ are the parameters of logistic regression  
 
-$$h_w(x_i) = sigmoid(x_i^\intercal w)={1 \over 1-e^{-x_i^\intercal w}} \text{ }\text{ }\text{ }\forall i \in 1..m$$ 
+First assumption is that can aproximate the likehood with the sigmoid function:
 
-Cost funcion is the error on every iteration (cross entropy error).
+$$\text{Likelihood} = h_w(x_i) = sigmoid(x_i^\intercal w)={1 \over 1-e^{-x_i^\intercal w}} \text{ }\text{ }\text{ }\forall i \in 1..m$$ 
+
+Cost funcion (is the likelihood negated) is the error on every iteration (cross entropy error) and depends on likelihood.
 
 $$J_i(w) = \mathrm{Cost}(h_w(x_i),y_i) \text{ }\text{ }\text{ }\forall i \in 1..m$$
 
@@ -30,6 +32,16 @@ $$\mathrm{Cost}(h_w(x),y) =
 ![graphic of cost](/assets/cost-logit.png)
 
 $$\bbox[5px,border:2px solid black] {\begin{align*}& \mathrm{Cost}(h_w(x),y) = 0 \text{ if } h_w(x) = y \newline & \mathrm{Cost}(h_w(x),y) \rightarrow \infty \text{ if } y = 0 \; \mathrm{and} \; h_w(x) \rightarrow 1 \newline & \mathrm{Cost}(h_w(x),y) \rightarrow \infty \text{ if } y = 1 \; \mathrm{and} \; h_w(x) \rightarrow 0 \newline \end{align*}}$$  
+
+This formula is derived from calculate the global likelihood of the $m$ inputs:
+
+$$P(Y=1|X)=\prod_{i=1}^N \prod_{k=1}^2 h_k(x^{(i)})^{y_k^{(i)}}$$
+
+$$Ln(P(Y=1|X))=\sum_{i=1}^N \sum_{k=1}^2 y_k^{(i)}ln(h_k(x^{(i)}))$$
+
+$$Ln(P(Y=1|X))=\sum_{i=1}^N  (y_1^{(i)}ln(h_1(x^{(i)}))+(1-y_1^{(i)})ln(1-h_1(x^{(i)})))$$
+
+Retuning to the cost ($J(w)$):  
 
 $$J(w) =-\frac{1}{m} \cdot \sum_{i=1}^m\Bigl( y_i log(h_i)+(1-y_i)log(1-h_i)\Bigl)$$  
 
