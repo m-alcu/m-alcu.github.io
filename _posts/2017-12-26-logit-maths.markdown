@@ -33,13 +33,15 @@ $$\mathrm{Cost}(h_w(x),y) =
 
 $$\bbox[5px,border:2px solid black] {\begin{align*}& \mathrm{Cost}(h_w(x),y) = 0 \text{ if } h_w(x) = y \newline & \mathrm{Cost}(h_w(x),y) \rightarrow \infty \text{ if } y = 0 \; \mathrm{and} \; h_w(x) \rightarrow 1 \newline & \mathrm{Cost}(h_w(x),y) \rightarrow \infty \text{ if } y = 1 \; \mathrm{and} \; h_w(x) \rightarrow 0 \newline \end{align*}}$$  
 
-This formula is derived from calculate the global likelihood of the $m$ inputs:
+This formula is derived from calculation of likelihood of the $m$ inputs as:
 
 $$P(Y=1|X)=\prod_{i=1}^N \prod_{k=1}^2 h_k(x^{(i)})^{y_k^{(i)}}$$
 
-$$Ln(P(Y=1|X))=\sum_{i=1}^N \sum_{k=1}^2 y_k^{(i)}ln(h_k(x^{(i)}))$$
+Note: we assume that the output has an output binary class k = 2, that have redundant and opposed probabilities.
 
-$$Ln(P(Y=1|X))=\sum_{i=1}^N  (y_1^{(i)}ln(h_1(x^{(i)}))+(1-y_1^{(i)})ln(1-h_1(x^{(i)})))$$
+$$ln(P(Y=1|X))=\sum_{i=1}^N \sum_{k=1}^2 y_k^{(i)}ln(h_k(x^{(i)}))$$
+
+$$ln(P(Y=1|X))=\sum_{i=1}^N  (y_1^{(i)}ln(h_1(x^{(i)}))+(1-y_1^{(i)})ln(1-h_1(x^{(i)})))$$
 
 Retuning to the cost ($J(w)$):  
 
