@@ -38,6 +38,8 @@ import statsmodels.api as sm
 from scipy import stats
 stats.chisqprob = lambda chisq, df: stats.chi2.sf(chisq, df)
 
+from sklearn.linear_model import LogisticRegression
+from sklearn.cross_validation import train_test_split
 
 def sigmoid(z):
     return 1/(1 + np.exp(-z))
@@ -60,13 +62,13 @@ D = 2
 X = np.random.randn(N,D)*2
 
 # center the first 50 points at (-2,-2)
-X[:50,:] = X[:50,:] - 2*np.ones((50,D))
+X[:N/2,:] = X[:N/2,:] - 2*np.ones((N/2,D))
 
 # center the last 50 points at (2, 2)
-X[50:,:] = X[50:,:] + 2*np.ones((50,D))
+X[N/2:,:] = X[N/2:,:] + 2*np.ones((N/2,D))
 
-# labels: first 50 are 0, last 50 are 1
-T = np.array([0]*50 + [1]*50)
+# labels: first N/2 are 0, last N/2 are 1
+T = np.array([0]*(N/2) + [1]*(N/2))
 
 # add a column of ones
 # ones = np.array([[1]*N]).T # old
@@ -93,7 +95,7 @@ for i in xrange(100):
     # recalculate Y
     Y = sigmoid(Xb.dot(w))
 
-print "Final w-hand-made:", w
+
 
 y2 = pd.Series(T.tolist())
 X2 = pd.concat([pd.Series(Xb[:,1].tolist()), pd.Series(Xb[:,2].tolist())], axis=1)
@@ -106,15 +108,25 @@ print(result.conf_int())
 
 w2 = result.params.values
 
-print "Final w-statsmodels:", w2
+X_train, X_test, y_train, y_test = train_test_split(X, T, test_size=0.3, random_state=0)
+logreg = LogisticRegression()
+logreg.set_params(solver='sag').fit(X_train, y_train)
+
+w3 = np.append(logreg.intercept_,logreg.coef_)
+
+print "Final gradient descend:", w
+print "Final statsmodels:", w2
+print "Final sklearn:", w3
 # plot the data and separating line
 plt.scatter(X[:,0], X[:,1], c=T, s=100, alpha=0.5)
 x_axis = np.linspace(-6, 6, 100)
 y_axis = -(w[0] + x_axis*w[1]) / w[2]
-line_up, = plt.plot(x_axis, y_axis,'r--', label='hand made')
+line_up, = plt.plot(x_axis, y_axis,'r--', label='gradient descent')
 y_axis = -(w2[0] + x_axis*w2[1]) / w2[2]
 line_down, = plt.plot(x_axis, y_axis,'g--', label='statsmodels')
-plt.legend(handles=[line_up, line_down])
+y_axis = -(w3[0] + x_axis*w3[1]) / w3[2]
+line_down2, = plt.plot(x_axis, y_axis,'b--', label='sklearn')
+plt.legend(handles=[line_up, line_down, line_down2])
 plt.xlabel('X(1)')
 plt.ylabel('X(2)')
 plt.show()
