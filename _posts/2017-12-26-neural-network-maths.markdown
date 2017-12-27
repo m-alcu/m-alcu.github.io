@@ -59,7 +59,7 @@ $$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n t^{(n)}_{k} \dfrac{\partial a_k}{\
 
 $$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n (t^{(n)}_{k'} -y^{(n)}_k)\dfrac{\partial a_k}{\partial V_{mk}} \tag{16}$$  
 
-From forward propagation formulas:
+From forward [propagation formulas](https://m-alcu.github.io/blog/2017/12/16/forward-propagation-deep-learning/):
 
 $$\dfrac{\partial a_k}{\partial V_{mk}}= z^{(n)}_m \tag{17}$$
 
