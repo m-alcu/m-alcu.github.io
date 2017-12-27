@@ -4,7 +4,7 @@ title: Logistic Regression (Logit)
 date: 2017-12-11 21:45
 comments: true
 external-url:
-categories: python sklearn LogisticRegression
+categories: python sklearn Logistic_Regression
 ---
 
 > Binary Logistic Regression is aplied to classification problems, in which there are a list of numerical (Real, integers) features that are related to the classification of one boolean output `Y[0,1]`. 
