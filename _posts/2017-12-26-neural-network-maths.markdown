@@ -37,37 +37,37 @@ $$y_k = \dfrac{e^{a_k}}{ \sum_{i=1}^Ke^{a_i}} \tag{6}$$
 
 back propagation gradient searching max of Ln (Likelihood):
 
-$$V_{mk} = V_{mk} + \alpha \dfrac{\partial Ln}{\partial V_{mk}}$$
+$$V_{mk} = V_{mk} + \alpha \dfrac{\partial Ln}{\partial V_{mk}} \tag{7}$$
 
-$$W_{dm} = W_{dm} + \alpha \dfrac{\partial Ln}{\partial W_{dm}}$$
+$$W_{dm} = W_{dm} + \alpha \dfrac{\partial Ln}{\partial W_{dm}} \tag{8}$$
 
-$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}\dfrac{\partial }{\partial V_{mk}} \Biggl(t^{(n)}_kln(y^{(n)}_k)\Biggl)$$
+$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}\dfrac{\partial }{\partial V_{mk}} \Biggl(t^{(n)}_kln(y^{(n)}_k)\Biggl) \tag{9}$$
 
-$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \dfrac{\partial Ln}{\partial y^{(n)}_k} \dfrac{\partial y^{(n)}_k}{\partial a_k}\dfrac{\partial a_k}{\partial V_{mk}}$$
+$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \dfrac{\partial Ln}{\partial y^{(n)}_k} \dfrac{\partial y^{(n)}_k}{\partial a_k}\dfrac{\partial a_k}{\partial V_{mk}} \tag{10}$$
 
-$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \dfrac {1}{y^{(n)}_{k'}}\dfrac{\partial y^{(n)}_k}{\partial a_k}\dfrac{\partial a_k}{\partial V_{mk}}$$
+$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \dfrac {1}{y^{(n)}_{k'}}\dfrac{\partial y^{(n)}_k}{\partial a_k}\dfrac{\partial a_k}{\partial V_{mk}} \tag{11}$$
 
 From derivative [softmax](https://m-alcu.github.io/blog/2017/12/15/derivative-softmax/):
 
-$$\require{cancel}\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \dfrac {1}{\cancel {y^{(n)}_{k'}}}\cancel {y^{(n)}_{k'}}(\delta_{kk'}-y^{(n)}_k)\dfrac{\partial a_k}{\partial V_{mk}}$$
+$$\dfrac{\partial y^{(n)}_{k'}}{\partial a_k}= y_{k'}(\delta_{kk'}-y_k) \tag{17}$$  
 
-$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \delta_{kk'}\dfrac{\partial a_k}{\partial V_{mk}}-\sum_n \sum_{k'}t^{(n)}_{k'} y^{(n)}_{k'}\dfrac{\partial a_k}{\partial V_{mk}}$$
+$$\require{cancel}\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \dfrac {1}{\cancel {y^{(n)}_{k'}}}\cancel {y^{(n)}_{k'}}(\delta_{kk'}-y^{(n)}_k)\dfrac{\partial a_k}{\partial V_{mk}} \tag{12}$$
 
-$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n t^{(n)}_{k} \dfrac{\partial a_k}{\partial V_{mk}}-\sum_n  y^{(n)}_{k'}\dfrac{\partial a_k}{\partial V_{mk}}$$
+$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \delta_{kk'}\dfrac{\partial a_k}{\partial V_{mk}}-\sum_n \sum_{k'}t^{(n)}_{k'} y^{(n)}_{k'}\dfrac{\partial a_k}{\partial V_{mk}} \tag{13}$$
 
-$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}(t^{(n)}_{k'} -y^{(n)}_k)\dfrac{\partial a_k}{\partial V_{mk}}$$
+$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n t^{(n)}_{k} \dfrac{\partial a_k}{\partial V_{mk}}-\sum_n  y^{(n)}_{k'}\dfrac{\partial a_k}{\partial V_{mk}} \tag{14}$$
 
-$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}(t^{(n)}_{k'} -y^{(n)}_k)z^{(n)}_m$$
+$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}(t^{(n)}_{k'} -y^{(n)}_k)\dfrac{\partial a_k}{\partial V_{mk}} \tag{15}$$
 
-$$\dfrac{\partial y^{(n)}_{k'}}{\partial a_k}= y_{k'}(\delta_{kk'}-y_k)$$
+$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}(t^{(n)}_{k'} -y^{(n)}_k)z^{(n)}_m \tag{16}$$
 
 From forward propagation formulas:
 
-$$\dfrac{\partial a_k}{\partial V_{mk}}= z^{(n)}_m$$
+$$\dfrac{\partial a_k}{\partial V_{mk}}= z^{(n)}_m \tag{18}$$
 
-$$\dfrac{\partial Ln}{\partial V_{mk}}= \sum_n ( t^{(n)}_k-y^{(n)}_k)z^{(n)}_m$$
+$$\dfrac{\partial Ln}{\partial V_{mk}}= \sum_n ( t^{(n)}_k-y^{(n)}_k)z^{(n)}_m \tag{19}$$
 
-$$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k}\dfrac{\partial }{\partial W_{dm}} \Biggl(t^{(n)}_kln(y^{(n)}_k)\Biggl)$$
+$$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k}\dfrac{\partial }{\partial W_{dm}} \Biggl(t^{(n)}_kln(y^{(n)}_k)\Biggl) \tag{20}$$
 
-$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_k \dfrac{\partial Ln}{\partial y^{(n)}_k} \dfrac{\partial y^{(n)}_k}{\partial a_k} \dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}}$$
+$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_k \dfrac{\partial Ln}{\partial y^{(n)}_k} \dfrac{\partial y^{(n)}_k}{\partial a_k} \dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{21}$$
 
