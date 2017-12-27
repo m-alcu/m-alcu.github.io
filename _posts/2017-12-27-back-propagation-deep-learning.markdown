@@ -87,8 +87,6 @@ $$\dfrac{\partial a_k}{\partial z^{(n)}_m}= \dfrac{\partial}{\partial z^{(n)}_m}
 
 $$\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} = z^{(n)}_m(1-z^{(n)}_m) x_d \tag{29}$$
 
-$$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k) z^{(n)}_m(1-z^{(n)}_m)\dfrac{\partial z^{(n)}_m}{\partial W_{dm}}\tag{30}$$
-
-$$\bbox[5px,border:2px solid black] {\begin{align*} \dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k) z^{(n)}_m(1-z^{(n)}_m)x^{(n)}_d \end{align*}} \tag{31}$$
+$$\bbox[5px,border:2px solid black] {\begin{align*} \dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k) V_{mk}z^{(n)}_m(1-z^{(n)}_m)x^{(n)}_d \end{align*}} \tag{30}$$
 
 
