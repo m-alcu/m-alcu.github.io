@@ -135,7 +135,7 @@ $V_{mk}$ Matrix of weights from hidden layer to output $y$</p>
 
 <script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \dfrac{\partial Ln}{\partial y^{(n)}_k} \dfrac{\partial y^{(n)}_k}{\partial a_k}\dfrac{\partial a_k}{\partial V_{mk}} \tag{10}</script>
 
-<script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \dfrac {1}{y^{(n)}_{k'}}\dfrac{\partial y^{(n)}_k}{\partial a_k}\dfrac{\partial a_k}{\partial V_{mk}} \tag{11}</script>
+<script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \dfrac {1}{y^{(n)}_{k'}}\dfrac{\partial y^{(n)}_{k'}}{\partial a_k}\dfrac{\partial a_k}{\partial V_{mk}} \tag{11}</script>
 
 <p>From derivative <a href="https://m-alcu.github.io/blog/2017/12/15/derivative-softmax/">softmax</a>:</p>
 
@@ -157,7 +157,17 @@ $V_{mk}$ Matrix of weights from hidden layer to output $y$</p>
 
 <script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k}\dfrac{\partial }{\partial W_{dm}} \Biggl(t^{(n)}_kln(y^{(n)}_k)\Biggl) \tag{19}</script>
 
-<script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_k \dfrac{\partial Ln}{\partial y^{(n)}_k} \dfrac{\partial y^{(n)}_k}{\partial a_k} \dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{20}</script>
+<script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'} \dfrac{\partial Ln}{\partial y^{(n)}_{k'}} \dfrac{\partial y^{(n)}_{k'}}{\partial a_k} \dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{20}</script>
+
+<script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'} \sum_{k} t^{(n)}_{k'} \dfrac{1}{y^{(n)}_{k'}} \dfrac{\partial y^{(n)}_{k'}}{\partial a_k} \dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{21}</script>
+
+<script type="math/tex; mode=display">\require{cancel}\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'} \sum_{k}t^{(n)}_k \dfrac{1}{\cancel {y^{(n)}_{k'}}} \cancel {y^{(n)}_{k'}} ( \delta_{kk'}- y^{(n)}_{k'})\dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{22}</script>
+
+<script type="math/tex; mode=display">\require{cancel}\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k)\dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{23}</script>
+
+<script type="math/tex; mode=display">\require{cancel}\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k) z^{(n)}_m(1-z^{(n)}_m)\dfrac{\partial z^{(n)}_m}{\partial W_{dm}}\tag{24}</script>
+
+<script type="math/tex; mode=display">\require{cancel}\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k) z^{(n)}_m(1-z^{(n)}_m)x^{(n)}_d \tag{25}</script>
 
 
         </article>
