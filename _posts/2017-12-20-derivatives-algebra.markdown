@@ -17,3 +17,11 @@ $$f(x) = {g(x) \over h(x)} \Rightarrow f'(x) = {g'(x)h(x) +g(x)h'(x) \over h(x)^
 
 $$f(x) = g(h(x)) \Rightarrow f'(x) = g'(h(x)) \cdot h'(x) \text{ "chain rule"}$$
 
+$$x = x(t) , y )y = y(t), f=f(x,y)$$
+
+$$\frac {df}{dt} =  \dfrac{\partial f}{\partial x} \dfrac{\partial x}{\partial t}+\dfrac{\partial f}{\partial y} \dfrac{\partial y}{\partial t}$$
+
+$$f=f(x_1(t), x_2(t), ...,x_K(t))$$
+
+$$\frac {df}{dt} = \sum^K_{k=1}  \dfrac{\partial f}{\partial x_k} \dfrac{\partial x_k}{\partial t} \text{ "partial derivatives rule"}$$
+
