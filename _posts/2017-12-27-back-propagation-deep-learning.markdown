@@ -25,7 +25,7 @@ $$P(Y=1|X)=\prod_{n=1}^N \prod_{k=1}^2 y_k^{t_k^{(n)}} \tag{1}$$
 
 $$Ln(P(Y=1|X))=\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)}) \tag{2}$$
 
-from forward propagation formulas:
+From [forward propagation formulas](https://m-alcu.github.io/blog/2017/12/16/forward-propagation-deep-learning/):
 
 $$z_m = tanh(\sum_{d=1}^D {W_{dm}X_d+b)} \tag{3}$$
 
@@ -59,7 +59,7 @@ $$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n t^{(n)}_{k} \dfrac{\partial a_k}{\
 
 $$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n (t^{(n)}_{k'} -y^{(n)}_k)\dfrac{\partial a_k}{\partial V_{mk}} \tag{16}$$  
 
-From forward [propagation formulas](https://m-alcu.github.io/blog/2017/12/16/forward-propagation-deep-learning/):
+From [forward propagation formulas](https://m-alcu.github.io/blog/2017/12/16/forward-propagation-deep-learning/):
 
 $$\dfrac{\partial a_k}{\partial V_{mk}}= z^{(n)}_m \tag{17}$$
 
@@ -68,6 +68,8 @@ $$\bbox[5px,border:2px solid black] {\begin{align*} \dfrac{\partial Ln}{\partial
 $$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'}\dfrac{\partial }{\partial W_{dm}} \Biggl(t^{(n)}_{k'} ln(y^{(n)}_{k'})\Biggl) \tag{19}$$
 
 $$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'} \dfrac{\partial Ln}{\partial y^{(n)}_{k'}} \dfrac{\partial y^{(n)}_{k'}}{\partial a_k} \dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{20}$$
+
+From [partial derivatives rule](https://m-alcu.github.io/blog/2017/12/20/derivatives-algebra/)  
 
 $$f=f(a_1(z_m), a_2(z_m), ...,a_K(z_m))\tag{21}$$
 

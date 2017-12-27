@@ -115,7 +115,7 @@ $V_{mk}$ Matrix of weights from hidden layer to output $y$</p>
 
 <script type="math/tex; mode=display">Ln(P(Y=1|X))=\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)}) \tag{2}</script>
 
-<p>from forward propagation formulas:</p>
+<p>From <a href="https://m-alcu.github.io/blog/2017/12/16/forward-propagation-deep-learning/">forward propagation formulas</a>:</p>
 
 <script type="math/tex; mode=display">z_m = tanh(\sum_{d=1}^D {W_{dm}X_d+b)} \tag{3}</script>
 
@@ -149,7 +149,7 @@ $V_{mk}$ Matrix of weights from hidden layer to output $y$</p>
 
 <script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n (t^{(n)}_{k'} -y^{(n)}_k)\dfrac{\partial a_k}{\partial V_{mk}} \tag{16}</script>
 
-<p>From forward <a href="https://m-alcu.github.io/blog/2017/12/16/forward-propagation-deep-learning/">propagation formulas</a>:</p>
+<p>From <a href="https://m-alcu.github.io/blog/2017/12/16/forward-propagation-deep-learning/">forward propagation formulas</a>:</p>
 
 <script type="math/tex; mode=display">\dfrac{\partial a_k}{\partial V_{mk}}= z^{(n)}_m \tag{17}</script>
 
@@ -158,6 +158,8 @@ $V_{mk}$ Matrix of weights from hidden layer to output $y$</p>
 <script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'}\dfrac{\partial }{\partial W_{dm}} \Biggl(t^{(n)}_{k'} ln(y^{(n)}_{k'})\Biggl) \tag{19}</script>
 
 <script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'} \dfrac{\partial Ln}{\partial y^{(n)}_{k'}} \dfrac{\partial y^{(n)}_{k'}}{\partial a_k} \dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{20}</script>
+
+<p>From <a href="https://m-alcu.github.io/blog/2017/12/20/derivatives-algebra/">partial derivatives rule</a></p>
 
 <script type="math/tex; mode=display">f=f(a_1(z_m), a_2(z_m), ...,a_K(z_m))\tag{21}</script>
 
