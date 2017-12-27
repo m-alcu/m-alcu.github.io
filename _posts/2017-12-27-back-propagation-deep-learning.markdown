@@ -78,10 +78,10 @@ $$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'} \sum_{k} t^{(n)}_{k'} \d
 
 $$\require{cancel}\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'} \sum_{k}t^{(n)}_k \dfrac{1}{\cancel {y^{(n)}_{k'}}} \cancel {y^{(n)}_{k'}} ( \delta_{kk'}- y^{(n)}_{k'})\dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{24}$$
 
-$$\require{cancel}\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k)\dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{25}$$
+$$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k)\dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{25}$$
 
-$$\require{cancel}\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k) z^{(n)}_m(1-z^{(n)}_m)\dfrac{\partial z^{(n)}_m}{\partial W_{dm}}\tag{26}$$
+$$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k) z^{(n)}_m(1-z^{(n)}_m)\dfrac{\partial z^{(n)}_m}{\partial W_{dm}}\tag{26}$$
 
-$$\require{cancel}\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k) z^{(n)}_m(1-z^{(n)}_m)x^{(n)}_d \tag{27}$$
+$$\bbox[5px,border:2px solid black] {\begin{align*} \dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k) z^{(n)}_m(1-z^{(n)}_m)x^{(n)}_d \end{align*}} \tag{27}$$
 
 
