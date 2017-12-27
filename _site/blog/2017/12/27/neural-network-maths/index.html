@@ -111,19 +111,19 @@ $V_{mk}$ Matrix of weights from hidden layer to output $y$</p>
 
 <p><img src="/assets/basic-network.png" alt="basic network example" /></p>
 
-<script type="math/tex; mode=display">P(Y=1|X)=\prod_{n=1}^N \prod_{k=1}^2 y_k^{t_k^{(n)}}</script>
+<script type="math/tex; mode=display">P(Y=1|X)=\prod_{n=1}^N \prod_{k=1}^2 y_k^{t_k^{(n)}} \tag{1}</script>
 
-<script type="math/tex; mode=display">Ln(P(Y=1|X))=\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)})</script>
+<script type="math/tex; mode=display">Ln(P(Y=1|X))=\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)}) \tag{2}</script>
 
 <p>from forward propagation formulas:</p>
 
-<script type="math/tex; mode=display">z_m = tanh(\sum_{d=1}^D {W_{dm}X_d+b)}</script>
+<script type="math/tex; mode=display">z_m = tanh(\sum_{d=1}^D {W_{dm}X_d+b)} \tag{3}</script>
 
-<script type="math/tex; mode=display">a_k = \sum_{m=1}^MV_{mk}z_m+c</script>
+<script type="math/tex; mode=display">a_k = \sum_{m=1}^MV_{mk}z_m+c \tag{4}</script>
 
-<script type="math/tex; mode=display">y = softmax(a)</script>
+<script type="math/tex; mode=display">y = softmax(a) \tag{5}</script>
 
-<script type="math/tex; mode=display">y_k = \dfrac{e^{a_k}}{ \sum_{i=1}^Ke^{a_i}}</script>
+<script type="math/tex; mode=display">y_k = \dfrac{e^{a_k}}{ \sum_{i=1}^Ke^{a_i}} \tag{6}</script>
 
 <p>back propagation gradient searching max of Ln (Likelihood):</p>
 

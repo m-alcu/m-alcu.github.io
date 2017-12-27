@@ -21,19 +21,19 @@ $V_{mk}$ Matrix of weights from hidden layer to output $y$
 
 ![basic network example](/assets/basic-network.png)
 
-$$P(Y=1|X)=\prod_{n=1}^N \prod_{k=1}^2 y_k^{t_k^{(n)}}$$
+$$P(Y=1|X)=\prod_{n=1}^N \prod_{k=1}^2 y_k^{t_k^{(n)}} \tag{1}$$
 
-$$Ln(P(Y=1|X))=\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)})$$
+$$Ln(P(Y=1|X))=\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)}) \tag{2}$$
 
 from forward propagation formulas:
 
-$$z_m = tanh(\sum_{d=1}^D {W_{dm}X_d+b)}$$
+$$z_m = tanh(\sum_{d=1}^D {W_{dm}X_d+b)} \tag{3}$$
 
-$$a_k = \sum_{m=1}^MV_{mk}z_m+c$$
+$$a_k = \sum_{m=1}^MV_{mk}z_m+c \tag{4}$$
 
-$$y = softmax(a)$$  
+$$y = softmax(a) \tag{5}$$  
 
-$$y_k = \dfrac{e^{a_k}}{ \sum_{i=1}^Ke^{a_i}}$$  
+$$y_k = \dfrac{e^{a_k}}{ \sum_{i=1}^Ke^{a_i}} \tag{6}$$  
 
 back propagation gradient searching max of Ln (Likelihood):
 
