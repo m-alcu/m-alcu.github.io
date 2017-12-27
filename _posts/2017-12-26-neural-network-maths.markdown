@@ -31,7 +31,9 @@ $$z_m = tanh(\sum_{d=1}^D {W_{dm}X_d+b)}$$
 
 $$a_k = \sum_{m=1}^MV_{mk}z_m+c$$
 
-$$y = softmax(a)$$ $$y_k = \dfrac{e^{a_k}}{ \sum_{i=1}^Ke^{a_i}}$$
+$$y = softmax(a)$$  
+
+$$y_k = \dfrac{e^{a_k}}{ \sum_{i=1}^Ke^{a_i}}$$  
 
 back propagation gradient searching max of Ln (Likelihood):
 
@@ -40,6 +42,8 @@ $$V_{mk} = V_{mk} + \alpha \dfrac{\partial Ln}{\partial V_{mk}}$$
 $$W_{dm} = W_{dm} + \alpha \dfrac{\partial Ln}{\partial W_{dm}}$$
 
 $$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}\dfrac{\partial }{\partial V_{mk}} \Biggl(t^{(n)}_kln(y^{(n)}_k)\Biggl)$$
+
+$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \dfrac{\partial Ln}{\partial y^{(n)}_k} \dfrac{\partial y^{(n)}_k}{\partial a_k}\dfrac{\partial a_k}{\partial V_{mk}}$$
 
 $$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \dfrac {1}{y^{(n)}_{k'}}\dfrac{\partial y^{(n)}_k}{\partial a_k}\dfrac{\partial a_k}{\partial V_{mk}}$$
 

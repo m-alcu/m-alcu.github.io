@@ -121,7 +121,9 @@ $V_{mk}$ Matrix of weights from hidden layer to output $y$</p>
 
 <script type="math/tex; mode=display">a_k = \sum_{m=1}^MV_{mk}z_m+c</script>
 
-<p><script type="math/tex">y = softmax(a)</script> <script type="math/tex">y_k = \dfrac{e^{a_k}}{ \sum_{i=1}^Ke^{a_i}}</script></p>
+<script type="math/tex; mode=display">y = softmax(a)</script>
+
+<script type="math/tex; mode=display">y_k = \dfrac{e^{a_k}}{ \sum_{i=1}^Ke^{a_i}}</script>
 
 <p>back propagation gradient searching max of Ln (Likelihood):</p>
 
@@ -130,6 +132,8 @@ $V_{mk}$ Matrix of weights from hidden layer to output $y$</p>
 <script type="math/tex; mode=display">W_{dm} = W_{dm} + \alpha \dfrac{\partial Ln}{\partial W_{dm}}</script>
 
 <script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}\dfrac{\partial }{\partial V_{mk}} \Biggl(t^{(n)}_kln(y^{(n)}_k)\Biggl)</script>
+
+<script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \dfrac{\partial Ln}{\partial y^{(n)}_k} \dfrac{\partial y^{(n)}_k}{\partial a_k}\dfrac{\partial a_k}{\partial V_{mk}}</script>
 
 <script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \dfrac {1}{y^{(n)}_{k'}}\dfrac{\partial y^{(n)}_k}{\partial a_k}\dfrac{\partial a_k}{\partial V_{mk}}</script>
 
