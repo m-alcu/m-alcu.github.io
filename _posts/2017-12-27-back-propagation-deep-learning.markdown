@@ -83,12 +83,12 @@ From [derivative of tanh](https://m-alcu.github.io/blog/2017/12/20/tanh-derivati
 
 $$z_m = tanh(\sum^D_{d=1} W_{dm}x_d) \tag{27}$$  
 
-$$\dfrac{\partial a_k}{\partial z^{(n)}_m}= z^{(n)}_m(1-z^{(n)}_m) \tag{26}$$  
+$$\dfrac{\partial a_k}{\partial z^{(n)}_m}= \dfrac{\partial}{\partial z^{(n)}_m}(\sum^M_{m'=1} V_{m'k}z_{m'}) = V_{mk} \tag{28}$$
 
-$$\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} = x_d$$
+$$\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} = z^{(n)}_m(1-z^{(n)}_m) x_d \tag{29}$$
 
-$$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k) z^{(n)}_m(1-z^{(n)}_m)\dfrac{\partial z^{(n)}_m}{\partial W_{dm}}\tag{28}$$
+$$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k) z^{(n)}_m(1-z^{(n)}_m)\dfrac{\partial z^{(n)}_m}{\partial W_{dm}}\tag{30}$$
 
-$$\bbox[5px,border:2px solid black] {\begin{align*} \dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k) z^{(n)}_m(1-z^{(n)}_m)x^{(n)}_d \end{align*}} \tag{29}$$
+$$\bbox[5px,border:2px solid black] {\begin{align*} \dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k) z^{(n)}_m(1-z^{(n)}_m)x^{(n)}_d \end{align*}} \tag{31}$$
 
 
