@@ -169,9 +169,9 @@ $V_{mk}$ Matrix of weights from hidden layer to output $y$</p>
 
 <script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k)\dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{25}</script>
 
-<p>From <a href="https://m-alcu.github.io/blog/2017/12/20/tanh-derivative/">derivative of tanh</a></p>
-
 <script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k) z^{(n)}_m(1-z^{(n)}_m)\dfrac{\partial z^{(n)}_m}{\partial W_{dm}}\tag{26}</script>
+
+<p>From <a href="https://m-alcu.github.io/blog/2017/12/20/tanh-derivative/">derivative of tanh</a></p>
 
 <script type="math/tex; mode=display">z_m = tanh(\sum^D_{d=1} W_{dm}x_d) \tag{27}</script>
 

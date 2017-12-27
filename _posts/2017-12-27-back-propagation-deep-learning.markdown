@@ -79,9 +79,9 @@ $$\require{cancel}\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'} \sum_{k}
 
 $$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k)\dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{25}$$
 
-From [derivative of tanh](https://m-alcu.github.io/blog/2017/12/20/tanh-derivative/)
-
 $$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k) z^{(n)}_m(1-z^{(n)}_m)\dfrac{\partial z^{(n)}_m}{\partial W_{dm}}\tag{26}$$
+
+From [derivative of tanh](https://m-alcu.github.io/blog/2017/12/20/tanh-derivative/)  
 
 $$z_m = tanh(\sum^D_{d=1} W_{dm}x_d) \tag{27}$$
 
