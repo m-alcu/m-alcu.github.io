@@ -141,6 +141,8 @@ Note: [source](https://github.com/lazyprogrammer/machine_learning_examples)
 
 Conclusions: All methods guide us to the same resuls. The manual way through the Gradient descent, the Statsmodels through the Newton-Raphson algorithm (that has some probles with Perfect separation examples) and the Sklear with a similar gradient descent.
 
+[Here](http://logisticregressionanalysis.com/1577-what-are-z-values-in-logistic-regression/) a good explanation for z and p-values. Good values for z are < 0.05. 
+
 
 
 
