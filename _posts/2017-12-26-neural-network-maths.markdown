@@ -4,18 +4,18 @@ title: Neural network back propagation
 date: 2017-12-27 00:12
 comments: true
 external-url:
-categories: sgd forward_propagation back_propagation
+categories: neural_network back_propagation
 ---
 
 > Demonstration of forward and back propagation on neural networks
 
 $D$ number of features from x  
-$M$ number of hidden layer of network
+$M$ number of hidden layer of network  
 $K$ Number of output classification classes   
-$X$ input for first hidden layer
+$X$ input for first hidden layer  
 $Z$ input for last layer  
-$Y$ output of last layer
-$T$ trained classification output [0,1]
+$Y$ output of last layer  
+$T$ trained classification output [0,1]  
 $W_{dm}$ Matrix of weights from input to hidden layer $z$  
 $V_{mk}$ Matrix of weights from hidden layer to output $y$  
 

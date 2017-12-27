@@ -4,7 +4,7 @@ title: Neural network forward propagation
 date: 2017-12-16 08:24
 comments: true
 external-url:
-categories: forward_propagation
+categories: neural_network forward_propagation
 ---
 
 Neural network foward propagation formulas:
@@ -40,10 +40,10 @@ $$b\text {: bias of last hidden layer}$$
 $$V\text {: weights of output neuron}$$  
 $$c\text {: bias for output neuron}$$  
 
-$$y_1 = \sigma(V^\intercal tanh(W_{D\times M}^\intercal x_1+bm_{M\times 1})+c)$$  
-$$y_2 = \sigma(V^\intercal tanh(W_{D\times M}^\intercal x_2+bm_{M\times 1})+c)$$  
+$$y_1 = \sigma(V^\intercal tanh(W_{D\times M}^\intercal x_1+b_{M\times 1})+c)$$  
+$$y_2 = \sigma(V^\intercal tanh(W_{D\times M}^\intercal x_2+b_{M\times 1})+c)$$  
 $$...$$  
-$$y_n = \sigma(V^\intercal tanh(W_{D\times M}^\intercal x_n+bm_{M\times 1})+c)$$  
+$$y_n = \sigma(V^\intercal tanh(W_{D\times M}^\intercal x_n+b_{M\times 1})+c)$$  
 
 $$\begin{pmatrix}
  y_1  \\
