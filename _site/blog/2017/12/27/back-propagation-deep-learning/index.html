@@ -159,9 +159,9 @@ $V_{mk}$ Matrix of weights from hidden layer to output $y$</p>
 
 <script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'} \dfrac{\partial Ln}{\partial y^{(n)}_{k'}} \dfrac{\partial y^{(n)}_{k'}}{\partial a_k} \dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{20}</script>
 
-<script type="math/tex; mode=display">f=f(x_1(t), x_2(t), ...,x_K(t))\tag{21}</script>
+<script type="math/tex; mode=display">f=f(a_1(z_m), a_2(z_m), ...,a_K(z_m))\tag{21}</script>
 
-<script type="math/tex; mode=display">\frac {df}{dt} = \sum^K_{k=1}  \dfrac{\partial f}{\partial x_k} \dfrac{\partial x_k}{\partial t} \tag{22}</script>
+<script type="math/tex; mode=display">\frac {df}{dz_m} = \sum^K_{k=1}  \dfrac{\partial f}{\partial a_k} \dfrac{\partial a_k}{\partial z_m} \tag{22}</script>
 
 <script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'} \sum_{k} t^{(n)}_{k'} \dfrac{1}{y^{(n)}_{k'}} \dfrac{\partial y^{(n)}_{k'}}{\partial a_k} \dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{23}</script>
 

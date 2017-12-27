@@ -69,9 +69,9 @@ $$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'}\dfrac{\partial }{\partia
 
 $$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'} \dfrac{\partial Ln}{\partial y^{(n)}_{k'}} \dfrac{\partial y^{(n)}_{k'}}{\partial a_k} \dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{20}$$
 
-$$f=f(x_1(t), x_2(t), ...,x_K(t))\tag{21}$$
+$$f=f(a_1(z_m), a_2(z_m), ...,a_K(z_m))\tag{21}$$
 
-$$\frac {df}{dt} = \sum^K_{k=1}  \dfrac{\partial f}{\partial x_k} \dfrac{\partial x_k}{\partial t} \tag{22}$$
+$$\frac {df}{dz_m} = \sum^K_{k=1}  \dfrac{\partial f}{\partial a_k} \dfrac{\partial a_k}{\partial z_m} \tag{22}$$
 
 $$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'} \sum_{k} t^{(n)}_{k'} \dfrac{1}{y^{(n)}_{k'}} \dfrac{\partial y^{(n)}_{k'}}{\partial a_k} \dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{23}$$
 
