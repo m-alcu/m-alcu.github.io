@@ -43,11 +43,17 @@ $$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}\dfrac{\partial }{\partia
 
 $$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \dfrac {1}{y^{(n)}_{k'}}\dfrac{\partial y^{(n)}_k}{\partial a_k}\dfrac{\partial a_k}{\partial V_{mk}}$$
 
-From derivative softmax:
+From derivative [softmax](https://m-alcu.github.io/blog/2017/12/15/derivative-softmax/):
 
 $$\dfrac{\partial y^{(n)}_{k'}}{\partial a_k}= y_{k'}(\delta_{kk'}-y_k)$$
 
 From forward propagation formulas:
 
 $$\dfrac{\partial a_k}{\partial V_{mk}}= z^{(n)}_m$$
+
+$$\dfrac{\partial Ln}{\partial V_{mk}}= \sum_n ( t^{(n)}_k-y^{(n)}_k)z^{(n)}_m$$
+
+$$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k}\dfrac{\partial }{\partial W_{dm}} \Biggl(t^{(n)}_kln(y^{(n)}_k)\Biggl)$$
+
+$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_k \dfrac{\partial Ln}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}}$$
 

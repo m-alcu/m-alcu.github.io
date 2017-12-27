@@ -133,13 +133,19 @@ $V_{mk}$ Matrix of weights from hidden layer to output $y$</p>
 
 <script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \dfrac {1}{y^{(n)}_{k'}}\dfrac{\partial y^{(n)}_k}{\partial a_k}\dfrac{\partial a_k}{\partial V_{mk}}</script>
 
-<p>From derivative softmax:</p>
+<p>From derivative <a href="https://m-alcu.github.io/blog/2017/12/15/derivative-softmax/">softmax</a>:</p>
 
 <script type="math/tex; mode=display">\dfrac{\partial y^{(n)}_{k'}}{\partial a_k}= y_{k'}(\delta_{kk'}-y_k)</script>
 
 <p>From forward propagation formulas:</p>
 
 <script type="math/tex; mode=display">\dfrac{\partial a_k}{\partial V_{mk}}= z^{(n)}_m</script>
+
+<script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial V_{mk}}= \sum_n ( t^{(n)}_k-y^{(n)}_k)z^{(n)}_m</script>
+
+<script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k}\dfrac{\partial }{\partial W_{dm}} \Biggl(t^{(n)}_kln(y^{(n)}_k)\Biggl)</script>
+
+<script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_k \dfrac{\partial Ln}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}}</script>
 
 
         </article>
