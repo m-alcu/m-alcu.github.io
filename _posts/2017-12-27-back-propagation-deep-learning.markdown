@@ -65,7 +65,7 @@ $$\dfrac{\partial a_k}{\partial V_{mk}}= z^{(n)}_m \tag{17}$$
 
 $$\bbox[5px,border:2px solid black] {\begin{align*} \dfrac{\partial Ln}{\partial V_{mk}}= \sum_n ( t^{(n)}_k-y^{(n)}_k)z^{(n)}_m \end{align*}} \tag{18}$$
 
-$$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'}\dfrac{\partial }{\partial W_{dm}} \Biggl(t^{(n)}_kln(y^{(n)}_{k'})\Biggl) \tag{19}$$
+$$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'}\dfrac{\partial }{\partial W_{dm}} \Biggl(t^{(n)}_{k'} ln(y^{(n)}_{k'})\Biggl) \tag{19}$$
 
 $$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'} \dfrac{\partial Ln}{\partial y^{(n)}_{k'}} \dfrac{\partial y^{(n)}_{k'}}{\partial a_k} \dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{20}$$
 
