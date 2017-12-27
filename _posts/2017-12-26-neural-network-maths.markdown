@@ -49,6 +49,8 @@ $$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \dfrac {1}{y
 
 From derivative [softmax](https://m-alcu.github.io/blog/2017/12/15/derivative-softmax/):
 
+$$\require{cancel}\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \dfrac {1}{\cancel {y^{(n)}_{k'}}}\cancel {y^{(n)}_{k'}}(\delta_{kk'}-y^{(n)}_k)\dfrac{\partial a_k}{\partial V_{mk}}$$
+
 $$\dfrac{\partial y^{(n)}_{k'}}{\partial a_k}= y_{k'}(\delta_{kk'}-y_k)$$
 
 From forward propagation formulas:

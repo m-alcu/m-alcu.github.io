@@ -139,6 +139,8 @@ $V_{mk}$ Matrix of weights from hidden layer to output $y$</p>
 
 <p>From derivative <a href="https://m-alcu.github.io/blog/2017/12/15/derivative-softmax/">softmax</a>:</p>
 
+<script type="math/tex; mode=display">\require{cancel}\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_{k'}t^{(n)}_{k'} \dfrac {1}{\cancel {y^{(n)}_{k'}}}\cancel {y^{(n)}_{k'}}(\delta_{kk'}-y^{(n)}_k)\dfrac{\partial a_k}{\partial V_{mk}}</script>
+
 <script type="math/tex; mode=display">\dfrac{\partial y^{(n)}_{k'}}{\partial a_k}= y_{k'}(\delta_{kk'}-y_k)</script>
 
 <p>From forward propagation formulas:</p>
