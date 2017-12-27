@@ -59,5 +59,5 @@ $$\dfrac{\partial Ln}{\partial V_{mk}}= \sum_n ( t^{(n)}_k-y^{(n)}_k)z^{(n)}_m$$
 
 $$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k}\dfrac{\partial }{\partial W_{dm}} \Biggl(t^{(n)}_kln(y^{(n)}_k)\Biggl)$$
 
-$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_k \dfrac{\partial Ln}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}}$$
+$$\dfrac{\partial Ln}{\partial V_{mk}}=\sum_n \sum_k \dfrac{\partial Ln}{\partial y^{(n)}_k} \dfrac{\partial y^{(n)}_k}{\partial a_k} \dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}}$$
 
