@@ -21,7 +21,7 @@ $V_{mk}$ Matrix of weights from hidden layer to output $y$
 
 ![basic network example](/assets/basic-network.png)
 
-$$P(Y=1|X)=\prod_{n=1}^N \prod_{k=1}^2 y_k^{t_k^{(n)}} \tag{1}$$
+$$P(Y=1|X)=\prod_{n=1}^N \prod_{k=1}^K y_k^{t_k^{(n)}} \tag{1}$$
 
 $$Ln(P(Y=1|X))=\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)}) \tag{2}$$
 
@@ -81,9 +81,9 @@ $$\require{cancel}\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'} \sum_{k}
 
 $$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k)\dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{25}$$
 
-From [derivative of tanh](https://m-alcu.github.io/blog/2017/12/20/tanh-derivative/)  
+From [derivative of sigmoid](https://m-alcu.github.io/blog/2017/12/20/sigmoid-derivative/)  
 
-$$z_m = tanh(\sum^D_{d=1} W_{dm}x_d) \tag{27}$$  
+$$z_m = sigmoid(\sum^D_{d=1} W_{dm}x_d) \tag{27}$$  
 
 $$\dfrac{\partial a_k}{\partial z^{(n)}_m}= \dfrac{\partial}{\partial z^{(n)}_m}(\sum^M_{m'=1} V_{m'k}z_{m'}) = V_{mk} \tag{28}$$
 
