@@ -9,15 +9,20 @@ categories: neural_network back_propagation
 
 > Demonstration of forward and back propagation on neural networks
 
+$x$ input for first hidden layer    
 $D$ number of features from x  
+$z$ input for hidden layer  
 $M$ number of hidden layer of network  
 $K$ Number of output classification classes   
-$X$ input for first hidden layer  
-$Z$ input for last layer  
-$Y$ output of last layer  
-$T$ trained classification output [0,1]  
-$W_{dm}$ Matrix of weights from input to hidden layer $z$  
+$a$ input of last layer
+$y$ output of last layer  
+$t$ trained classification output [0,1]  
+$W_{dm}$ Matrix of weights from input to hidden layer $z$
+$b$ Bias of input hidden layer $z$  
 $V_{mk}$ Matrix of weights from hidden layer to output $y$  
+$c$ Bias of input hidden layer $z$ 
+$f(x)$ is the function of the middle neuron [$sigmoid(x)$, $tanh(x)$, $reLU(x)$]
+$g(x)$ is the function of the last neuron [$sigmoid(x)$, $softmax(x)$, $linear(x)$]
 
 ![basic network example](/assets/basic-network.png)
 
