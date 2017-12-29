@@ -157,11 +157,11 @@ $V_{mk}$ Matrix of weights from hidden layer to output $y$</p>
 
 <script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'}\dfrac{\partial }{\partial W_{dm}} \Biggl(t^{(n)}_{k'} ln(y^{(n)}_{k'})\Biggl) \tag{19}</script>
 
-<script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'} \dfrac{\partial Ln}{\partial y^{(n)}_{k'}} \dfrac{\partial y^{(n)}_{k'}}{\partial a_k} \dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{20}</script>
-
 <p>From <a href="https://m-alcu.github.io/blog/2017/12/20/derivatives-algebra/">partial derivatives rule</a></p>
 
-<script type="math/tex; mode=display">f=f(a_1(z_m), a_2(z_m), ...,a_K(z_m))\tag{21}</script>
+<script type="math/tex; mode=display">f=f(a_1(z_m), a_2(z_m), ...,a_K(z_m))\tag{20}</script>
+
+<script type="math/tex; mode=display">\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'} \dfrac{\partial Ln}{\partial y^{(n)}_{k'}} \dfrac{\partial y^{(n)}_{k'}}{\partial a_k} \dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{21}</script>
 
 <script type="math/tex; mode=display">\frac {df}{dz_m} = \sum^K_{k=1}  \dfrac{\partial f}{\partial a_k} \dfrac{\partial a_k}{\partial z_m} \tag{22}</script>
 

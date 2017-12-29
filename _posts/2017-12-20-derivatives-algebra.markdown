@@ -25,3 +25,5 @@ $$f=f(x_1(t), x_2(t), ...,x_K(t))$$
 
 $$\frac {df}{dt} = \sum^K_{k=1}  \dfrac{\partial f}{\partial x_k} \dfrac{\partial x_k}{\partial t} \text{ "partial derivatives rule"}$$
 
+$$f = |x| \rightarrow f' = \dfrac {x}{|x|} = sign(x)$$
+

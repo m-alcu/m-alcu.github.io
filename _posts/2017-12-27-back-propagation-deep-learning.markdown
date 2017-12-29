@@ -67,11 +67,12 @@ $$\bbox[5px,border:2px solid black] {\begin{align*} \dfrac{\partial Ln}{\partial
 
 $$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'}\dfrac{\partial }{\partial W_{dm}} \Biggl(t^{(n)}_{k'} ln(y^{(n)}_{k'})\Biggl) \tag{19}$$
 
-$$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'} \dfrac{\partial Ln}{\partial y^{(n)}_{k'}} \dfrac{\partial y^{(n)}_{k'}}{\partial a_k} \dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{20}$$
-
 From [partial derivatives rule](https://m-alcu.github.io/blog/2017/12/20/derivatives-algebra/)  
 
-$$f=f(a_1(z_m), a_2(z_m), ...,a_K(z_m))\tag{21}$$
+$$f=f(a_1(z_m), a_2(z_m), ...,a_K(z_m))\tag{20}$$
+
+$$\dfrac{\partial Ln}{\partial W_{dm}}=\sum_n \sum_{k'} \dfrac{\partial Ln}{\partial y^{(n)}_{k'}} \dfrac{\partial y^{(n)}_{k'}}{\partial a_k} \dfrac{\partial a_k}{\partial z^{(n)}_m}\dfrac{\partial z^{(n)}_m}{\partial W_{dm}} \tag{21}$$
+
 
 $$\frac {df}{dz_m} = \sum^K_{k=1}  \dfrac{\partial f}{\partial a_k} \dfrac{\partial a_k}{\partial z_m} \tag{22}$$
 
