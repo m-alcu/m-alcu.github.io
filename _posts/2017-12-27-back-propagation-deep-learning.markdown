@@ -7,7 +7,7 @@ external-url:
 categories: neural_network back_propagation
 ---
 
-> Demonstration of forward and back propagation on neural networks
+> Demonstration of back propagation on neural networks
 
 $x$ input for first hidden layer    
 $D$ number of features from x  
@@ -26,9 +26,9 @@ $g(x)$ is the function of the last neuron [$sigmoid(x)$, $softmax(x)$, $linear(x
 
 ![basic network example](/assets/basic-network.png)
 
-$$P(Y=1|X)=\prod_{n=1}^N \prod_{k=1}^K y_k^{t_k^{(n)}} \tag{1}$$
+$$P(Y=T|X)=\prod_{n=1}^N \prod_{k=1}^K y_k^{t_k^{(n)}} \tag{1}$$
 
-$$Ln(P(Y=1|X))=\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)}) \tag{2}$$
+$$Ln(P(Y=T|X))=\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)}) \tag{2}$$
 
 From [forward propagation formulas](https://m-alcu.github.io/blog/2017/12/16/forward-propagation-deep-learning/):
 
