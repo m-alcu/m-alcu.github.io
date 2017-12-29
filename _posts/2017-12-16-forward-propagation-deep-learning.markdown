@@ -89,7 +89,7 @@ $$\begin{pmatrix}
  y_n \\   
  \end{pmatrix} = \sigma(tanh(X_{N\times D}W_{D\times M}+b_{M\times 1})V+c)$$
 
- $$X_{N\times D}W_{D\times M}+bm_{M\times 1} = X_{N\times D}W_{D\times M} +\begin{pmatrix}
+ $$X_{N\times D}W_{D\times M}+b_{M\times 1} = X_{N\times D}W_{D\times M} +\begin{pmatrix}
  - & b^\intercal & - \\
  - & b^\intercal & - \\
 - &  \vdots  & - \\
@@ -103,5 +103,5 @@ $$\begin{pmatrix}
  y_2 \\
  \vdots  \\
  y_n \\   
- \end{pmatrix} = softmax(tanh(X_{N\times D}W_{D\times M}+bm_{M\times 1})V+c)$$
+ \end{pmatrix} = softmax(tanh(X_{N\times D}W_{D\times M}+b_{M\times 1})V+c)$$
 

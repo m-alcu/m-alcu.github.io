@@ -184,7 +184,7 @@ $g(x)$ is the function of the last neuron [$sigmoid(x)$, $softmax(x)$, $linear(x
  \end{pmatrix} = \sigma(tanh(X_{N\times D}W_{D\times M}+b_{M\times 1})V+c)</script>
 
 <script type="math/tex; mode=display">% <![CDATA[
-X_{N\times D}W_{D\times M}+bm_{M\times 1} = X_{N\times D}W_{D\times M} +\begin{pmatrix}
+X_{N\times D}W_{D\times M}+b_{M\times 1} = X_{N\times D}W_{D\times M} +\begin{pmatrix}
  - & b^\intercal & - \\
  - & b^\intercal & - \\
 - &  \vdots  & - \\
@@ -200,7 +200,7 @@ X_{N\times D}W_{D\times M}+bm_{M\times 1} = X_{N\times D}W_{D\times M} +\begin{p
  y_2 \\
  \vdots  \\
  y_n \\   
- \end{pmatrix} = softmax(tanh(X_{N\times D}W_{D\times M}+bm_{M\times 1})V+c)</script>
+ \end{pmatrix} = softmax(tanh(X_{N\times D}W_{D\times M}+b_{M\times 1})V+c)</script>
 
 
         </article>
