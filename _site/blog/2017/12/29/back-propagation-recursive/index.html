@@ -110,6 +110,10 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 
 <script type="math/tex; mode=display">\dfrac{\partial L}{\partial W^0_{dq}}= \sum_r \bbox[fuchsia,5px]{\sum_s\bbox[aqua,5px]{\sum_k\bbox[white,5px]{(t_k-y_k)}W^3_{sk}\bbox[yellow,5px]{z^3_s(1-z^3_s)}}W^3_{rs}\bbox[yellow,5px]{z^2_r(1-z^2_r)}}W^1_{qr}\bbox[yellow,5px]{z^1_q(1-z^1_q)}x_d</script>
 
+<p><img src="/assets/network-recursive-2.png" alt="recursive network" /></p>
+
+<script type="math/tex; mode=display">\dfrac{\partial L}{\partial W_{m_nm_{n-1}}}=\sum_{m_{n-1}}\dfrac{\partial L}{\partial W_{m_{n-1}m_{n-2}}}\dfrac{1}{z_{m_{n-1}}}W_{m_{m+1}m_n}\bbox[yellow,5px]{z_{m_{n-1}}(1-z_{m_{n-1}})}z_{m_n}</script>
+
         </article>
         <br>
         <center><span class="small-ornament"><svg viewBox="0 0 290 320">
