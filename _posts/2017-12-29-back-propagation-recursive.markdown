@@ -23,4 +23,4 @@ $$\dfrac{\partial L}{\partial W^0_{dq}}= \sum_r \bbox[grey,5px]{\sum_s\bbox[silv
 
 ![recursive network](/assets/network-recursive-2.png)
 
-$$\dfrac{\partial L}{\partial W_{m_nm_{n-1}}}=\sum_{m_{n-1}}\dfrac{\partial L}{\partial W_{m_{n-1}m_{n-2}}}\dfrac{1}{z_{m_{n-1}}}W_{m_{m+1}m_n}\bbox[yellow,5px]{z_{m_{n-1}}(1-z_{m_{n-1}})}z_{m_n}$$
+$$\dfrac{\partial L}{\partial W_{m_nm_{n-1}}}=\sum_{m_{n-1}}\bbox[silver,5px]{\dfrac{\partial L}{\partial W_{m_{n-1}m_{n-2}}}\dfrac{1}{z_{m_{n-1}}}}W_{m_{m+1}m_n}\bbox[yellow,5px]{z_{m_{n-1}}(1-z_{m_{n-1}})}z_{m_n}$$

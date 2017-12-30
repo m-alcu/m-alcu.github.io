@@ -112,7 +112,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 
 <p><img src="/assets/network-recursive-2.png" alt="recursive network" /></p>
 
-<script type="math/tex; mode=display">\dfrac{\partial L}{\partial W_{m_nm_{n-1}}}=\sum_{m_{n-1}}\dfrac{\partial L}{\partial W_{m_{n-1}m_{n-2}}}\dfrac{1}{z_{m_{n-1}}}W_{m_{m+1}m_n}\bbox[yellow,5px]{z_{m_{n-1}}(1-z_{m_{n-1}})}z_{m_n}</script>
+<script type="math/tex; mode=display">\dfrac{\partial L}{\partial W_{m_nm_{n-1}}}=\sum_{m_{n-1}}\bbox[silver,5px]{\dfrac{\partial L}{\partial W_{m_{n-1}m_{n-2}}}\dfrac{1}{z_{m_{n-1}}}}W_{m_{m+1}m_n}\bbox[yellow,5px]{z_{m_{n-1}}(1-z_{m_{n-1}})}z_{m_n}</script>
 
         </article>
         <br>
