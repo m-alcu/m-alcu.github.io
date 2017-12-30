@@ -100,6 +100,19 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 
 <p>Purpose of this post is to show that calculation of error propagation is recursive:</p>
 
+<p>Options for neural network:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{array}{c|lcr}
+ & f(x) &f'(x)\\
+\hline
+ sigmoid& {s(x)} & \bbox[yellow,5px]{s(x)(1-s(x))} \\
+\hline
+tanh & tanh(x) & 1-tanh^{2}(x) \\
+\hline
+relu & relu(x) & 1(x>0) \\
+\end{array} %]]></script>
+
 <p><img src="/assets/network-recursive.png" alt="recursive network" /></p>
 
 <script type="math/tex; mode=display">\dfrac{\partial L}{\partial W^3_{sk}}= \bbox[white,5px]{(t_k-y_k)}z^3_s</script>

@@ -11,6 +11,19 @@ categories: neural_network back_propagation
 
 Purpose of this post is to show that calculation of error propagation is recursive:
 
+Options for neural network:
+
+$$\begin{array}{c|lcr}
+ & f(x) &f'(x)\\
+\hline
+ sigmoid& {s(x)} & \bbox[yellow,5px]{s(x)(1-s(x))} \\
+\hline
+tanh & tanh(x) & 1-tanh^{2}(x) \\
+\hline
+relu & relu(x) & 1(x>0) \\
+\end{array}$$
+
+
 ![recursive network](/assets/network-recursive.png)
 
 $$ \dfrac{\partial L}{\partial W^3_{sk}}= \bbox[white,5px]{(t_k-y_k)}z^3_s $$
