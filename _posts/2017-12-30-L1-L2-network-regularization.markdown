@@ -37,7 +37,7 @@ $$W_{dm} = W_{dm}+\dfrac{\alpha}{n} \sum_n \sum_{k} ( t^{(n)}_k + y^{(n)}_k) V_{
 
 The turning parameter $\lambda$ in both cases controls the weight of the penalty. LASSO L1 coef causes some coefficients to be shrunken to 0, and is a way to select the best features.
 
-![LASSO(/assets/lasso.png)
+![LASSO](/assets/lasso.png)
 
 
 sources:
