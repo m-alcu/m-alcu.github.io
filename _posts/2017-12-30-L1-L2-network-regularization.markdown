@@ -35,10 +35,9 @@ $$V_{mk} = V_{mk} + \dfrac{\alpha}{n} \sum_n ( t^{(n)}_k-y^{(n)}_k)z^{(n)}_m + \
 
 $$W_{dm} = W_{dm}+\dfrac{\alpha}{n} \sum_n \sum_{k} ( t^{(n)}_k + y^{(n)}_k) V_{mk}z^{(n)}_m(1-z^{(n)}_m)x^{(n)}_d + \dfrac{\lambda}{n}sign(W_{dm})$$
 
-The turning parameter $\lambda$ in both cases controls the weight of the penalty. LASSO L1 coef causes some coefficients to be shrunken to 0, and is a way to select the best features.
+The turning parameter $\lambda$ in both cases controls the weight of the penalty. Increase $\lambda$ in LASSO causes least significance coefs to be shrunken to 0, and is a way to select the best features.
 
 ![LASSO](/assets/lasso.png)
 
 
-sources:
-[Data Science - Part XII - Ridge Regression, LASSO, and Elastic Nets](https://www.youtube.com/watch?v=ipb2MhSRGdw)
+source: [Data Science - Part XII - Ridge Regression, LASSO, and Elastic Nets](https://www.youtube.com/watch?v=ipb2MhSRGdw)  
