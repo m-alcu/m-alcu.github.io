@@ -17,7 +17,9 @@ Regularization increases error (or reduces likelihood).
 
 The two most common forms of regularization are called L1 and L2. In L2 regularization (the most common of the two forms), you modify the error function you use during training to include an additional term that adds a fraction (usually given Greek letter lower case lambda) of the sum of the squared values of the weights. So larger weight values lead to larger error, and therefore the training algorithm favors and generates small weight values.
 
-Lambda is a hyperparameter that controls the L2 regularization.
+![basic network example](/assets/basic-network.png)
+
+L2 regularization is also known as Ridge Regression. 
 
 $$Ln(P(Y=T|X))=\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)})+\dfrac{\lambda}{2n}\sum_m\sum_kV^2_{mk}+\dfrac{\lambda}{2n}\sum_d\sum_mW^2_{dm}$$
 
@@ -25,10 +27,18 @@ $$V_{mk} = V_{mk} + \dfrac{\alpha}{n} \sum_n ( t^{(n)}_k-y^{(n)}_k)z^{(n)}_m + \
 
 $$W_{dm} = W_{dm}-\dfrac{\alpha}{n} \sum_n \sum_{k} ( t^{(n)}_k - y^{(n)}_k) V_{mk}z^{(n)}_m(1-z^{(n)}_m)x^{(n)}_d + \dfrac{\lambda}{n}W_{dm}$$
 
-Lambda is a hyperparameter that controls the L1 regularization.
+L1 regularization is also known as LASSO.
 
 $$Ln(P(Y=T|X))=\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)})+\dfrac{\lambda}{n}\sum_m\sum_k|V_{mk}|+\dfrac{\lambda}{n}\sum_d\sum_m|W_{dm}|$$
 
 $$V_{mk} = V_{mk} + \dfrac{\alpha}{n} \sum_n ( t^{(n)}_k-y^{(n)}_k)z^{(n)}_m + \dfrac{\lambda}{n}sign(V_{mk})$$
 
 $$W_{dm} = W_{dm}+\dfrac{\alpha}{n} \sum_n \sum_{k} ( t^{(n)}_k + y^{(n)}_k) V_{mk}z^{(n)}_m(1-z^{(n)}_m)x^{(n)}_d + \dfrac{\lambda}{n}sign(W_{dm})$$
+
+The turning parameter $\lambda$ in both cases controls the weight of the penalty. LASSO L1 coef causes some coefficients to be shrunken to 0, and is a way to select the best features.
+
+![LASSO(/assets/lasso.png)
+
+
+sources:
+[Data Science - Part XII - Ridge Regression, LASSO, and Elastic Nets](https://www.youtube.com/watch?v=ipb2MhSRGdw)
