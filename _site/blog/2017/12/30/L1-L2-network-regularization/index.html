@@ -108,6 +108,23 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 
 <p><img src="/assets/basic-network.png" alt="basic network example" /></p>
 
+<p>L1 regression consists of search min of cross entropy error:</p>
+
+<script type="math/tex; mode=display">Min (\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)}))</script>
+
+<p>as well as satisfy the constraint that</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\sum_k \beta^2 <= s %]]></script>
+
+<p>From <a href="https://m-alcu.github.io/blog/2018/01/01/lagrange-multiplier/">lagrange multiplier</a> we can write the above equation as,</p>
+
+<script type="math/tex; mode=display">Min \Biggl(\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)}) + \lambda\sum_k (\beta^2 - s)\Biggl)</script>
+
+<p>$s$ is a constant so we can write the above equation as:</p>
+
+<script type="math/tex; mode=display">Min \Biggl(\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)}) + \lambda\sum_k \beta^2\Biggl)</script>
+
 <p>L2 regularization is also known as Ridge Regression.</p>
 
 <script type="math/tex; mode=display">Ln(P(Y=T|X))=\underbrace{\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)})}_{\text{cross entropy error}}+\underbrace{\dfrac{\lambda}{2n}\sum_m\sum_kV^2_{mk}+\dfrac{\lambda}{2n}\sum_d\sum_mW^2_{dm}}_{\text{penalty term}}</script>
@@ -136,7 +153,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 
 <p>If we add a different objective $g(\beta)$ with colour blue in the graph, we get that larger $\lambda$ gets a “narrow” contour plot.</p>
 
-<p>Now we have to find the minimum of the sum of this two objectives: $f(\beta)+g(\beta)f(\beta)+g(\beta)$. And this is achieved when two contour plots meet each other.</p>
+<p>Now we have to find the minimum of the sum of this two objectives: $f(\beta)+g(\beta)$. And this is achieved when two contour plots meet each other.</p>
 
 <p>LASSO will probably meet in a corner that makes some $\beta$ to be 0 and this is useful to feature selection. This does not happen in the Ridge regression.</p>
 
