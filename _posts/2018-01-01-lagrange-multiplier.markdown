@@ -4,7 +4,7 @@ title: Lagrange multiplier
 date: 2018-01-01 10:42
 comments: true
 external-url:
-categories: algrebra
+categories: algebra
 ---
 
 > Lagrange multiplier is a mathematical optimization to obtain local maxima and minima subject to constraints, that is needed to understand regulatization L1 and L2.

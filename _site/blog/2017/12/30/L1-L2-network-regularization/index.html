@@ -110,7 +110,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 
 <p>L2 regularization is also known as Ridge Regression.</p>
 
-<script type="math/tex; mode=display">Ln(P(Y=T|X))=\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)})+\dfrac{\lambda}{2n}\sum_m\sum_kV^2_{mk}+\dfrac{\lambda}{2n}\sum_d\sum_mW^2_{dm}</script>
+<script type="math/tex; mode=display">Ln(P(Y=T|X))=\underbrace{\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)})}_{\text{cross entropy error}}+\underbrace{\dfrac{\lambda}{2n}\sum_m\sum_kV^2_{mk}+\dfrac{\lambda}{2n}\sum_d\sum_mW^2_{dm}}_{\text{penalty term}}</script>
 
 <script type="math/tex; mode=display">V_{mk} = V_{mk} + \dfrac{\alpha}{n} \sum_n ( t^{(n)}_k-y^{(n)}_k)z^{(n)}_m + \dfrac{\lambda}{n}V_{mk}</script>
 
@@ -118,7 +118,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 
 <p>L1 regularization is also known as LASSO.</p>
 
-<script type="math/tex; mode=display">Ln(P(Y=T|X))=\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)})+\dfrac{\lambda}{n}\sum_m\sum_k|V_{mk}|+\dfrac{\lambda}{n}\sum_d\sum_m|W_{dm}|</script>
+<script type="math/tex; mode=display">Ln(P(Y=T|X))=\underbrace{\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)})}_{\text{cross entropy error}}+\underbrace{\dfrac{\lambda}{n}\sum_m\sum_k|V_{mk}|+\dfrac{\lambda}{n}\sum_d\sum_m|W_{dm}|}_{\text{penalty term}}</script>
 
 <script type="math/tex; mode=display">V_{mk} = V_{mk} + \dfrac{\alpha}{n} \sum_n ( t^{(n)}_k-y^{(n)}_k)z^{(n)}_m + \dfrac{\lambda}{n}sign(V_{mk})</script>
 
@@ -129,6 +129,20 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 <p><img src="/assets/lasso.png" alt="LASSO" /></p>
 
 <p>source: <a href="https://www.youtube.com/watch?v=ipb2MhSRGdw">Data Science - Part XII - Ridge Regression, LASSO, and Elastic Nets</a></p>
+
+<p><a href="https://stats.stackexchange.com/questions/30456/geometric-interpretation-of-penalized-linear-regression">Intuition</a>:</p>
+
+<p>If $f(\beta)$ is the objective function like the cross entropy error, The minimum is in the middle of the circles, that is the non penalized solucion.</p>
+
+<p>If we add a different objective $g(\beta)$ with colour blue in the graph, we get that larger $\lambda$ gets a “narrow” contour plot.</p>
+
+<p>Now we have to find the minimum of the sum of this two objectives: $f(\beta)+g(\beta)f(\beta)+g(\beta)$. And this is achieved when two contour plots meet each other.</p>
+
+<p>LASSO will probably meet in a corner that makes some $\beta$ to be 0 and this is useful to feature selection. This does not happen in the Ridge regression.</p>
+
+<p><img src="/assets/regularization.png" alt="regularization coefs" /></p>
+
+<p>source: <a href="https://www.quora.com/How-would-you-describe-the-difference-between-linear-regression-lasso-regression-and-ridge-regression">source of graph</a></p>
 
         </article>
         <br>
