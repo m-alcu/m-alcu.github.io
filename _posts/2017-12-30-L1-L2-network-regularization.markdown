@@ -85,3 +85,5 @@ $$P_\alpha =
 \text{elastic net} & \text{if 0 < $\alpha$ < 1 }
 \end{cases}$$
 
+![elastic net](/assets/elastic-net.png)
+

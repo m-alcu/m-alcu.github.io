@@ -7,7 +7,7 @@ external-url:
 categories: sgd gradient
 ---
 
-> Demonstration of gradient descend formulas
+> Demonstration of normal (Batch) gradient descend formulas
 
 $y$ is the training input (always 0 or 1)  
 $m$ is the size of de dataset input x  
@@ -70,6 +70,22 @@ $$\begin{align*} & Repeat \; \lbrace \newline & \; w_j := w_j - \frac{\alpha}{m}
 $$w := w_{J\times 1} - \frac{\alpha}{m} X_{M\times J}^\intercal (h_{M\times 1} - y_{M\times 1})$$  
 
 $$w := w_{J\times 1} + \gamma X_{M\times J}^\intercal (y_{M\times 1} - h_{M\times 1})$$  
+
+There are several types of gradient descent implementation:
+
+* **Batch gradient descent**: iteration (new coefs) is done as the sum of all training examples
+* **Stochastic gradient descent**: iteration on each example, converges faster than batch gradient descent in case of large training dataset.
+* **Mini-batch gradient descent**: iteration on a group of $b$ examples, in some cases can converge faster than batch or stochastic.
+
+Important implementation concepts:
+* Debug results to adjust the learning rate
+* Possibly set dinamic learning rate as: $\alpha = \dfrac{const_1}{interationNumber + const_2}$ so learning rate decreases as it aproaches to the minimum.
+
+![dynamic alpha](/assets/dynamic-alpha.png)
+
+An special case of stochastic gracient descent is the **Online learning**. Learning is done continuously from a source flow that generates training examples. Each example is used for train and ignored (not stored).
+
+source: [coursera machine learning course](https://www.coursera.org/learn/machine-learning)
 
 
 Glosary  

@@ -29,7 +29,7 @@
   
   <meta name="keywords" content="" />
 
-  <link rel="canonical" href="http://localhost:4000/blog/2017/12/26/logit-maths/">
+  <link rel="canonical" href="http://localhost:4000/blog/2017/12/26/gradient-descent/">
   <link rel="alternate" type="application/rss+xml" title="Practicing Maths on IA" href="http://localhost:4000/feed.xml" />
   <span itemprop='author'><meta name="author" content="Martín Alcubierre"><span itemprop='author'></span>
 
@@ -97,7 +97,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
         <article lang="en">
           
           <blockquote>
-  <p>Demonstration of gradient descend formulas</p>
+  <p>Demonstration of normal (Batch) gradient descend formulas</p>
 </blockquote>
 
 <p>$y$ is the training input (always 0 or 1)<br />
@@ -165,6 +165,26 @@ $w$ are the parameters of logistic regression</p>
 <script type="math/tex; mode=display">w := w_{J\times 1} - \frac{\alpha}{m} X_{M\times J}^\intercal (h_{M\times 1} - y_{M\times 1})</script>
 
 <script type="math/tex; mode=display">w := w_{J\times 1} + \gamma X_{M\times J}^\intercal (y_{M\times 1} - h_{M\times 1})</script>
+
+<p>There are several types of gradient descent implementation:</p>
+
+<ul>
+  <li><strong>Batch gradient descent</strong>: iteration (new coefs) is done as the sum of all training examples</li>
+  <li><strong>Stochastic gradient descent</strong>: iteration on each example, converges faster than batch gradient descent in case of large training dataset.</li>
+  <li><strong>Mini-batch gradient descent</strong>: iteration on a group of $b$ examples, in some cases can converge faster than batch or stochastic.</li>
+</ul>
+
+<p>Important implementation concepts:</p>
+<ul>
+  <li>Debug results to adjust the learning rate</li>
+  <li>Possibly set dinamic learning rate as: $\alpha = \dfrac{const_1}{interationNumber + const_2}$ so learning rate decreases as it aproaches to the minimum.</li>
+</ul>
+
+<p><img src="/assets/dynamic-alpha.png" alt="dynamic alpha" /></p>
+
+<p>An special case of stochastic gracient descent is the <strong>Online learning</strong>. Learning is done continuously from a source flow that generates training examples. Each example is used for train and ignored (not stored).</p>
+
+<p>source: <a href="https://www.coursera.org/learn/machine-learning">coursera machine learning course</a></p>
 
 <p>Glosary</p>
 <ul>
