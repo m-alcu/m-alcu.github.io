@@ -161,6 +161,19 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 
 <p>source: <a href="https://www.quora.com/How-would-you-describe-the-difference-between-linear-regression-lasso-regression-and-ridge-regression">source of graph</a></p>
 
+<p>A general form for penalty term can be writen as:</p>
+
+<script type="math/tex; mode=display">P_\alpha = \sum^K_{k=1} ( \dfrac{1}{2}(1-\alpha)\beta^2_k + \alpha|\beta|)</script>
+
+<script type="math/tex; mode=display">% <![CDATA[
+P_\alpha =
+\begin{cases}
+\text{Ridge regression}  & \text{if $\alpha$ = 0} \\
+\text{LASSO} &  \text{if $\alpha$ = 1} \\
+\text{elastic net} & \text{if 0 < $\alpha$ < 1 }
+\end{cases} %]]></script>
+
+
         </article>
         <br>
         <center><span class="small-ornament"><svg viewBox="0 0 290 320">

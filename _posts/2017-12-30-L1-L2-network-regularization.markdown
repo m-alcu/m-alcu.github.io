@@ -73,3 +73,15 @@ LASSO will probably meet in a corner that makes some $\beta$ to be 0 and this is
 ![regularization coefs](/assets/regularization.png)
 
 source: [source of graph](https://www.quora.com/How-would-you-describe-the-difference-between-linear-regression-lasso-regression-and-ridge-regression)
+
+A general form for penalty term can be writen as:
+
+$$P_\alpha = \sum^K_{k=1} ( \dfrac{1}{2}(1-\alpha)\beta^2_k + \alpha|\beta|)$$
+
+$$P_\alpha =
+\begin{cases}
+\text{Ridge regression}  & \text{if $\alpha$ = 0} \\
+\text{LASSO} &  \text{if $\alpha$ = 1} \\
+\text{elastic net} & \text{if 0 < $\alpha$ < 1 }
+\end{cases}$$
+
