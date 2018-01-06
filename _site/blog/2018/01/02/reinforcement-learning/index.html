@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="theme-color" content="hsl(35, 36%, 95%)">
+  <title>MDPs and Reinforcement Learning</title>
+
+  
+  <meta name="description" content="
+  
+    
+      
+        MDPs and Reinforcement Learning
+        2 Jan 2018
+        
+          
+        
+      
+    
+    
+      
+      
+        
+   ..." />
+
+  
+  <meta name="keywords" content="" />
+
+  <link rel="canonical" href="https://m-alcu.github.io//blog/2018/01/02/reinforcement-learning/">
+  <link rel="alternate" type="application/rss+xml" title="Practicing Maths on IA" href="https://m-alcu.github.io//feed.xml" />
+  <span itemprop='author'><meta name="author" content="Martín Alcubierre"><span itemprop='author'></span>
+
+  <link href="https://m-alcu.github.io/favicon-32x32.png" rel="icon">
+
+  <link rel="icon" type="image/png" href="https://m-alcu.github.io/favicon-16x16.png" sizes="16x16">  
+  <link rel="icon" type="image/png" href="https://m-alcu.github.io/favicon-32x32.png" sizes="32x32">  
+  <link rel="icon" type="image/png" href="https://m-alcu.github.io/favicon-96x96.png" sizes="96x96"> 
+
+  <link rel="apple-touch-icon" href="older-iPhone.png">  
+  <link rel="apple-touch-icon" sizes="180x180" href="iPhone-6-Plus.png">  
+  <link rel="apple-touch-icon" sizes="152x152" href="iPad-Retina.png">  
+  <link rel="apple-touch-icon" sizes="167x167" href="iPad-Pro.png">  
+
+  <link rel="stylesheet" href="//brick.a.ssl.fastly.net/PT+Serif:400,400i,700,700i:f/Source+Code+Pro:400,600:f">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/main.css">
+
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+
+      TeX: {
+        equationNumbers: { autoNumber: "AMS" }
+      },
+
+      CommonHTML: {
+        scale: 90
+      }
+    };
+  </script>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-110961235-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+  <body>
+    <div class="post">
+  <div class="container main">
+    <div class="row">
+      <header>
+        <center><span itemprop="name"><h1>MDPs and Reinforcement Learning</h1></span></center>
+        <center><p>2 Jan 2018</p></center>
+        <center><span class="small-ornament"><svg viewBox="0 0 290 320">
+          <path d="M280.2656 245.3906 Q280.2656 263.25 261.8438 271.9688 Q247.9219 278.7188 227.8125 278.7188 Q235.2656 269.8594 235.2656 256.5 Q235.2656 231.8906 214.4531 217.125 Q196.0312 204.0469 170.2969 204.0469 Q143.5781 204.0469 108.8438 221.0625 L118.9688 231.4688 Q154.4062 267.8906 168.3281 267.8906 Q181.125 267.8906 181.125 255.9375 Q181.125 248.3438 173.5312 243.5625 Q167.0625 239.3438 159.0469 239.3438 Q154.6875 239.3438 148.6406 241.4531 Q158.625 220.0781 173.9531 220.0781 Q184.5 220.0781 191.8828 228.0938 Q199.2656 236.1094 199.2656 246.6562 Q199.2656 265.5 184.3594 277.875 Q170.2969 289.4062 151.0312 289.4062 Q118.6875 289.4062 81.4219 251.0156 L72.1406 241.4531 Q53.5781 249.4688 39.375 249.4688 Q26.4375 249.4688 17.1562 240.9609 Q7.875 232.4531 7.875 219.5156 Q7.875 203.9062 19.125 193.9219 Q29.9531 184.5 45.8438 184.5 Q70.0312 184.5 98.2969 211.6406 Q111.5156 202.2188 127.5469 185.4844 L134.5781 178.1719 Q174.5156 136.6875 204.8906 136.6875 Q231.4688 136.6875 231.4688 155.25 Q231.4688 173.5312 204.3281 177.3281 Q206.4375 172.8281 206.4375 170.1562 Q206.4375 159.3281 193.3594 159.3281 Q175.2188 159.3281 144.2812 189 L137.1094 195.8906 Q165.2344 185.7656 191.25 185.7656 Q221.7656 185.7656 248.3438 200.1094 Q280.2656 217.2656 280.2656 245.3906 ZM61.1719 230.4844 Q44.5781 215.2969 37.2656 215.2969 Q27.9844 215.2969 27.9844 223.4531 Q27.9844 234.4219 42.75 234.4219 Q51.1875 234.4219 61.1719 230.4844z"/>
+        </svg></span></center>
+      </header>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-8 offset-md-1">
+        <article lang="en">
+          
+          <blockquote>
+  <p>Reinforcement Learning is an area of machine learning. Consists on the best strategies (max reward) that an agent can perform in an environment that is totally or partially known. I’m going to review them in order to focus in Q-Learning that an strong concept behind reinforcement learning.</p>
+</blockquote>
+
+<h2 id="1-markov-chains">1. Markov chains</h2>
+
+<p>A Markov decission Process (MDP) is a reinterpretation of Markov chains.</p>
+
+<p>Markov chain has the following components:</p>
+<ol>
+  <li>Set of possible $M$ States: $S = \lbrace s_0, s_1,…, s_m \rbrace$</li>
+  <li>Initial State: $s_0$</li>
+  <li>Transition Probabilities Model: $P(s,s’)$</li>
+</ol>
+
+<p>Transition model is a square matrix with the probability transitions from $s$ to $s’$. It has the property that all all rows sum 1:</p>
+
+<script type="math/tex; mode=display">P(s,s') = P(s'|s)</script>
+
+<script type="math/tex; mode=display">\sum^{s_{m}}_{k=1}P(s,k)=1</script>
+
+<p>As an example:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+P(s,s') = \begin{pmatrix}0.90&0.10\\0.50&0.50\\ \end{pmatrix} %]]></script>
+
+<p><img src="/assets/simple_markov_chain.png" alt="simple markov chain" /></p>
+
+<h2 id="2-markov-decision-process-mdp">2. Markov decision process (MDP)</h2>
+
+<p>A Markov decision process is a extension of a markov chain, including a decision-making agent that observes the environment  (described as as set of states $S$) and chooses an action from the given set $A$.</p>
+
+<p>The MDP components:</p>
+
+<ol>
+  <li>Set of possible $M$ States: $S = \lbrace s_0, s_1,…, s_m \rbrace$</li>
+  <li>Initial State: $s_0$</li>
+  <li>Set of possible $N$ Actions: $A = \lbrace a_0, a_1,…, a_n \rbrace$</li>
+  <li>Transition Probabilities Model: $P(s,a,s’)$ is the probability condition from state $s$ to state $s’$ depending on the action that agent choses.</li>
+  <li>Reward Function: R(s), defined on $S$ which specifies an inmediate reward of being in a given state $s \in S$</li>
+</ol>
+
+<p>Probability conditions from state $s$ to state $s’$ now depend on the action that agent has chosen.</p>
+
+<p>It’s important that Agent knowns (environment is <em>completely</em> <em>observable</em>):</p>
+<ul>
+  <li>Transition probability model depending on the action the agent has chosen.</li>
+  <li>Reward R(s)</li>
+</ul>
+
+<p>MDP is a stochastic automaton. Decision making is based on <em>maximum</em> <em>expected</em> <em>utility</em> (<em>MEU</em>):</p>
+
+<script type="math/tex; mode=display">U(s) = R(s) + \gamma \underset{a}{\text{ max }}  \sum_{s'}^{} P(s,a,s') U(s')</script>
+
+<h3 id="value-iteration-algorithm-model-based">Value Iteration Algorithm (Model based)</h3>
+
+<p>This algorithm is from R. Bellman (1957), Bellman demonstrated that value iteration is guaranteed to converge.</p>
+
+<script type="math/tex; mode=display">U_{k+1}(s)=\underset{a}{\text{ max }} \sum_{s'}P(s,a,s')[R(s,a,s')+\gamma U_k(s')]</script>
+
+<p>inputs:</p>
+<ul>
+  <li>$P(s,a,s’)$, a transition-probability matrix</li>
+  <li>$R(s)$, a reward matrix</li>
+  <li>$\gamma$ typically very near to 1.</li>
+  <li>$\epsilon$ typically very near to 0.</li>
+</ul>
+
+<p>returns:</p>
+<ul>
+  <li>$U(s)$, the utility matrix</li>
+</ul>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align*}
+\newline &\mathbf{\text{function VALUE-ITERATION}}(P,R,\gamma,\epsilon)
+\newline &\;\;\;U = \lbrace 0, 0,..., 0 \rbrace
+\newline &\;\;\;U' = \lbrace 0, 0,..., 0 \rbrace
+\newline &\;\;\;\mathbf{Repeat}\;\lbrace
+\newline &\;\;\;\;\;\;\;\;\;U = U'
+\newline &\;\;\;\;\;\;\;\;\;\mathbf{\text{for each}}\;i\;\mathbf{in}\;M\;\mathbf{do}
+\newline &\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;U'(i) = R(i)+\gamma \cdot max_a\sum^M_{j=1}P(i,a,j)U(j)
+\newline &\;\;\;\;\;\;\;\;\;\mathbf{\text{end}}
+\newline &\;\;\;\rbrace \;\mathbf{\text{until }} max_{i} |U(i)-U'(i)| < \epsilon \;
+\newline &\mathbf{\text{return }}U
+\end{align*} %]]></script>
+
+<h3 id="policy-iteration-algorithm-model-based">Policy Iteration Algorithm (model based)</h3>
+
+<p>If we define the concept of policy, that is the correct strategy for the agent in each state $s$:</p>
+
+<script type="math/tex; mode=display">\pi* =\pi(s) = \underset{a}{\text{ argmax }} \sum_{s'} P(s,a,s') U(s')</script>
+
+<p>Then the same equation can be rewritten as:</p>
+
+<script type="math/tex; mode=display">U^{\pi}_{k+1}(s)=\sum_{s'}P(s,\pi(s),s')[R(s,\pi(s),s')+\gamma U^{\pi}_k(s')]</script>
+
+<p>No policy generates more reward than the optimal $\pi^{*}$. Policy iteration is guaranteed to converge and at convergence, the current policy and its utility function are the optimal policy and the optimal utility function.</p>
+
+<p>For big State matrix, Policy Iteration Algoritm converges faster than Value Iteration.</p>
+
+<p>inputs:</p>
+<ul>
+  <li>$P(s,a,s’)$, a transition-probability matrix</li>
+  <li>$\pi(s)$, a policy matrix</li>
+  <li>$U(s)$, a utility matrix</li>
+  <li>$R(s)$, a reward matrix</li>
+  <li>$\gamma$ typically very near to 1.</li>
+</ul>
+
+<p>returns:</p>
+<ul>
+  <li>$U(s)$, the utility matrix from policy evaluation</li>
+</ul>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align*}
+\newline &\mathbf{\text{function VALUE-DETERMINATION}}(P,\pi,U,R,\gamma)
+\newline &\;\;\;\mathbf{\text{for each}}\;i\;\mathbf{in}\;M\;\mathbf{do}\;\lbrace
+\newline &\;\;\;\;\;\;\;\;\;U(i) = R(i) + \sum^M_{i=1}P(i,\pi(i),j)U(j)
+\newline &\;\;\;\rbrace
+\newline &\mathbf{\text{return }}U
+\end{align*} %]]></script>
+
+<p>inputs:</p>
+<ul>
+  <li>$P(s,a,s’)$, a transition-probability matrix</li>
+  <li>$R(s)$, a reward matrix</li>
+  <li>$\gamma$ typically very near to 1.</li>
+</ul>
+
+<p>returns:</p>
+<ul>
+  <li>$U(s)$, the utility matrix</li>
+  <li>$\pi(s)$, the optimal policy</li>
+</ul>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align*}
+\newline &\mathbf{\text{function POLICY-ITERATION}}(P,R,\gamma)
+\newline &\;\;\;U = R
+\newline &\;\;\;\mathbf{\text{for each}}\;i\;\mathbf{in}\;M\;\mathbf{do}
+\newline &\;\;\;\;\;\;\pi(i) = argmax_a \sum^M_{j=1}P(i,a,j)U(j)
+\newline &\;\;\;\mathbf{\text{end}}
+\newline &\;\;\;\mathbf{Repeat}\;\lbrace
+\newline &\;\;\;\;\;\;\;\;\;U = \mathbf{VALUE-DETERMINATION}(P,\pi,U,R,\gamma)
+\newline &\;\;\;\;\;\;\;\;\;changed = \mathbf{False}
+\newline &\;\;\;\;\;\;\;\;\;\mathbf{\text{for each}}\;i\;\mathbf{in}\;M\;\mathbf{do}
+\newline &\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\mathbf{if}\; max_a \sum^M_{j=1}P(i,a,j)P(j) > \sum^M_{j=1}P(i,\pi(i),j)U(j) \;\mathbf{then}
+\newline &\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\pi(i) = argmax_a \sum^M_{j=1}P(i,a,j)U(j)
+\newline &\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;changed = \mathbf{True}
+\newline &\;\;\;\;\;\;\;\;\;\mathbf{\text{end}}
+\newline &\;\;\;\rbrace \;\mathbf{\text{until }} changed = \mathbf{False}
+\newline &\mathbf{\text{return }}U, \pi
+\end{align*} %]]></script>
+
+<h2 id="3-partially-observable-markov-decision-process-pomdp---reinforcement-learning">3. Partially Observable Markov decision process (POMDP) - Reinforcement Learning</h2>
+
+<p>Until now we have assumed that agent knows S, R, and P, in order to calculate $\pi(s)$ and $U(s)$. This is not often the case in real life applications.</p>
+
+<p>A special class of MDP called <em>Partial</em> <em>observable</em> <em>Markov</em> <em>decision</em> <em>process</em> (<em>POMDP</em>) where rewards and probabilities are not known.</p>
+
+<p>Components:</p>
+<ul>
+  <li>$S$ is a set of states</li>
+  <li>$A$ is a set of actions</li>
+  <li>$T(s’\mid s,a)$ is a set of conditional transition probabilities between states</li>
+  <li>$R(s,a)$ a reward function from s and action a</li>
+  <li>$\Omega$ a set of observations</li>
+  <li>$O(o\mid s’,a)$ a set of conditional observation probabilities</li>
+  <li>$\gamma$ [0,1] discount factor.</li>
+</ul>
+
+<ol>
+  <li>Agent is in some state $s$.</li>
+  <li>Agent takes action $a$.</li>
+  <li>Enviroment transitions to state s’ with probability $T(s’\mid s,a)$. Agesnt does not known the new state.</li>
+  <li>observation $o$ is received with probability $O(o\mid s’,a)$</li>
+  <li>Agent receives a reward R(s,a)</li>
+</ol>
+
+<p>Goal is to maximize its expected future discounted reward: $E [\sum^{\infty}_{t=0} \gamma^tr_t]$</p>
+
+<p>Agent does not know the new state. Insted has a belief of the new state as a probability distribution of the state $b(s)$.</p>
+
+<h2 id="4-q-learning-free-model">4. Q-Learning (free model)</h2>
+
+<p>Model-Free of Reinforcement Learning. Q-learninh finds the optimal action by learning an action-value function called $Q(s,a)$.</p>
+
+<script type="math/tex; mode=display">Q_{k+1}(s,a)= \sum_{s'}P(s,a,s')[R(s,a,s')+\gamma \underset{a'}{\text{ max }}Q_k(s',a')]</script>
+
+<p>Environment is a black box that receives agent action and returns rewards and new states.</p>
+
+<p><img src="/assets/q-learning.png" alt="q-learning" /></p>
+
+<h3 id="q-learning-algorithm">Q-Learning algorithm</h3>
+
+<p>Q-Learning retrieves this policy from experience:</p>
+
+<script type="math/tex; mode=display">sample = R(s,a,s') + \gamma \underset{a'}{\text{ max }}Q(s',a')</script>
+
+<script type="math/tex; mode=display">Q(s,a) = (1-\alpha)Q(s,a)+(\alpha)[sample]</script>
+
+<p>Q-Learning algorithm chooses a policy for action selection, related to the action that gives de max Q. All al them have a random value that allows to reach the maximum value.</p>
+
+<p>There is always a compensated relation from Explotation vs Exploitation, explotation gives the best rewards but sometimes is good no to chose the best option in order to explore new ways to reach to a new global maximum or a new maximum that wasn’t before (changing environments). Exploration has a reward cost thats the diference from your expected rewards and expected optimal called <em>Regret</em>.</p>
+
+<ul>
+  <li>$\epsilon$-greedy, always action with max Q is choosen (greediest action), but with probability $\epsilon$ a random action is choosen, thus ensuring optimal actions are discovered.</li>
+</ul>
+
+<p>It you known that world never changes you can lowe $\epsilon$ over time.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+a^* =
+\begin{cases}
+argmax_aQ(s,a)  & \text{with probability 1-$\epsilon$} \\
+0 & \text{with probability $\epsilon$}
+\end{cases} %]]></script>
+
+<ul>
+  <li>softmax, one drawback of $\epsilon$ is that select random actions uniformly. The worst possible action is likely to be chossen as the second best. In this case a random is selected with regards of the weight associated to each action.</li>
+</ul>
+
+<script type="math/tex; mode=display">\pi(a|s) = \dfrac{e^{\dfrac{Q(s,a)}{\tau}}}{e^{
+\sum_{a \in A}\dfrac{Q(s,a)}{\tau}}}</script>
+
+<p>inputs:</p>
+<ul>
+  <li>$X$, possible states</li>
+  <li>$A$, possible actions</li>
+  <li>$\alpha$ [0,1] the learning rate, 0 nothing learned, 0.9 learns quickly</li>
+  <li>$\gamma$ [0,1] discount factor. This models that the fact that future rewards are worth less than inmediate reward. Less than 1 to algorithm to converge.</li>
+</ul>
+
+<p>environment (black box):</p>
+<ul>
+  <li>$R(s,a)$, reward that environment returns from a state $s$ and action $a$</li>
+  <li>$s’$, state that environment returns from a state $s$ and action $a$</li>
+</ul>
+
+<p>returns:</p>
+<ul>
+  <li>$U(s)$, the utility matrix</li>
+  <li>$\pi(s)$, the optimal policy</li>
+</ul>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align*}
+\newline &\mathbf{\text{function Q-LEARNING}}(\alpha,\gamma)
+\newline &\;\;\;\mathbf{\text{Initialize }}Q(s,a)
+\newline &\;\;\;\mathbf{Repeat}\text{ (for each episode)}\;\lbrace
+\newline &\;\;\;\;\;\;\;\;\;\mathbf{\text{Initialize }}s
+\newline &\;\;\;\;\;\;\;\;\;\mathbf{Repeat}\text{ (for each step of episode)}\;\lbrace
+\newline &\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{Choose $a$ from $s$ using policy derived from Q (e.g. $\epsilon$-greedy)}
+\newline &\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{Take action $a$, observe $r$ and $s'$ received from Environment}
+\newline &\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;Q(s,a) = (1-\alpha)Q(s,a)+\alpha(r+\gamma max_{a'}Q(s',a'))
+\newline &\;\;\;\;\;\;\;\;\;\rbrace
+\newline &\;\;\;\rbrace
+\newline &\mathbf{\text{return }}Q
+\end{align*} %]]></script>
+
+<h3 id="sarsa-algorithm">SARSA algorithm</h3>
+
+<p>The name Sarsa actually comes from the fact that the updates are done using the quintuple $Q(s,a,r,s’,a’)$. The procedural form of Sarsa algorithm is comparable to that of Q-Learning.</p>
+
+<p>Sarsa can overcome Q-Learning in some circunstances searching the optimal path from <a href="http://www.cse.unsw.edu.au/~cs9417ml/RL1/algorithms.html">here</a>.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align*}
+\newline &\mathbf{\text{function SARSA}}(\alpha,\gamma)
+\newline &\;\;\;\mathbf{\text{Initialize }}Q(s,a)
+\newline &\;\;\;\mathbf{Repeat}\text{ (for each episode)}\;\lbrace
+\newline &\;\;\;\;\;\;\;\;\;\mathbf{\text{Initialize }}s
+\newline &\;\;\;\;\;\;\;\;\;\text{Choose $a$ from $s$ using policy derived from Q (e.g. $\epsilon$-greedy)}
+\newline &\;\;\;\;\;\;\;\;\;\mathbf{Repeat}\text{ (for each step of episode)}\;\lbrace
+\newline &\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{Take action $a$, observe $r$ and $s'$ received from Environment}
+\newline &\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\text{Choose $a'$ from $s'$ using policy derived from Q (e.g. $\epsilon$-greedy)}
+\newline &\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;Q(s,a) = (1-\alpha)Q(s,a)+\alpha(r+\gamma Q(s',a'))
+\newline &\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;s = s'
+\newline &\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;a = a'
+\newline &\;\;\;\;\;\;\;\;\;\rbrace
+\newline &\;\;\;\rbrace
+\newline &\mathbf{\text{return }}Q
+\end{align*} %]]></script>
+
+
+        </article>
+        <br>
+        <center><span class="small-ornament"><svg viewBox="0 0 290 320">
+          <path d="M280.2656 245.3906 Q280.2656 263.25 261.8438 271.9688 Q247.9219 278.7188 227.8125 278.7188 Q235.2656 269.8594 235.2656 256.5 Q235.2656 231.8906 214.4531 217.125 Q196.0312 204.0469 170.2969 204.0469 Q143.5781 204.0469 108.8438 221.0625 L118.9688 231.4688 Q154.4062 267.8906 168.3281 267.8906 Q181.125 267.8906 181.125 255.9375 Q181.125 248.3438 173.5312 243.5625 Q167.0625 239.3438 159.0469 239.3438 Q154.6875 239.3438 148.6406 241.4531 Q158.625 220.0781 173.9531 220.0781 Q184.5 220.0781 191.8828 228.0938 Q199.2656 236.1094 199.2656 246.6562 Q199.2656 265.5 184.3594 277.875 Q170.2969 289.4062 151.0312 289.4062 Q118.6875 289.4062 81.4219 251.0156 L72.1406 241.4531 Q53.5781 249.4688 39.375 249.4688 Q26.4375 249.4688 17.1562 240.9609 Q7.875 232.4531 7.875 219.5156 Q7.875 203.9062 19.125 193.9219 Q29.9531 184.5 45.8438 184.5 Q70.0312 184.5 98.2969 211.6406 Q111.5156 202.2188 127.5469 185.4844 L134.5781 178.1719 Q174.5156 136.6875 204.8906 136.6875 Q231.4688 136.6875 231.4688 155.25 Q231.4688 173.5312 204.3281 177.3281 Q206.4375 172.8281 206.4375 170.1562 Q206.4375 159.3281 193.3594 159.3281 Q175.2188 159.3281 144.2812 189 L137.1094 195.8906 Q165.2344 185.7656 191.25 185.7656 Q221.7656 185.7656 248.3438 200.1094 Q280.2656 217.2656 280.2656 245.3906 ZM61.1719 230.4844 Q44.5781 215.2969 37.2656 215.2969 Q27.9844 215.2969 27.9844 223.4531 Q27.9844 234.4219 42.75 234.4219 Q51.1875 234.4219 61.1719 230.4844z"/>
+        </svg></span></center>    
+        <br>         
+        <div id="disqus_thread"></div>
+      </div>
+    </div>   
+    <script type="text/javascript">
+      /* <![CDATA[ */
+      var disqus_shortname = "https-m-alcu-github-io";
+      var disqus_identifier = "https://m-alcu.github.io/_MDPs and Reinforcement Learning";
+      var disqus_title = "MDPs and Reinforcement Learning";
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+      /* ]]> */
+    </script>
+  </div>
+</div>
+
+
+
+    <footer>
+  <div class="container">
+    <div class="row biography">
+      <div class="col-sm-4">
+        <h2>who am i</h2>
+        <p>Engineer in Barcelona, working in BI and Cloud service projects. Very interested in the new wave of Machine-Learning and IA applications</p>
+      </div>
+      <div class="col-sm-4">
+        <h2>what is this</h2>
+        <p>This is a blog about software, some mathematics and python libraries used in Mathematics and Machine-Learning problems</p>
+      </div>
+      <div class="col-sm-4">
+        <h2>where am i</h2>
+          
+          
+          <div>
+            <a href="https://github.com/m-alcu">
+              <span class="username">github//m-alcu</span>
+            </a>
+          </div>
+          
+          
+          <div>
+            <a href="https://twitter.com/alcubierre">
+              <span class="username">twitter//alcubierre</span>
+            </a>
+          </div>
+          
+          
+          <div>
+            <a href="https://id.linkedin.com/in/martinalcubierre">
+              <span class="username">linkedin//martinalcubierre</span>
+            </a>
+          </div>
+          
+          
+          <div>
+            <a href="https://www.facebook.com/m.alcubierre">
+              <span class="username">facebook//m.alcubierre</span>
+            </a>
+          </div>
+          
+      </div>
+    </div>
+    
+    <div class="row copyright">
+      <center>2017 by Martín Alcubierre Arenillas.<br>Content available under <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons (BY-NC-SA)</a> unless otherwise noted.<br>This site is hosted at <a href='https://pages.github.com/'>Github Pages</a> and created with <a href='http://jekyllrb.com/'>Jekyll</a>.</center>
+    </div>
+    
+  </div>
+</footer>
+
+  </body>
+</html>
