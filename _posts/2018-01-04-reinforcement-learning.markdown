@@ -168,7 +168,11 @@ Agent does not know the new state. Insted has a belief of the new state as a pro
 
 ## 4. Q-Learning (free model)
 
-Model-Free of Reinforcement Learning. Q-learninh finds the optimal action by learning an action-value function called $Q(s,a)$.
+Model-Free of Reinforcement Learning. Q-learninh finds the optimal action by learning an action-value function called $Q(s,a)$. $Q(s,a)$ represents the maximum discounted future reward when we perform action $a$ in the state $s$, and continue optimally from that point on.
+
+$$Q(s_t, a_t) = max R_{t+1}$$
+
+$$\pi(s) = \underset{a}{\text{ argmax }}Q(s,a)$$
 
 $$Q_{k+1}(s,a)= \sum_{s'}P(s,a,s')[R(s,a,s')+\gamma \underset{a'}{\text{ max }}Q_k(s',a')]$$
 

@@ -4,7 +4,8 @@ title: Dynamic Pricing
 date: 2018-01-02 13:26
 comments: true
 external-url:
-categories: dinamic_pricing
+hidden: 1
+categories: 
 ---
 
 > Dynamic pricing algorithms are designed to maximize revenue. It is based on the fact that not all customers have the same sentitivity to price. It could depend on several features:  
