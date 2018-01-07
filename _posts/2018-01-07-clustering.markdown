@@ -5,7 +5,7 @@ date: 2018-01-02 13:26
 comments: true
 hidden: 0
 external-url:
-categories: unsupervised_learning
+categories: unsupervised_learning python
 ---
 
 ## Introduction to k-Means
