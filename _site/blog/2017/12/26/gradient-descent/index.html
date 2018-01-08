@@ -172,7 +172,16 @@ $w$ are the parameters of logistic regression</p>
   <li><strong>Batch gradient descent</strong>: iteration (new coefs) is done as the sum of all training examples</li>
   <li><strong>Stochastic gradient descent</strong>: iteration on each example, converges faster than batch gradient descent in case of large training dataset.</li>
   <li><strong>Mini-batch gradient descent</strong>: iteration on a group of $b$ examples, in some cases can converge faster than batch or stochastic.</li>
+  <li><strong>Stochastic gradient descent with momentum</strong>: each gradient has a momentum added from the previous gradient:</li>
 </ul>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+\begin{split}
+v_t &= \gamma v_{t-1} + \eta \nabla_\theta J( \theta) \\  
+\theta &= \theta - v_t
+\end{split}
+\end{align} %]]></script>
 
 <p>Important implementation concepts:</p>
 <ul>

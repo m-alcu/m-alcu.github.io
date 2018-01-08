@@ -4,7 +4,7 @@ title: Gradiend descent
 date: 2017-12-26 22:30
 comments: true
 external-url:
-categories: sgd gradient
+categories: gradient
 ---
 
 > Demonstration of normal (Batch) gradient descend formulas
@@ -76,6 +76,14 @@ There are several types of gradient descent implementation:
 * **Batch gradient descent**: iteration (new coefs) is done as the sum of all training examples
 * **Stochastic gradient descent**: iteration on each example, converges faster than batch gradient descent in case of large training dataset.
 * **Mini-batch gradient descent**: iteration on a group of $b$ examples, in some cases can converge faster than batch or stochastic.
+* **Stochastic gradient descent with momentum**: each gradient has a momentum added from the previous gradient:
+
+$$\begin{align}
+\begin{split}
+v_t &= \gamma v_{t-1} + \eta \nabla_\theta J( \theta) \\  
+\theta &= \theta - v_t
+\end{split}
+\end{align}$$
 
 Important implementation concepts:
 * Debug results to adjust the learning rate
@@ -86,7 +94,6 @@ Important implementation concepts:
 An special case of stochastic gracient descent is the **Online learning**. Learning is done continuously from a source flow that generates training examples. Each example is used for train and ignored (not stored).
 
 source: [coursera machine learning course](https://www.coursera.org/learn/machine-learning)
-
 
 Glosary  
 * *MLE*: Maximum Likelihood Estimation  
