@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="theme-color" content="hsl(35, 36%, 95%)">
-  <title>recomendation systems</title>
+  <title>Probability distributions</title>
 
   
   <meta name="description" content="
   
     
       
-        recomendation systems
-        9 Jan 2018
+        Probability distributions
+        21 Dec 2017
         
           
         
@@ -23,13 +23,12 @@
       
       
         
-          
-  ..." />
+        ..." />
 
   
   <meta name="keywords" content="" />
 
-  <link rel="canonical" href="https://m-alcu.github.io//blog/2018/01/09/colaborative-filtering/">
+  <link rel="canonical" href="https://m-alcu.github.io//blog/2017/12/21/distributions/">
   <link rel="alternate" type="application/rss+xml" title="Machine Learning notes" href="https://m-alcu.github.io//feed.xml" />
   <span itemprop='author'><meta name="author" content="Martín Alcubierre"><span itemprop='author'></span>
 
@@ -84,8 +83,8 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
   <div class="container main">
     <div class="row">
       <header>
-        <center><span itemprop="name"><h1>recomendation systems</h1></span></center>
-        <center><p>9 Jan 2018</p></center>
+        <center><span itemprop="name"><h1>Probability distributions</h1></span></center>
+        <center><p>21 Dec 2017</p></center>
         <center><span class="small-ornament"><svg viewBox="0 0 290 320">
           <path d="M280.2656 245.3906 Q280.2656 263.25 261.8438 271.9688 Q247.9219 278.7188 227.8125 278.7188 Q235.2656 269.8594 235.2656 256.5 Q235.2656 231.8906 214.4531 217.125 Q196.0312 204.0469 170.2969 204.0469 Q143.5781 204.0469 108.8438 221.0625 L118.9688 231.4688 Q154.4062 267.8906 168.3281 267.8906 Q181.125 267.8906 181.125 255.9375 Q181.125 248.3438 173.5312 243.5625 Q167.0625 239.3438 159.0469 239.3438 Q154.6875 239.3438 148.6406 241.4531 Q158.625 220.0781 173.9531 220.0781 Q184.5 220.0781 191.8828 228.0938 Q199.2656 236.1094 199.2656 246.6562 Q199.2656 265.5 184.3594 277.875 Q170.2969 289.4062 151.0312 289.4062 Q118.6875 289.4062 81.4219 251.0156 L72.1406 241.4531 Q53.5781 249.4688 39.375 249.4688 Q26.4375 249.4688 17.1562 240.9609 Q7.875 232.4531 7.875 219.5156 Q7.875 203.9062 19.125 193.9219 Q29.9531 184.5 45.8438 184.5 Q70.0312 184.5 98.2969 211.6406 Q111.5156 202.2188 127.5469 185.4844 L134.5781 178.1719 Q174.5156 136.6875 204.8906 136.6875 Q231.4688 136.6875 231.4688 155.25 Q231.4688 173.5312 204.3281 177.3281 Q206.4375 172.8281 206.4375 170.1562 Q206.4375 159.3281 193.3594 159.3281 Q175.2188 159.3281 144.2812 189 L137.1094 195.8906 Q165.2344 185.7656 191.25 185.7656 Q221.7656 185.7656 248.3438 200.1094 Q280.2656 217.2656 280.2656 245.3906 ZM61.1719 230.4844 Q44.5781 215.2969 37.2656 215.2969 Q27.9844 215.2969 27.9844 223.4531 Q27.9844 234.4219 42.75 234.4219 Q51.1875 234.4219 61.1719 230.4844z"/>
         </svg></span></center>
@@ -96,88 +95,35 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
       <div class="col-md-8 offset-md-1">
         <article lang="en">
           
-          <blockquote>
-  <p>This post is to resume different options to do make a recomendation system</p>
-</blockquote>
+          <p>Main distribution examples:</p>
 
-<p>All recommendations have two components (ther characteristicas could be known or unknown):</p>
-<ul>
-  <li>items to be recommended, the content (m)</li>
-  <li>users to recommend items (n)</li>
-</ul>
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{array}{c|c|c|clcr}\text{Distribution}
+ & \text{PDF or PMF} & \text{Mean} & \text{Variance}\\
+\hline
+ Bernoulli(p)& 
+\begin{cases}
+p,  & \text{if $x=1$} \\
+1-p &  \text{if $x=0$}
+\end{cases} & p & p(1-p)\\
+\hline
+Binomial(n,p) & \binom{n}{k}p^k(1-p)^{n-k} \text{ for } k = 0,1,....n& np & np(1-p)\\
+\hline
+Geometric(p) & p(1-p)^{k-1} \text{ for } k = 0,1, 2...& \dfrac{1}{p} & \dfrac{1-p}{p^2}\\
+\hline
+Poisson(\lambda) & \dfrac{e^{- \lambda}\lambda^k}{k!} \text{ for } k = 0,1,2...& \lambda & \lambda\\
+\hline
+Uniform(a,b) & \dfrac{1}{b-a} \text{ for all } x \in (a,b)& \dfrac{a+b}{2} & \dfrac{(b-a)^2}{12}\\
+\hline
+Gaussian(\mu,\sigma) & \dfrac{1}{\sigma \sqrt{2\pi}}e^{-\dfrac{(x- \mu)^2}{2\sigma^2}} \text{ for all } x \in (-\infty,\infty)& \mu & \sigma^2\\
+\hline
+Exponential(\lambda) & \lambda e^{-\lambda x} \text{ for all } x \ge 0, \lambda \ge 0& \dfrac{1}{\mu} & \dfrac{1}{\mu^2}\\
+\end{array} %]]></script>
 
-<h3 id="content-based-recommendation-i">Content Based recommendation I</h3>
+<p>PDF: <a href="https://en.wikipedia.org/wiki/Probability_density_function">Probability Desity Funcion</a><br />
+PMF: <a href="https://en.wikipedia.org/wiki/Probability_mass_function">Probability Mass Function</a></p>
 
-<p>This example is extracted from coursera machine learning course, that basically consists on make a linear regression with the content features and the existing ratings of each user.</p>
-
-<p>It’s important to have some ratings from user on other contents in order to guess his preference from the new content.</p>
-
-<p>$x^{(i)}$ = feature vector for each content ($k$ features).<br />
-$\theta^{(j)}$ = parameter vector for user j, $\theta^{(j)} \in \mathbb{R}^{k+1}$ because the bias component</p>
-
-<p>$y^{(i,j)}$ = rating by user j on content i (if defined)
-$r(i,j) = 1$  if user $j$ has rated the content $i$ (O otherwise)</p>
-
-<p>You have all $x^{(i)}$ bu some $y^{(i,j)}$ are not defined.</p>
-
-<p>Solution: make a linear regresion with known parameters and use the result to compute the gaps: $y^{(i,j)}$</p>
-
-<script type="math/tex; mode=display">\underset{\theta^{(j)}}{\text{ argmin }} \dfrac{1}{2m^{(j)}} \sum_{i:r(i,j)=1} ((\theta^{(j)})^T(x^{(i)})-y^{(i,j)})^2+\dfrac{\lambda}{2m^{(j)}} \sum^n_{k=1} (\theta^{(j)}_k)^2</script>
-
-<p>Learn $\theta^{(j)}$ (parameter for user j):</p>
-
-<script type="math/tex; mode=display">\underset{\theta^{(j)}}{\text{ argmin }} \dfrac{1}{2} \sum_{i:r(i,j)=1} ((\theta^{(j)})^T(x^{(i)})-y^{(i,j)})^2+\dfrac{\lambda}{2} \sum^n_{k=1} (\theta^{(j)}_k)^2</script>
-
-<p><strong>Gradient descent update.</strong></p>
-
-<p>Repeat:</p>
-
-<script type="math/tex; mode=display">\theta^{(j)}_k = \theta^{(j)}_k - \alpha \sum_{i:r(i,j)=1} ((\theta^{(j)})x^{(i)}-y^{(i,j)})x^{(i)}_k \text{ (for $k=0$)}</script>
-
-<script type="math/tex; mode=display">\theta^{(j)}_k = \theta^{(j)}_k - \alpha \Biggl(\sum_{i:r(i,j)=1} ((\theta^{(j)})x^{(i)}-y^{(i,j)})x^{(i)}_k + \lambda \theta^{(j)}_k\Biggl) \text{ (for $k>0$)}</script>
-
-<p>For each user $j$, content $i$, compute rating as $(\theta^{(j)})^T(x^{(i)})$</p>
-
-<p><img src="/assets/exampleColaborativeFiltering1.png" alt="Example colaborative Filtering 1" /></p>
-
-<h3 id="colaborative-filtering-i">Colaborative Filtering I</h3>
-
-<p>How to retrieve content features from user ratings? The same algorithm but derivative is from $x^{(i)}$:</p>
-
-<p>Learn $x^{(i)}$ (content i):</p>
-
-<script type="math/tex; mode=display">\underset{x^{(i)}}{\text{ argmin }} \dfrac{1}{2} \sum_{j:r(i,j)=1} ((\theta^{(j)})^T(x^{(i)})-y^{(i,j)})^2+\dfrac{\lambda}{2} \sum^n_{k=1} (x^{(i)}_k)^2</script>
-
-<p><strong>Gradient descent update.</strong></p>
-
-<p>Repeat:</p>
-
-<script type="math/tex; mode=display">x^{(i)}_k = x^{(i)}_k - \alpha \sum_{j:r(i,j)=1} ((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})\theta^{(j)}_k \text{ (for $k=0$)}</script>
-
-<script type="math/tex; mode=display">x^{(i)}_k = x^{(i)}_k - \alpha \Biggl(\sum_{j:r(i,j)=1} ((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})\theta^{(j)}_k + \lambda x^{(i)}_k\Biggl) \text{ (for $k>0$)}</script>
-
-<p><img src="/assets/exampleColaborativeFiltering2.png" alt="Example colaborative Filtering 2" /></p>
-
-<h3 id="colaborative-filtering-ii">Colaborative Filtering II</h3>
-
-<p>This is the complete colaborative algorithm. Both content features and ratings are calculated from user current ratings $y^{(i,j)}$.</p>
-
-<p>Minimizing $x^{(1)},….x^{(n_m)} \text{ and }\theta^{(1)},….\theta^{(n_u)}$</p>
-
-<script type="math/tex; mode=display">\underset{\theta^{(j)} x^{(i)}}{\text{ argmin }} \dfrac{1}{2} \sum_{(i,j):r(i,j)=1} ((\theta^{(j)})^T(x^{(i)})-y^{(i,j)})^2+\dfrac{\lambda}{2} \sum^{n_m}_{i=1} \sum^n_{k=1} (x^{(i)}_k)^2+\sum^{n_u}_{j=1} \sum^n_{k=1} (\theta^{(j)}_k)^2</script>
-
-<p><strong>Gradient descent update.</strong></p>
-
-<p>Initialize randomly $x^{(i)}_k$ and $\theta^{(j)}_k$ and repeat:</p>
-
-<script type="math/tex; mode=display">x^{(i)}_k = x^{(i)}_k - \alpha \sum_{j:r(i,j)=1} ((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})\theta^{(j)}_k \text{ (for $k=0$)}</script>
-
-<script type="math/tex; mode=display">x^{(i)}_k = x^{(i)}_k - \alpha \Biggl(\sum_{j:r(i,j)=1} ((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})\theta^{(j)}_k + \lambda x^{(i)}_k\Biggl) \text{ (for $k>0$)}</script>
-
-<script type="math/tex; mode=display">\theta^{(j)}_k = \theta^{(j)}_k - \alpha \sum_{i:r(i,j)=1} ((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})x^{(i)}_k \text{ (for $k=0$)}</script>
-
-<script type="math/tex; mode=display">\theta^{(j)}_k = \theta^{(j)}_k - \alpha \Biggl(\sum_{i:r(i,j)=1} ((\theta^{(j)})^Tx^{(i)}-y^{(i,j)})x^{(i)}_k + \lambda \theta^{(j)}_k\Biggl) \text{ (for $k>0$)}</script>
-
+<p><a href="http://cs229.stanford.edu/section/cs229-prob-slide.pdf">source</a></p>
 
         </article>
         <br>
@@ -191,8 +137,8 @@ $r(i,j) = 1$  if user $j$ has rated the content $i$ (O otherwise)</p>
     <script type="text/javascript">
       /* <![CDATA[ */
       var disqus_shortname = "https-m-alcu-github-io";
-      var disqus_identifier = "https://m-alcu.github.io/_recomendation systems";
-      var disqus_title = "recomendation systems";
+      var disqus_identifier = "https://m-alcu.github.io/_Probability distributions";
+      var disqus_title = "Probability distributions";
       /* * * DON'T EDIT BELOW THIS LINE * * */
       (function() {
           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

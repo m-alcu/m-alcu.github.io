@@ -16,4 +16,6 @@ f, g are continuous first partial derivatives
 
 $$\mathcal{L}(x,y,\lambda) = f(x,y) - \lambda g(x,y)$$
 
+Then if $f(x_0,y_0)$ is a maxium of $f(x,y)$, then there exists $\lambda_0$ such that $\mathcal{L}(x_0, y_0, \lambda_0)$ is a stationary point (stationary points are those points where the partial derivatives of ${\mathcal {L}}$ are zero).
+
 source: [Lagrange multiplier](https://en.wikipedia.org/wiki/Lagrange_multiplier)  
