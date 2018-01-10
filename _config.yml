@@ -1,8 +1,8 @@
 # Site settings
-title: "Practicing Maths on IA"
+title: "Machine Learning notes"
 author: "Martín Alcubierre"
 description: "This is a blog about software, some mathematics and python libraries used in Mathematics and Machine-Learning problems"
-keywords: "Software Engineering, Mathematics, Programming, IA, Logistic Regression, Neural Networks, Machine-Learning, Artificial Intelligence, Statistics, Probability, Puzzles"
+keywords: "Software Engineering, Mathematics, Programming, AI, Logistic Regression, Neural Networks, Machine-Learning, Artificial Intelligence, Statistics, Probability, Puzzles"
 biography: "Engineer in Barcelona, working in BI and Cloud service projects. Very interested in the new wave of Machine-Learning and IA applications"
 colophon: "2017 by Martín Alcubierre Arenillas.<br>Content available under <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons (BY-NC-SA)</a> unless otherwise noted.<br>This site is hosted at <a href='https://pages.github.com/'>Github Pages</a> and created with <a href='http://jekyllrb.com/'>Jekyll</a>."
 disqus_shortname: https-m-alcu-github-io
