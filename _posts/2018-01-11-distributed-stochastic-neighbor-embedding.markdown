@@ -20,3 +20,7 @@ Python version (and another languages) is downloadable [here](https://lvdmaaten.
 Python version is an example of MNIST dataset that has the following result:
 
 ![MNIST result](/assets/result-t-sne.png)
+
+Best way to use it is [scikit-learn](http://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html) that has up to eight manifolds (tsne is one of them) to show high dimensional datasets.
+
+![manifold](/assets/manifold.png)
