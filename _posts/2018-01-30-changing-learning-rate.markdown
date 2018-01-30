@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cycling learning rare
+title: Cycling learning rate
 date: 2018-01-30 20:06
 comments: true
 external-url:
@@ -50,7 +50,7 @@ Another method proposed by Loshchilov & Hutter [1] in their paper “Sgdr: Stoch
 
 Content source: 
 
-[The Cyclical Learning Rate technique](http://teleported.in/posts/cyclic-learning-rate/)
+[The Cyclical Learning Rate technique](http://teleported.in/posts/cyclic-learning-rate/)  
 [Improving the way we work with learning rate](https://techburst.io/improving-the-way-we-work-with-learning-rate-5e99554f163b)
 
 [1] I. Loshchilov and F. Hutter. Sgdr: Stochastic gradient descent with restarts.
