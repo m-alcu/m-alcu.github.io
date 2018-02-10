@@ -1,10 +1,10 @@
 ---
 layout: post
-title: pytorch logistic regressin
+title: pytorch logistic regression
 date: 2018-02-10 10:34
 comments: true
 external-url:
-categories: pytorch logistic_regression
+categories: pytorch Logistic_Regression
 ---
 
 Example of a logistic regression using pytorch.
@@ -96,9 +96,9 @@ plt.ylabel('X(2)')
 plt.show()
 ```
 
-![result](/assets/pytorch-logit.png)  
+![result](/assets/pytorch-logit.png)
 
-inspired from source: [pytorch course](https://www.youtube.com/watch?v=GAKTBQn7yKo)
+notebook: [notebook](https://github.com/m-alcu/notebooks/blob/master/LogisticPytorch.ipynb)
 
 inspired from source: [pytorch course](https://www.youtube.com/watch?v=GAKTBQn7yKo)
 
