@@ -51,6 +51,14 @@ Dilation with 1, 2 3 example
 
 ![dilation](/assets/dilation.png)
 
+Dilation animation with dilation=2
+
+![dilation](/assets/dilation2.gif)
+
+More examples of convolution arithmetic:  
+
+[arithmetic examples](https://github.com/vdumoulin/conv_arithmetic/blob/master/README.md)
+
 Convolution layers incorporate following key features:
 
    - Instead of being fully-connected to all pairs of input and output nodes , each convolution node is **locally-connected** to a subset of input nodes localized to a smaller input region, also referred to as receptive field (RF). The figure above illustrates a small 3 x 3 regions in the image as the RF region. In the case of an RGB, image there would be three such 3 x 3 regions, one each of the 3 color channels. 
