@@ -110,9 +110,10 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 <p>$W$ = input height/lenght<br />
 $K$ = filter size<br />
 $P$ = padding<br />
-$S$ = stride</p>
+$S$ = stride<br />
+$D$ = dilation</p>
 
-<script type="math/tex; mode=display">O = \dfrac{(W-K+2P)}{S}+1 = \dfrac{(9-3+0)}{2}+1 = 4</script>
+<script type="math/tex; mode=display">O = \dfrac{(W-(D(K-1)+1)+2P)}{S}+1 = \dfrac{(9-3+0)}{2}+1 = 4</script>
 
 <p><img src="/assets/cntk103d_conv2d_final.gif" alt="convolution layer" /></p>
 
@@ -133,6 +134,10 @@ $S$ = stride</p>
 <p>Example Stride = 1</p>
 
 <p><img src="/assets/stride1.gif" alt="pading" /></p>
+
+<p>Dilation with 1, 2 3 example</p>
+
+<p><img src="/assets/dilation.png" alt="dilation" /></p>
 
 <p>Convolution layers incorporate following key features:</p>
 
