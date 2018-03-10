@@ -11,7 +11,7 @@ Current example in pytorch does not work with last 0.4 version of pytorch
 
 Here is a reviewed example.
 
-Gets 99% acuracy in 66 seconds in a nvidia GTX 1080 card.
+Gets 99% acuracy in 66 seconds on a nvidia GTX 1080 card.
 
 ![result](/assets/nmist_result.png)
 
