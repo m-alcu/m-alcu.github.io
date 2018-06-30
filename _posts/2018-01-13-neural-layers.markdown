@@ -23,8 +23,9 @@ $W$ = input height/lenght
 $K$ = filter size  
 $P$ = padding  
 $S$ = stride  
+$D$ = dilation  
 
-$$O = \dfrac{(W-K+2P)}{S}+1 = \dfrac{(9-3+0)}{2}+1 = 4$$
+$$O = \dfrac{(W-(D(K-1)+1)+2P)}{S}+1 = \dfrac{(9-3+0)}{2}+1 = 4$$
 
 ![convolution layer](/assets/cntk103d_conv2d_final.gif)
 
@@ -45,6 +46,18 @@ Example Stride = 2
 Example Stride = 1
 
 ![pading](/assets/stride1.gif)
+
+Dilation with 1, 2 3 example
+
+![dilation](/assets/dilation.png)
+
+Dilation animation with dilation=2
+
+![dilation](/assets/dilation2.gif)
+
+More examples of convolution arithmetic:  
+
+[arithmetic examples](https://github.com/vdumoulin/conv_arithmetic/blob/master/README.md)
 
 Convolution layers incorporate following key features:
 
