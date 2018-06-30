@@ -37,9 +37,3 @@ pip install --upgrade tensorflow
 ```
 
 
-![result](/assets/pytorch-logit.png)
-
-notebook: [notebook](https://github.com/m-alcu/notebooks/blob/master/LogisticPytorch.ipynb)
-
-inspired from source: [pytorch course](https://www.youtube.com/watch?v=GAKTBQn7yKo)
-
