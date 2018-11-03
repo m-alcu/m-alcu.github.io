@@ -26,6 +26,8 @@ $g(x)$ is the function of the last neuron [$sigmoid(x)$, $softmax(x)$, $linear(x
 
 ![basic network example](/assets/basic-network.png)
 
+$$P(Y=T|X)=\prod_{n=1}^N \prod_{k=1}^K p(y_{n,k}=t_{n,k} | x_n)\tag{0}$$
+
 $$P(Y=T|X)=\prod_{n=1}^N \prod_{k=1}^K y_k^{t_k^{(n)}} \tag{1}$$
 
 $$Ln(P(Y=T|X))=\sum_{n=1}^N \sum_{k=1}^K t_k^{(n)}ln(y_k^{(n)}) \tag{2}$$
