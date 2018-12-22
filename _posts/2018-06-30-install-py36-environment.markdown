@@ -30,8 +30,8 @@ source activate py36
 ```python
 conda install jupyter
 conda install numpy
-conda install panda
-conda install sciki-learn
+conda install pandas
+conda install scikit-learn
 conda install matplotlib
 pip install --upgrade tensorflow
 ```
