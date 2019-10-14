@@ -11,7 +11,7 @@ K-means could be a good choice in order reduce color quantization
 
 This example show how to reduce from 24 bits to 'n' colors. This example I have selected n=8
 
-1. Imports
+1.Imports
 
 ```python
 import png
@@ -20,7 +20,7 @@ from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 ```
 
-2. Get image from the same folder
+2.Get image from the same folder
 
 ```python
 from PIL import Image
@@ -31,7 +31,7 @@ rows = image.shape[0]
 cols = image.shape[1]
 ```
 
-3. Do k-means with the image pixels (a rgb-vector)
+3.Do k-means with the image pixels (a rgb-vector)
 
 ```python
 ncolor = 8
