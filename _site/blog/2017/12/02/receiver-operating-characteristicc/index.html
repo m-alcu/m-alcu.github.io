@@ -287,14 +287,14 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span> 
 
-<span class="c"># View images</span>
-
+<span class="c1"># View images
+</span>
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>    
 
-  <span class="c">#ABT, IBG</span>
-  <span class="c">#ABT: Recuento de abastonados</span>
-  <span class="c">#IBG: Infeccion Bacteriana grave</span>
-
+  <span class="c1">#ABT, IBG
+</span>  <span class="c1">#ABT: Recuento de abastonados
+</span>  <span class="c1">#IBG: Infeccion Bacteriana grave
+</span>
   <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">15</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
 
   <span class="n">abt_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
@@ -305,8 +305,8 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
     <span class="k">if</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
       <span class="n">abt_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">abt_0</span><span class="p">,</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
-  <span class="k">print</span><span class="p">(</span><span class="s">"abt_0 - recuento de abastonados de sujetos que no tienen infeccion: {}"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">abt_0</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">(</span><span class="s">"abt_1 - recuento de abastonados de sujetos que si tienen infeccion: {}"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">abt_1</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"abt_0 - recuento de abastonados de sujetos que no tienen infeccion: {}"</span><span class="p">)</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">abt_0</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"abt_1 - recuento de abastonados de sujetos que si tienen infeccion: {}"</span><span class="p">)</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">abt_1</span><span class="p">)</span>
 
   <span class="n">abt_0_y_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">abt_0</span><span class="p">,</span> <span class="n">abt_1</span><span class="p">)</span>
   <span class="n">abt_0_y_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">abt_0_y_1</span><span class="p">)</span>
@@ -333,9 +333,9 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
   <span class="n">abt_0_sup</span> <span class="o">=</span> <span class="n">abt_0_sup</span> <span class="o">/</span> <span class="n">abt_0_sup</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span>
   <span class="n">abt_1_sup</span> <span class="o">=</span> <span class="n">abt_1_sup</span> <span class="o">/</span> <span class="n">abt_1_sup</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span>
 
-  <span class="k">print</span><span class="p">(</span><span class="s">"todos: {}"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">abt_0_y_1</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">(</span><span class="s">"numero de casos encima umbral de apt_1: {}"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">abt_1_sup</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">(</span><span class="s">"numero de casos encima umbral de apt_0: {}"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">abt_0_sup</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"todos: {}"</span><span class="p">)</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">abt_0_y_1</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"numero de casos encima umbral de apt_1: {}"</span><span class="p">)</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">abt_1_sup</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"numero de casos encima umbral de apt_0: {}"</span><span class="p">)</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">abt_0_sup</span><span class="p">)</span>
 
   <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
   <span class="n">plt1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">311</span><span class="p">)</span>
@@ -355,14 +355,14 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
     <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
   <span class="n">X</span> <span class="o">=</span> <span class="n">X</span> <span class="o">/</span> <span class="n">X</span><span class="o">.</span><span class="nb">max</span><span class="p">()</span>
 
-  <span class="k">print</span><span class="p">(</span><span class="s">"True binary labels y: {}"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">(</span><span class="s">"Target scores X: {}"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"True binary labels y: {}"</span><span class="p">)</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"Target scores X: {}"</span><span class="p">)</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
   <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_curve</span>
   <span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
 
-  <span class="k">print</span><span class="p">(</span><span class="s">"numero de casos encima umbral de apt_1: {}"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tpr</span><span class="p">)</span>
-  <span class="k">print</span><span class="p">(</span><span class="s">"numero de casos encima umbral de apt_0: {}"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fpr</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"numero de casos encima umbral de apt_1: {}"</span><span class="p">)</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">tpr</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"numero de casos encima umbral de apt_0: {}"</span><span class="p">)</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">fpr</span><span class="p">)</span>
 
   <span class="n">plt2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">313</span><span class="p">)</span>
   <span class="n">plt2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="s">'ro'</span><span class="p">)</span>

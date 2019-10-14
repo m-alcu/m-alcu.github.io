@@ -119,10 +119,10 @@ v_t &= \gamma v_{t-1} + \eta \nabla_\theta J( \theta) \\
 <span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span>
 
-<span class="c"># View images</span>
-
-<span class="c"># calculate the cross-entropy error</span>
-<span class="k">def</span> <span class="nf">cross_entropy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+<span class="c1"># View images
+</span>
+<span class="c1"># calculate the cross-entropy error
+</span><span class="k">def</span> <span class="nf">cross_entropy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
     <span class="n">E</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">T</span><span class="p">)):</span>
         <span class="k">if</span> <span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -137,45 +137,45 @@ v_t &= \gamma v_{t-1} + \eta \nabla_\theta J( \theta) \\
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">D</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span>
 
-<span class="c"># center the first 50 points at (-2,-2)</span>
-<span class="n">X</span><span class="p">[:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,:]</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">D</span><span class="p">))</span>
+<span class="c1"># center the first 50 points at (-2,-2)
+</span><span class="n">X</span><span class="p">[:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,:]</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">D</span><span class="p">))</span>
 
-<span class="c"># center the last 50 points at (2, 2)</span>
-<span class="n">X</span><span class="p">[</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:,:]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:,:]</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">D</span><span class="p">))</span>
+<span class="c1"># center the last 50 points at (2, 2)
+</span><span class="n">X</span><span class="p">[</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:,:]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:,:]</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">D</span><span class="p">))</span>
 
-<span class="c"># labels: first N/2 are 0, last N/2 are 1</span>
-<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+<span class="c1"># labels: first N/2 are 0, last N/2 are 1
+</span><span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
 
-<span class="c"># add a column of ones</span>
-<span class="c"># ones = np.array([[1]*N]).T # old</span>
-<span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="c1"># add a column of ones
+# ones = np.array([[1]*N]).T # old
+</span><span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">Xb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">ones</span><span class="p">,</span> <span class="n">X</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="c"># randomly initialize the weights</span>
-<span class="n">w_base</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">D</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1"># randomly initialize the weights
+</span><span class="n">w_base</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">D</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
 
 <span class="n">w</span> <span class="o">=</span> <span class="n">w_base</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="k">print</span> <span class="s">"w:"</span><span class="p">,</span> <span class="n">w</span>
 
-<span class="c"># calculate the model output</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">Xb</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+<span class="c1"># calculate the model output
+</span><span class="n">z</span> <span class="o">=</span> <span class="n">Xb</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
 
 
 <span class="n">Y</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-<span class="c"># let's do gradient descent 100 times</span>
-<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="c1"># let's do gradient descent 100 times
+</span><span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.001</span>
 <span class="n">costs</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">iter</span><span class="p">):</span>
     <span class="n">costs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span>
 
-    <span class="c"># gradient descent weight udpate</span>
-    <span class="n">w</span> <span class="o">+=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">Xb</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">Y</span><span class="p">)</span>
+    <span class="c1"># gradient descent weight udpate
+</span>    <span class="n">w</span> <span class="o">+=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">Xb</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">Y</span><span class="p">)</span>
 
-    <span class="c"># recalculate Y</span>
-    <span class="n">Y</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">Xb</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+    <span class="c1"># recalculate Y
+</span>    <span class="n">Y</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">Xb</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
     
     
 <span class="n">w2</span> <span class="o">=</span> <span class="n">w_base</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -184,13 +184,13 @@ v_t &= \gamma v_{t-1} + \eta \nabla_\theta J( \theta) \\
 
 
 
-<span class="c"># calculate the model output</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">Xb</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w2</span><span class="p">)</span>
+<span class="c1"># calculate the model output
+</span><span class="n">z</span> <span class="o">=</span> <span class="n">Xb</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w2</span><span class="p">)</span>
 
 
 <span class="n">Y</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-<span class="c"># let's do gradient descent 100 times</span>
-<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="c1"># let's do gradient descent 100 times
+</span><span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.001</span>
 <span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.4</span>
 <span class="n">costs2</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">D</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
@@ -199,17 +199,17 @@ v_t &= \gamma v_{t-1} + \eta \nabla_\theta J( \theta) \\
 
     <span class="n">v</span> <span class="o">=</span> <span class="n">learning_rate</span><span class="o">*</span><span class="n">Xb</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">Y</span><span class="p">)</span> <span class="o">+</span> <span class="n">gamma</span><span class="o">*</span><span class="n">v</span>
 
-    <span class="c"># gradient descent weight udpate</span>
-    <span class="n">w2</span> <span class="o">+=</span> <span class="n">v</span>
+    <span class="c1"># gradient descent weight udpate
+</span>    <span class="n">w2</span> <span class="o">+=</span> <span class="n">v</span>
 
-    <span class="c"># recalculate Y</span>
-    <span class="n">Y</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">Xb</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w2</span><span class="p">))</span>
+    <span class="c1"># recalculate Y
+</span>    <span class="n">Y</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">Xb</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w2</span><span class="p">))</span>
 
 
 <span class="k">print</span> <span class="s">"Final gradient descend sgd         :"</span><span class="p">,</span> <span class="n">w</span>
 <span class="k">print</span> <span class="s">"Final gradient descend sgd momentum:"</span><span class="p">,</span> <span class="n">w2</span>
-<span class="c"># plot the data and separating line</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="c1"># plot the data and separating line
+</span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">x_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">y_axis</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x_axis</span><span class="o">*</span><span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">w</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">line_up</span><span class="p">,</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">y_axis</span><span class="p">,</span><span class="s">'r--'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'sgd'</span><span class="p">)</span>
@@ -225,7 +225,7 @@ v_t &= \gamma v_{t-1} + \eta \nabla_\theta J( \theta) \\
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">th</span><span class="p">,</span> <span class="n">costs</span><span class="p">,</span> <span class="s">'C1'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'sgd'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">th</span><span class="p">,</span> <span class="n">costs2</span><span class="p">,</span> <span class="s">'C2'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'sgd momentum'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'style: {!r}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">'default'</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s">'C0'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'style: {!r}'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="s">'default'</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s">'C0'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'cross entropy'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></div>

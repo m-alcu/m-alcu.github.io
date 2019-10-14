@@ -136,8 +136,8 @@ Gets to 98.40</span><span class="si">% </span><span class="s">test accuracy afte
 <span class="n">num_classes</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">epochs</span> <span class="o">=</span> <span class="mi">20</span>
 
-<span class="c"># the data, shuffled and split between train and test sets</span>
-<span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+<span class="c1"># the data, shuffled and split between train and test sets
+</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
 
 <span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">60000</span><span class="p">,</span> <span class="mi">784</span><span class="p">)</span>
 <span class="n">x_test</span> <span class="o">=</span> <span class="n">x_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">784</span><span class="p">)</span>
@@ -148,8 +148,8 @@ Gets to 98.40</span><span class="si">% </span><span class="s">test accuracy afte
 <span class="k">print</span><span class="p">(</span><span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">'train samples'</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">x_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">'test samples'</span><span class="p">)</span>
 
-<span class="c"># convert class vectors to binary class matrices</span>
-<span class="n">y_train</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+<span class="c1"># convert class vectors to binary class matrices
+</span><span class="n">y_train</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
 <span class="n">y_test</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
@@ -186,8 +186,8 @@ Gets to 98.40</span><span class="si">% </span><span class="s">test accuracy afte
 <span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">transforms</span>
 <span class="kn">from</span> <span class="nn">torch.autograd</span> <span class="kn">import</span> <span class="n">Variable</span>
 
-<span class="c"># Training settings</span>
-<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">'PyTorch MNIST Example'</span><span class="p">)</span>
+<span class="c1"># Training settings
+</span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">'PyTorch MNIST Example'</span><span class="p">)</span>
 <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--batch-size'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">'N'</span><span class="p">,</span>
                     <span class="n">help</span><span class="o">=</span><span class="s">'input batch size for training (default: 64)'</span><span class="p">)</span>
 <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--test-batch-size'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">'N'</span><span class="p">,</span>
@@ -264,7 +264,7 @@ Gets to 98.40</span><span class="si">% </span><span class="s">test accuracy afte
         <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
         <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">batch_idx</span> <span class="o">%</span> <span class="n">args</span><span class="o">.</span><span class="n">log_interval</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">'Train Epoch: {} [{}/{} ({:.0f}</span><span class="si">%</span><span class="s">)]</span><span class="se">\t</span><span class="s">Loss: {:.6f}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'Train Epoch: {} [{}/{} ({:.0f}</span><span class="si">%</span><span class="s">)]</span><span class="se">\t</span><span class="s">Loss: {:.6f}'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span>
                 <span class="n">epoch</span><span class="p">,</span> <span class="n">batch_idx</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">),</span>
                 <span class="mf">100.</span> <span class="o">*</span> <span class="n">batch_idx</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_loader</span><span class="p">),</span> <span class="n">loss</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 
@@ -277,12 +277,12 @@ Gets to 98.40</span><span class="si">% </span><span class="s">test accuracy afte
             <span class="n">data</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cuda</span><span class="p">(),</span> <span class="n">target</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
         <span class="n">data</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">volatile</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span> <span class="n">Variable</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
         <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-        <span class="n">test_loss</span> <span class="o">+=</span> <span class="n">F</span><span class="o">.</span><span class="n">nll_loss</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">size_average</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c"># sum up batch loss</span>
-        <span class="n">pred</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="bp">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="c"># get the index of the max log-probability</span>
-        <span class="n">correct</span> <span class="o">+=</span> <span class="n">pred</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">view_as</span><span class="p">(</span><span class="n">pred</span><span class="p">))</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span>
+        <span class="n">test_loss</span> <span class="o">+=</span> <span class="n">F</span><span class="o">.</span><span class="n">nll_loss</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">size_average</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># sum up batch loss
+</span>        <span class="n">pred</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="bp">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># get the index of the max log-probability
+</span>        <span class="n">correct</span> <span class="o">+=</span> <span class="n">pred</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">view_as</span><span class="p">(</span><span class="n">pred</span><span class="p">))</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span>
 
     <span class="n">test_loss</span> <span class="o">/=</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">Test set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}</span><span class="si">%</span><span class="s">)</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">Test set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}</span><span class="si">%</span><span class="s">)</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span>
         <span class="n">test_loss</span><span class="p">,</span> <span class="n">correct</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">),</span>
         <span class="mf">100.</span> <span class="o">*</span> <span class="n">correct</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)))</span>
 
@@ -294,20 +294,20 @@ Gets to 98.40</span><span class="si">% </span><span class="s">test accuracy afte
 
 <p>Tensorflow example:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#  Copyright 2016 The TensorFlow Authors. All Rights Reserved.</span>
-<span class="c">#</span>
-<span class="c">#  Licensed under the Apache License, Version 2.0 (the "License");</span>
-<span class="c">#  you may not use this file except in compliance with the License.</span>
-<span class="c">#  You may obtain a copy of the License at</span>
-<span class="c">#</span>
-<span class="c">#   http://www.apache.org/licenses/LICENSE-2.0</span>
-<span class="c">#</span>
-<span class="c">#  Unless required by applicable law or agreed to in writing, software</span>
-<span class="c">#  distributed under the License is distributed on an "AS IS" BASIS,</span>
-<span class="c">#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
-<span class="c">#  See the License for the specific language governing permissions and</span>
-<span class="c">#  limitations under the License.</span>
-<span class="s">"""Convolutional Neural Network Estimator for MNIST, built with tf.layers."""</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#  Copyright 2016 The TensorFlow Authors. All Rights Reserved.
+#
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+</span><span class="s">"""Convolutional Neural Network Estimator for MNIST, built with tf.layers."""</span>
 
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
@@ -321,92 +321,92 @@ Gets to 98.40</span><span class="si">% </span><span class="s">test accuracy afte
 
 <span class="k">def</span> <span class="nf">cnn_model_fn</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
   <span class="s">"""Model function for CNN."""</span>
-  <span class="c"># Input Layer</span>
-  <span class="c"># Reshape X to 4-D tensor: [batch_size, width, height, channels]</span>
-  <span class="c"># MNIST images are 28x28 pixels, and have one color channel</span>
-  <span class="n">input_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="s">"x"</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+  <span class="c1"># Input Layer
+</span>  <span class="c1"># Reshape X to 4-D tensor: [batch_size, width, height, channels]
+</span>  <span class="c1"># MNIST images are 28x28 pixels, and have one color channel
+</span>  <span class="n">input_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="s">"x"</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 
-  <span class="c"># Convolutional Layer #1</span>
-  <span class="c"># Computes 32 features using a 5x5 filter with ReLU activation.</span>
-  <span class="c"># Padding is added to preserve width and height.</span>
-  <span class="c"># Input Tensor Shape: [batch_size, 28, 28, 1]</span>
-  <span class="c"># Output Tensor Shape: [batch_size, 28, 28, 32]</span>
-  <span class="n">conv1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span>
+  <span class="c1"># Convolutional Layer #1
+</span>  <span class="c1"># Computes 32 features using a 5x5 filter with ReLU activation.
+</span>  <span class="c1"># Padding is added to preserve width and height.
+</span>  <span class="c1"># Input Tensor Shape: [batch_size, 28, 28, 1]
+</span>  <span class="c1"># Output Tensor Shape: [batch_size, 28, 28, 32]
+</span>  <span class="n">conv1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span>
       <span class="n">inputs</span><span class="o">=</span><span class="n">input_layer</span><span class="p">,</span>
       <span class="n">filters</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
       <span class="n">kernel_size</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
       <span class="n">padding</span><span class="o">=</span><span class="s">"same"</span><span class="p">,</span>
       <span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">)</span>
 
-  <span class="c"># Pooling Layer #1</span>
-  <span class="c"># First max pooling layer with a 2x2 filter and stride of 2</span>
-  <span class="c"># Input Tensor Shape: [batch_size, 28, 28, 32]</span>
-  <span class="c"># Output Tensor Shape: [batch_size, 14, 14, 32]</span>
-  <span class="n">pool1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">max_pooling2d</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">conv1</span><span class="p">,</span> <span class="n">pool_size</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+  <span class="c1"># Pooling Layer #1
+</span>  <span class="c1"># First max pooling layer with a 2x2 filter and stride of 2
+</span>  <span class="c1"># Input Tensor Shape: [batch_size, 28, 28, 32]
+</span>  <span class="c1"># Output Tensor Shape: [batch_size, 14, 14, 32]
+</span>  <span class="n">pool1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">max_pooling2d</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">conv1</span><span class="p">,</span> <span class="n">pool_size</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-  <span class="c"># Convolutional Layer #2</span>
-  <span class="c"># Computes 64 features using a 5x5 filter.</span>
-  <span class="c"># Padding is added to preserve width and height.</span>
-  <span class="c"># Input Tensor Shape: [batch_size, 14, 14, 32]</span>
-  <span class="c"># Output Tensor Shape: [batch_size, 14, 14, 64]</span>
-  <span class="n">conv2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span>
+  <span class="c1"># Convolutional Layer #2
+</span>  <span class="c1"># Computes 64 features using a 5x5 filter.
+</span>  <span class="c1"># Padding is added to preserve width and height.
+</span>  <span class="c1"># Input Tensor Shape: [batch_size, 14, 14, 32]
+</span>  <span class="c1"># Output Tensor Shape: [batch_size, 14, 14, 64]
+</span>  <span class="n">conv2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span>
       <span class="n">inputs</span><span class="o">=</span><span class="n">pool1</span><span class="p">,</span>
       <span class="n">filters</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
       <span class="n">kernel_size</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
       <span class="n">padding</span><span class="o">=</span><span class="s">"same"</span><span class="p">,</span>
       <span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">)</span>
 
-  <span class="c"># Pooling Layer #2</span>
-  <span class="c"># Second max pooling layer with a 2x2 filter and stride of 2</span>
-  <span class="c"># Input Tensor Shape: [batch_size, 14, 14, 64]</span>
-  <span class="c"># Output Tensor Shape: [batch_size, 7, 7, 64]</span>
-  <span class="n">pool2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">max_pooling2d</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">conv2</span><span class="p">,</span> <span class="n">pool_size</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+  <span class="c1"># Pooling Layer #2
+</span>  <span class="c1"># Second max pooling layer with a 2x2 filter and stride of 2
+</span>  <span class="c1"># Input Tensor Shape: [batch_size, 14, 14, 64]
+</span>  <span class="c1"># Output Tensor Shape: [batch_size, 7, 7, 64]
+</span>  <span class="n">pool2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">max_pooling2d</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">conv2</span><span class="p">,</span> <span class="n">pool_size</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">strides</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-  <span class="c"># Flatten tensor into a batch of vectors</span>
-  <span class="c"># Input Tensor Shape: [batch_size, 7, 7, 64]</span>
-  <span class="c"># Output Tensor Shape: [batch_size, 7 * 7 * 64]</span>
-  <span class="n">pool2_flat</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">pool2</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">64</span><span class="p">])</span>
+  <span class="c1"># Flatten tensor into a batch of vectors
+</span>  <span class="c1"># Input Tensor Shape: [batch_size, 7, 7, 64]
+</span>  <span class="c1"># Output Tensor Shape: [batch_size, 7 * 7 * 64]
+</span>  <span class="n">pool2_flat</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">pool2</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">64</span><span class="p">])</span>
 
-  <span class="c"># Dense Layer</span>
-  <span class="c"># Densely connected layer with 1024 neurons</span>
-  <span class="c"># Input Tensor Shape: [batch_size, 7 * 7 * 64]</span>
-  <span class="c"># Output Tensor Shape: [batch_size, 1024]</span>
-  <span class="n">dense</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">dense</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">pool2_flat</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">)</span>
+  <span class="c1"># Dense Layer
+</span>  <span class="c1"># Densely connected layer with 1024 neurons
+</span>  <span class="c1"># Input Tensor Shape: [batch_size, 7 * 7 * 64]
+</span>  <span class="c1"># Output Tensor Shape: [batch_size, 1024]
+</span>  <span class="n">dense</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">dense</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">pool2_flat</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">)</span>
 
-  <span class="c"># Add dropout operation; 0.6 probability that element will be kept</span>
-  <span class="n">dropout</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span>
+  <span class="c1"># Add dropout operation; 0.6 probability that element will be kept
+</span>  <span class="n">dropout</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span>
       <span class="n">inputs</span><span class="o">=</span><span class="n">dense</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="n">mode</span> <span class="o">==</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">)</span>
 
-  <span class="c"># Logits layer</span>
-  <span class="c"># Input Tensor Shape: [batch_size, 1024]</span>
-  <span class="c"># Output Tensor Shape: [batch_size, 10]</span>
-  <span class="n">logits</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">dense</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">dropout</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+  <span class="c1"># Logits layer
+</span>  <span class="c1"># Input Tensor Shape: [batch_size, 1024]
+</span>  <span class="c1"># Output Tensor Shape: [batch_size, 10]
+</span>  <span class="n">logits</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">dense</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">dropout</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
   <span class="n">predictions</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="c"># Generate predictions (for PREDICT and EVAL mode)</span>
-      <span class="s">"classes"</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="n">logits</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
-      <span class="c"># Add `softmax_tensor` to the graph. It is used for PREDICT and by the</span>
-      <span class="c"># `logging_hook`.</span>
-      <span class="s">"probabilities"</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"softmax_tensor"</span><span class="p">)</span>
+      <span class="c1"># Generate predictions (for PREDICT and EVAL mode)
+</span>      <span class="s">"classes"</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="n">logits</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+      <span class="c1"># Add `softmax_tensor` to the graph. It is used for PREDICT and by the
+</span>      <span class="c1"># `logging_hook`.
+</span>      <span class="s">"probabilities"</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"softmax_tensor"</span><span class="p">)</span>
   <span class="p">}</span>
   <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">PREDICT</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">EstimatorSpec</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">predictions</span><span class="o">=</span><span class="n">predictions</span><span class="p">)</span>
 
-  <span class="c"># Calculate Loss (for both TRAIN and EVAL modes)</span>
-  <span class="n">onehot_labels</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">one_hot</span><span class="p">(</span><span class="n">indices</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">),</span> <span class="n">depth</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+  <span class="c1"># Calculate Loss (for both TRAIN and EVAL modes)
+</span>  <span class="n">onehot_labels</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">one_hot</span><span class="p">(</span><span class="n">indices</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">),</span> <span class="n">depth</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
   <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">softmax_cross_entropy</span><span class="p">(</span>
       <span class="n">onehot_labels</span><span class="o">=</span><span class="n">onehot_labels</span><span class="p">,</span> <span class="n">logits</span><span class="o">=</span><span class="n">logits</span><span class="p">)</span>
 
-  <span class="c"># Configure the Training Op (for TRAIN mode)</span>
-  <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">:</span>
+  <span class="c1"># Configure the Training Op (for TRAIN mode)
+</span>  <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">:</span>
     <span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
     <span class="n">train_op</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span>
         <span class="n">loss</span><span class="o">=</span><span class="n">loss</span><span class="p">,</span>
         <span class="n">global_step</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">get_global_step</span><span class="p">())</span>
     <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">EstimatorSpec</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="n">loss</span><span class="p">,</span> <span class="n">train_op</span><span class="o">=</span><span class="n">train_op</span><span class="p">)</span>
 
-  <span class="c"># Add evaluation metrics (for EVAL mode)</span>
-  <span class="n">eval_metric_ops</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1"># Add evaluation metrics (for EVAL mode)
+</span>  <span class="n">eval_metric_ops</span> <span class="o">=</span> <span class="p">{</span>
       <span class="s">"accuracy"</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy</span><span class="p">(</span>
           <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">predictions</span><span class="o">=</span><span class="n">predictions</span><span class="p">[</span><span class="s">"classes"</span><span class="p">])}</span>
   <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">EstimatorSpec</span><span class="p">(</span>
@@ -414,25 +414,25 @@ Gets to 98.40</span><span class="si">% </span><span class="s">test accuracy afte
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">unused_argv</span><span class="p">):</span>
-  <span class="c"># Load training and eval data</span>
-  <span class="n">mnist</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">learn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s">"mnist"</span><span class="p">)</span>
-  <span class="n">train_data</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">images</span>  <span class="c"># Returns np.array</span>
-  <span class="n">train_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
-  <span class="n">eval_data</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">images</span>  <span class="c"># Returns np.array</span>
-  <span class="n">eval_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+  <span class="c1"># Load training and eval data
+</span>  <span class="n">mnist</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">learn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s">"mnist"</span><span class="p">)</span>
+  <span class="n">train_data</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">images</span>  <span class="c1"># Returns np.array
+</span>  <span class="n">train_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+  <span class="n">eval_data</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">images</span>  <span class="c1"># Returns np.array
+</span>  <span class="n">eval_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
 
-  <span class="c"># Create the Estimator</span>
-  <span class="n">mnist_classifier</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">Estimator</span><span class="p">(</span>
+  <span class="c1"># Create the Estimator
+</span>  <span class="n">mnist_classifier</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">Estimator</span><span class="p">(</span>
       <span class="n">model_fn</span><span class="o">=</span><span class="n">cnn_model_fn</span><span class="p">,</span> <span class="n">model_dir</span><span class="o">=</span><span class="s">"/tmp/mnist_convnet_model"</span><span class="p">)</span>
 
-  <span class="c"># Set up logging for predictions</span>
-  <span class="c"># Log the values in the "Softmax" tensor with label "probabilities"</span>
-  <span class="n">tensors_to_log</span> <span class="o">=</span> <span class="p">{</span><span class="s">"probabilities"</span><span class="p">:</span> <span class="s">"softmax_tensor"</span><span class="p">}</span>
+  <span class="c1"># Set up logging for predictions
+</span>  <span class="c1"># Log the values in the "Softmax" tensor with label "probabilities"
+</span>  <span class="n">tensors_to_log</span> <span class="o">=</span> <span class="p">{</span><span class="s">"probabilities"</span><span class="p">:</span> <span class="s">"softmax_tensor"</span><span class="p">}</span>
   <span class="n">logging_hook</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">LoggingTensorHook</span><span class="p">(</span>
       <span class="n">tensors</span><span class="o">=</span><span class="n">tensors_to_log</span><span class="p">,</span> <span class="n">every_n_iter</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
-  <span class="c"># Train the model</span>
-  <span class="n">train_input_fn</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">numpy_input_fn</span><span class="p">(</span>
+  <span class="c1"># Train the model
+</span>  <span class="n">train_input_fn</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">numpy_input_fn</span><span class="p">(</span>
       <span class="n">x</span><span class="o">=</span><span class="p">{</span><span class="s">"x"</span><span class="p">:</span> <span class="n">train_data</span><span class="p">},</span>
       <span class="n">y</span><span class="o">=</span><span class="n">train_labels</span><span class="p">,</span>
       <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
@@ -443,8 +443,8 @@ Gets to 98.40</span><span class="si">% </span><span class="s">test accuracy afte
       <span class="n">steps</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span>
       <span class="n">hooks</span><span class="o">=</span><span class="p">[</span><span class="n">logging_hook</span><span class="p">])</span>
 
-  <span class="c"># Evaluate the model and print results</span>
-  <span class="n">eval_input_fn</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">numpy_input_fn</span><span class="p">(</span>
+  <span class="c1"># Evaluate the model and print results
+</span>  <span class="n">eval_input_fn</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">numpy_input_fn</span><span class="p">(</span>
       <span class="n">x</span><span class="o">=</span><span class="p">{</span><span class="s">"x"</span><span class="p">:</span> <span class="n">eval_data</span><span class="p">},</span>
       <span class="n">y</span><span class="o">=</span><span class="n">eval_labels</span><span class="p">,</span>
       <span class="n">num_epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>

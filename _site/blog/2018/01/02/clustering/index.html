@@ -160,15 +160,15 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
     <span class="k">return</span> <span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="nb">tuple</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">mu</span><span class="p">])</span> <span class="o">==</span> <span class="nb">set</span><span class="p">([</span><span class="nb">tuple</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">oldmu</span><span class="p">])</span>
  
 <span class="k">def</span> <span class="nf">find_centers</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
-    <span class="c"># Initialize to K random centers</span>
-    <span class="n">oldmu</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
+    <span class="c1"># Initialize to K random centers
+</span>    <span class="n">oldmu</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
     <span class="n">mu</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
     <span class="k">while</span> <span class="ow">not</span> <span class="n">has_converged</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">oldmu</span><span class="p">):</span>
         <span class="n">oldmu</span> <span class="o">=</span> <span class="n">mu</span>
-        <span class="c"># Assign all points in X to clusters</span>
-        <span class="n">clusters</span> <span class="o">=</span> <span class="n">cluster_points</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
-        <span class="c"># Reevaluate centers</span>
-        <span class="n">mu</span> <span class="o">=</span> <span class="n">reevaluate_centers</span><span class="p">(</span><span class="n">oldmu</span><span class="p">,</span> <span class="n">clusters</span><span class="p">)</span>
+        <span class="c1"># Assign all points in X to clusters
+</span>        <span class="n">clusters</span> <span class="o">=</span> <span class="n">cluster_points</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
+        <span class="c1"># Reevaluate centers
+</span>        <span class="n">mu</span> <span class="o">=</span> <span class="n">reevaluate_centers</span><span class="p">(</span><span class="n">oldmu</span><span class="p">,</span> <span class="n">clusters</span><span class="p">)</span>
     <span class="k">return</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">clusters</span><span class="p">)</span>
 </code></pre></div></div>
 
@@ -209,15 +209,15 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 <p>With these cluster results we find the K best aproach.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">find_centers</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
-    <span class="c"># Initialize to K random centers</span>
-    <span class="n">oldmu</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
+    <span class="c1"># Initialize to K random centers
+</span>    <span class="n">oldmu</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
     <span class="n">mu</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
     <span class="k">while</span> <span class="ow">not</span> <span class="n">has_converged</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">oldmu</span><span class="p">):</span>
         <span class="n">oldmu</span> <span class="o">=</span> <span class="n">mu</span>
-        <span class="c"># Assign all points in X to clusters</span>
-        <span class="n">clusters</span> <span class="o">=</span> <span class="n">cluster_points</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
-        <span class="c"># Reevaluate centers</span>
-        <span class="n">mu</span> <span class="o">=</span> <span class="n">reevaluate_centers</span><span class="p">(</span><span class="n">oldmu</span><span class="p">,</span> <span class="n">clusters</span><span class="p">)</span>
+        <span class="c1"># Assign all points in X to clusters
+</span>        <span class="n">clusters</span> <span class="o">=</span> <span class="n">cluster_points</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
+        <span class="c1"># Reevaluate centers
+</span>        <span class="n">mu</span> <span class="o">=</span> <span class="n">reevaluate_centers</span><span class="p">(</span><span class="n">oldmu</span><span class="p">,</span> <span class="n">clusters</span><span class="p">)</span>
     <span class="k">return</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">clusters</span><span class="p">)</span>
 
 
@@ -229,16 +229,16 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
  
 <span class="k">def</span> <span class="nf">gap_statistic</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
     <span class="p">(</span><span class="n">xmin</span><span class="p">,</span><span class="n">xmax</span><span class="p">),</span> <span class="p">(</span><span class="n">ymin</span><span class="p">,</span><span class="n">ymax</span><span class="p">)</span> <span class="o">=</span> <span class="n">bounding_box</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-    <span class="c"># Dispersion for real distribution</span>
-    <span class="n">ks</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+    <span class="c1"># Dispersion for real distribution
+</span>    <span class="n">ks</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
     <span class="n">Wks</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ks</span><span class="p">))</span>
     <span class="n">Wkbs</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ks</span><span class="p">))</span>
     <span class="n">sk</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ks</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">indk</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ks</span><span class="p">):</span>
         <span class="n">mu</span><span class="p">,</span> <span class="n">clusters</span> <span class="o">=</span> <span class="n">find_centers</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
         <span class="n">Wks</span><span class="p">[</span><span class="n">indk</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">Wk</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">clusters</span><span class="p">))</span>
-        <span class="c"># Create B reference datasets</span>
-        <span class="n">B</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="c1"># Create B reference datasets
+</span>        <span class="n">B</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="n">BWkbs</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">B</span><span class="p">):</span>
             <span class="n">Xb</span> <span class="o">=</span> <span class="p">[]</span>

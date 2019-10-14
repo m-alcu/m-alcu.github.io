@@ -123,7 +123,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 	<span class="n">data</span><span class="p">[</span><span class="s">'education'</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'education'</span><span class="p">]</span> <span class="o">==</span><span class="s">'basic.6y'</span><span class="p">,</span> <span class="s">'Basic'</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s">'education'</span><span class="p">])</span>
 	<span class="n">data</span><span class="p">[</span><span class="s">'education'</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'education'</span><span class="p">]</span> <span class="o">==</span><span class="s">'basic.4y'</span><span class="p">,</span> <span class="s">'Basic'</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s">'education'</span><span class="p">])</span>
 
-	<span class="k">print</span><span class="p">(</span><span class="s">"columns of data initial {}:"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"columns of data initial {}:"</span><span class="p">)</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 
 	<span class="k">print</span><span class="p">(</span><span class="s">"creating dummy variables..."</span><span class="p">)</span>
 	<span class="n">cat_vars</span><span class="o">=</span><span class="p">[</span><span class="s">'job'</span><span class="p">,</span><span class="s">'marital'</span><span class="p">,</span><span class="s">'education'</span><span class="p">,</span><span class="s">'default'</span><span class="p">,</span><span class="s">'housing'</span><span class="p">,</span><span class="s">'loan'</span><span class="p">,</span><span class="s">'contact'</span><span class="p">,</span><span class="s">'month'</span><span class="p">,</span><span class="s">'day_of_week'</span><span class="p">,</span><span class="s">'poutcome'</span><span class="p">]</span>
@@ -137,7 +137,7 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 	<span class="n">to_keep</span><span class="o">=</span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data_vars</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cat_vars</span><span class="p">]</span>
 
 	<span class="n">data_final</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">to_keep</span><span class="p">]</span>
-	<span class="k">print</span><span class="p">(</span><span class="s">"columns of data final {}:"</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data_final</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="s">"columns of data final {}:"</span><span class="p">)</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">data_final</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 
 	<span class="n">data_final_vars</span><span class="o">=</span><span class="n">data_final</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 	<span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s">'y'</span><span class="p">]</span>
@@ -152,8 +152,8 @@ src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 
 	<span class="k">print</span><span class="p">(</span><span class="s">"The Recursive Feature Elimination (RFE) has helped us select the following features:"</span><span class="p">)</span>
 
-	<span class="c">#Iterate from array de rfe.support_ and pick columns that are == True</span>
-	<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="c1">#Iterate from array de rfe.support_ and pick columns that are == True
+</span>	<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 	<span class="n">cols</span> <span class="o">=</span> <span class="p">[]</span>
 	<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">rfe</span><span class="o">.</span><span class="n">support_</span><span class="p">:</span>
 	    <span class="k">if</span> <span class="n">e</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
